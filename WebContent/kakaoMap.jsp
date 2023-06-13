@@ -163,7 +163,7 @@
 	overflow: hidden;
 	min-height: 700px;
 	border-radius: 3px;
-	background: rgba(255, 255, 255);
+	backgroun d: rgba(255, 255, 255);
 	z-index: 1;
 	font-size: 12px;
 	font-family: 'Noto Sans KR', sans-serif;
