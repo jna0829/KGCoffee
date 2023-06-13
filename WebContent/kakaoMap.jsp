@@ -23,9 +23,13 @@
 
 * {
 	font-family: 'Noto Sans KR', sans-serif;
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 #map {
+	font-family: 'Noto Sans KR', sans-serif;
 	width: 100%;
 	height: 100vh;
 	position: relative;
@@ -37,7 +41,7 @@
     height: 70vh; */
 	margin: 0;
 	padding: 0;
-	font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;
+	font-family: 'Noto Sans KR', sans-serif;
 	font-size: 12px;
 }
 
@@ -72,8 +76,7 @@
 	line-height: 20px;
 	padding: 10px 0;
 	text-indent: 20px;
-	font-family: 'nbg', '맑은 고딕', HelveticaNeue, DroidSans, Sans-serif,
-		Helvetica;
+	font-family: 'Noto Sans KR', sans-serif;
 }
 
 .map_wrap div.map_marker_pop div.close {
@@ -151,9 +154,10 @@
 
 #menu_wrap {
 	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
+	left: 5%;
+    top: 50%;
+    transform: translate(0,-50%);
+	
 	margin: 0px 0px 0px 0px;
 	padding: 0px;
 	overflow: hidden;
@@ -164,7 +168,7 @@
 	font-size: 12px;
 	font-family: 'Noto Sans KR', sans-serif;
 	width: 100%;
-    max-width: 320px;
+    max-width: 20%;
     box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.3);
 }
 
