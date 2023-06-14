@@ -16,22 +16,26 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
 	rel="stylesheet">
-
+	<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
 <style>
 
-
+header{
+	height: 40vh;
+}
 
 * {
 	font-family: 'Noto Sans KR', sans-serif;
 	-webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
 	box-sizing: border-box;
+
 }
 
 #map {
 	font-family: 'Noto Sans KR', sans-serif;
 	width: 100%;
-	height: 100vh;
+	height: 100%;
 	position: relative;
 	overflow: hidden;
 }
@@ -43,6 +47,7 @@
 	padding: 0;
 	font-family: 'Noto Sans KR', sans-serif;
 	font-size: 12px;
+	
 }
 
 /* .map_wrap a,
@@ -54,7 +59,7 @@
 .map_wrap {
 	position: relative;
 	width: 100%;
-	height: 500px;
+	height: 640px;
 }
 
 .map_wrap div.map_marker_pop {
@@ -153,30 +158,33 @@
 }
 
 #menu_wrap {
+	height: 89%;
+	width: 320px;
+
+
+
 	position: absolute;
 	left: 5%;
     top: 50%;
-    transform: translate(0,-50%);
-	
+	transform: translate(0,-50%);
 	margin: 0px 0px 0px 0px;
 	padding: 0px;
-	overflow: hidden;
-	min-height: 700px;
+	overflow: hidden;	
 	border-radius: 3px;
-	backgroun d: rgba(255, 255, 255);
-	z-index: 1;
+	background: rgba(255, 255, 255);
+	z-index: 3;
 	font-size: 12px;
 	font-family: 'Noto Sans KR', sans-serif;
-	width: 100%;
-    max-width: 20%;
     box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.3);
 }
 
 .find_store_wrap {
 	
+	
 }
 
 .find_store_wrap .find_store_cont {
+	 
 	
 }
 
@@ -185,12 +193,54 @@
 }
 
 #menu_wrap .find_store_header {
-	margin-top: 0px;
-	background: #FDD000;
-	width: 50%;
-	height: 58px;
+	
+	padding: 0;
+	margin: 0;
+	
+
+	
+	width: 100%;
+	height: 9%;
 	text-align: center;
 	border: 0px;
+	
+}
+
+
+
+#menu_wrap .find_store_header > ul{
+	width: 100%;
+	height: 100%;
+
+
+	
+	clear:both;
+}
+#menu_wrap .find_store_header > ul >li {
+
+	
+	width: 50%;
+	height: 100%;
+
+
+	background: #000000;
+	color: #FFF;
+
+	
+	cursor: pointer;
+	float:left;
+
+	list-style: none;
+	line-height: 3em;
+	font-size: 16px;
+
+}
+
+#menu_wrap .find_store_header > ul >li.active{
+	color: #000;
+	background: #FDD000;
+	
+	
 }
 
 #menu_wrap .find_store_header * {
@@ -209,64 +259,117 @@
 	font-size: 14px;
 	line-height: inherit;
 	text-indent: 10px;
-	margin-top: 5px;
+	margin-top: 0px;
 	height: 22px;
 	width: 100%;
 }
 
 #menu_wrap .search {
-	width: 300px;
-	height: 70vh;
+	width: 100%;
+
 }
 
 #menu_wrap .search .quick_search {
+	height: 31%;
+	
 	position: relative;
 	background: #FDD000;
 	text-align: center;
-	line-height: 50px;
+	
+
+	padding: 20px;
 	box-sizing: border-box;
-	/* padding: 10px; */
-	height: 60px;
-	
-	
+
+
+}
+#menu_wrap .search .quick_search .quick_search_title b{
+
+	font-size: 22.4px;
+	line-height: 1.2;
+
 }
 
+#menu_wrap .search .quick_search .quick_search_content{
+
+	margin: 20px 0;
+	font-size: 16px;
+
+}
+
+#menu_wrap .search .quick_search_inner_wrap{
+
+	width: 100%;
+	height: 45px;
+}
 #menu_wrap .search .quick_search_inner {
-	height: 70%;
-	width: 93%;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	border: 0px solid #000;
-	border-radius: 4px;
-	background: #fff;
-}
 
-#menu_wrap .search .quick_search_inner input {
 	position: relative;
 	border: 0px solid #000;
 	border-radius: 4px;
-	width: 95%;
-	height: 80%;
+	background: #fff;
+
+}
+
+#menu_wrap .search .quick_search_inner input {
+
+	width: 100%;
+	height: 100%;
+
+
+	padding: 5px 15px;
+	
+	border: 0px solid #000;
+	border-radius: 4px;
+
 }
 
 #menu_wrap .search .quick_search_inner a i {
 	position: absolute;
-	right: 3%;
+
+	top: 50%;
+	right: 4%;
+	transform: translate(0,-50%);
 	line-height: 40px;
 	color: #000000;
 	font-size: 20px;
 	font-weight: 700;
+
+
+	z-index: 5;
 }
 
-#menu_wrap article {
-	height: 80%;
+#menu_wrap .search_result {
+	height: 60%;
+	overflow: auto;
+	padding: 20px;
+
+}
+
+#placesList::-webkit-scrollbar  {
+
+	width: 5px;
+	height: 5px;
+	background: #f2f2f2;
+	
+}
+
+#placesList::-webkit-scrollbar-thumb{
+    height: 30%; /* 스크롤바의 길이 */
+    background: #FDD000; /* 스크롤바의 색상 */
+    
+    border-radius: 10px;
+
+}
+
+#placesList::-webkit-scrollbar-track{
+
+	background: #EEE;  /*스크롤바 뒷 배경 색상*/
+
 }
 
 #placesList {
 	overflow-y: auto;
-	height: 100%;
+	height: 85%;
 	padding: 0 10px;
 }
 
@@ -362,6 +465,8 @@
 
 <body>
 
+
+
 	<div class="map_wrap">
 		<!-- 지도를 표시할 div 입니다 -->
 		<div id="map"></div>
@@ -379,12 +484,19 @@
 
 			<div class="find_store_cont" class="bg_white">
 				<div id="menu_wrap">
-					<header class="find_store_header active">
-						<h2 class="btn_find_store">
-							매장찾기
-						</h2>
-					</header>
-					<article class="search bg_white">
+					<div class="find_store_header">
+						<ul>
+							<li class="btn_find_store active">
+								매장찾기
+							</li>
+							<li class="btn_find_location">
+								지역검색
+							</li>
+
+						</ul>
+
+					</div>
+					<article class="search bg_white active">
 						<div class="quick_search">
 							<div class="quick_search_title">
 							<b>매장찾기</b>
@@ -392,20 +504,37 @@
 							<div class="quick_search_content">
 							함께하는 KG커피
 							</div>
-							<div class="quick_search_inner">
-								<input placeholder="지점명 또는 주소를 입력하세요" title="퀵 검색" type="text"
-									name="keyword" id="keyword"> <a
-									href="javascript:void(0);" class="quickSearchBtn"><i
-									class="bi bi-search"></i></a>
+							<div class="quick_search_inner_wrap">
+								<div class="quick_search_inner" >
+									<input placeholder="지점명 또는 주소를 입력하세요" title="퀵 검색" type="text"
+										name="keyword" id="keyword"> <a
+										href="javascript:void(0);" class="quickSearchBtn"><i
+										class="bi bi-search"></i></a>
+								</div>
 							</div>
 						</div>
 
 
 						<div class="search_count">검색결과 없음</div>
-						<article>
+						<article class= "search_result">
 							<ul id="placesList"></ul>
 							<div id="pagination"></div>
 						</article>
+					</article>
+					<article class="location bg_white">
+						<div class="location_search">
+							<div class="location_search_title">
+								<b>지역검색</b>
+							</div>
+							<div class="location_search_content">
+							함께하는 KG커피
+							</div>
+						</div>
+
+
+
+
+
 					</article>
 
 
@@ -597,7 +726,7 @@
                     var el = document.createElement('li'),
                         itemStr = '<span class="markerbg marker"></span>' +
                             '<div class="info">' +
-                            '   <h5> KG커피' + places.place_name.substr(8) + '</h5>';
+                            '   <h5> ' + places.place_name.substr(8) + '</h5>';
 
                     if (places.road_address_name) {
                         itemStr += '    <p class ="road gray">' + places.road_address_name + '</p>'
