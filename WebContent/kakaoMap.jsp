@@ -13,16 +13,12 @@
 		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
 			rel="stylesheet">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
-		<link rel="stylesheet" href="./css/kakaoMap.css">
+		<link rel="stylesheet" href="./css/kakaoMap.css" type="text/css">
 
 		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4053743493582ba95036931859f08a59&libraries=services"></script>
 		<script type="text/javascript" src="./js/kakakoMap.js" defer></script>
 		
 	</head>
-
-
-
-
 
 
 	<body>
@@ -32,12 +28,6 @@
 		<div class="map_wrap">
 			<!-- 지도를 표시할 div 입니다 -->
 			<div id="map"></div>
-
-
-
-
-
-
 
 
 
@@ -122,15 +112,6 @@
 						</article>
 
 
-						<!-- <header id="find_road_warp">
-                                <div clas="find_road_header">
-                                    <h2 class="btn_road_store"><a href="javascript:void(0);">길찾기</a></h2>
-                                </div>
-
-                            </header>
-                            <article class=""
-
-                            </article> -->
 
 
 					</div>

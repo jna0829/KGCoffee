@@ -236,7 +236,8 @@ function displayPlaces(places) {
 function getListItem(index, places) {
 
     var el = document.createElement('li'),
-        itemStr = '<span class="markerbg marker"></span>' +
+        itemStr = 
+        // '<span class="markerbg marker"></span>' +
             '<div class="info">' +
             '   <h5> ' + places.place_name.substr(8) + '</h5>';
 

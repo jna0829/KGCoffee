@@ -28,7 +28,7 @@ public class FrontController extends HttpServlet {
 		
 		String c = request.getRequestURI().substring(request.getContextPath().length());
 		System.out.println(c);
-		System.out.println("get");
+
 		switch(c) {
 		
 		
