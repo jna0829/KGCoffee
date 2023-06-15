@@ -142,7 +142,8 @@
     width: 320px;
 
 
-
+    box-sizing: border-box;
+    
     position: absolute;
     left: 5%;
     top: 50%;
@@ -171,6 +172,8 @@
     padding: 0;
     margin: 0;
 
+    box-sizing: border-box;
+    
 
 
     width: 100%;
@@ -243,6 +246,9 @@
 
     width: 100%;
     display: none;
+    box-sizing: border-box;
+
+    height:91%;
 }
 
 #menu_wrap .search.active {
@@ -323,7 +329,7 @@
 }
 
 #menu_wrap .search_result {
-    height: 60%;
+    height: 69%;
     overflow: auto;
     padding: 20px;
 
@@ -444,6 +450,9 @@
 .location {
     width: 100%;
     display: none;
+    box-sizing: border-box;
+
+    height:91%;
 }
 
 .location.active {
@@ -452,7 +461,7 @@
 
 .location .location_title_wrap {
     width: 100%;
-    height: 20%;
+    height: 22%;
     padding: 20px;
     background: #fdd000;
 
@@ -481,12 +490,13 @@
 .location_list_wrap {
     width: 100%;
     padding: 20px;
+    height: 78%;
 
 }
 
 .location_list_wrap .location_list {
     width: 100%;
-    height: 64%;
+    height: 100%;
     overflow: auto;
     padding-right: 10px;
 
@@ -529,6 +539,7 @@
 }
 
 .location_list_wrap .location_list::-webkit-scrollbar {
+    z-index: 30;
     width: 5px;
     height: 5px;
     background: #f2f2f2;
