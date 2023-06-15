@@ -12,6 +12,13 @@
 		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
 			rel="stylesheet">
+
+
+		<link rel="stylesheet" type="text/css" href="css/header_style.css">
+		<!-- 아이콘 가져오기 -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+		<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
 		<link rel="stylesheet" href="./css/kakaoMap.css" type="text/css">
 
@@ -19,7 +26,7 @@
 			src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4053743493582ba95036931859f08a59&libraries=services"></script>
 		<script type="text/javascript" src="js/kakakoMap.js" defer></script>
 		<link rel="stylesheet" href="./css/sub_header.css" type="text/css">
-		
+		<script src="js/main_script.js" defer></script>
 	</head>
 
 
