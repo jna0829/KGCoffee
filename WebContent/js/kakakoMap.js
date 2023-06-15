@@ -375,6 +375,12 @@ function removeAllChildNods(el) {
 
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
 
 
 
@@ -425,16 +431,49 @@ var ps = new kakao.maps.services.Places();
 
 var moveIndex = false;
 
-
+//검색어
+var keyword;
 
 // 좌표 이동 이벤트
 kakao.maps.event.addListener(map, 'dragend', centerSerach);
 
 
-// 키워드로 장소를 검색합니다
-searchPlaces();
+//위치정보 있으면 내위치를 중심으로 표시
+if (navigator.geolocation) {
+    
+    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+    navigator.geolocation.getCurrentPosition(function(position) {
+        
+        var lat = position.coords.latitude, // 위도
+            lon = position.coords.longitude; // 경도
+        
+        var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+           
+        
+        var imageSrc = './img/icon/marker_my.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
+        imageSize = new kakao.maps.Size(40, 50),  // 마커 이미지의 크기
+        markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize),
+        marker = new kakao.maps.Marker({
+            position: locPosition, // 마커의 위치
+            image: markerImage
+        });
 
-var keyword;
+        marker.setMap(map); // 지도 위에 마커를 표출합니다
+        
+        // 지도 중심좌표를 접속위치로 변경합니다
+        map.setCenter(locPosition);      
+        
+        centerSerach();
+                
+        });
+    
+}else{
+
+// 없으면 홍대기본값
+searchPlaces();
+}
+
+
 
 
 
