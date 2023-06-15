@@ -89,8 +89,9 @@ function centerSerach() {
         location: map.getCenter(),
         radius: 10000,
         sort: kakao.maps.services.SortBy.DISTANCE,
-
+        
     };
+    
 
     var newkey = "메가커피"
     moveIndex = true;
@@ -104,8 +105,7 @@ function centerSerach() {
 // 키워드 검색을 요청하는 함수입니다
 function searchPlaces(location) {
 
-    console.log("검색")
-
+  
 
     keyword = document.getElementById('keyword').value;
 
@@ -139,6 +139,8 @@ function searchPlaces(location) {
 function placesSearchCB(data, status, pagination) {
     if (status === kakao.maps.services.Status.OK) {
 
+
+       
         // 정상적으로 검색이 완료됐으면
         // 검색 목록과 마커를 표출합니다
         displayPlaces(data);
@@ -190,9 +192,7 @@ function displayPlaces(places) {
 
         bounds.extend(placePosition);
 
-        // 마커와 검색결과 항목에 mouseover 했을때
-        // 해당 장소에 인포윈도우에 장소명을 표시합니다
-        // mouseout 했을 때는 인포윈도우를 닫습니다
+        //마커 인포 윈도우 클릭이벤트
         (function (marker, places) {
             kakao.maps.event.addListener(marker, 'click', function () {
                 displayInfowindow(marker, places);
@@ -294,7 +294,7 @@ function removeMarker() {
 function displayPagination(pagination) {
 
 
-    document.querySelector(".search_count").innerHTML = "(검색 결과 " + pagination.totalCount + "개)";
+    document.querySelector(".search_count").innerHTML = "(검색 결과 " + pagination.totalCount + "개 (max:45))";
 
 
     var paginationEl = document.getElementById('pagination'),
@@ -329,8 +329,8 @@ function displayPagination(pagination) {
 // 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다
 // 인포윈도우에 장소명을 표시합니다
 function displayInfowindow(marker, places) {
-
-
+  
+  
   
 
     var content = '<div class="map_marker_pop_wrap">' +

@@ -28,7 +28,7 @@
 		<link rel="stylesheet" href="./css/sub_header.css" type="text/css">
 		<script src="js/main_script.js" defer></script>
 	</head>
-
+ 
 
 	<body>
 
@@ -59,7 +59,7 @@
 						</div>
 					</div>
 				</div>
-
+   
 
 			</div>
 			<div class="map_wrap">
