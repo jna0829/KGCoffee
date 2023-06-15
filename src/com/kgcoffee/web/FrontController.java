@@ -12,30 +12,29 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class FrontController
  */
-@WebServlet("/FrontController")
+@WebServlet("*.do")
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
 	RequestDispatcher rd = null;
+	
 	String str = "";
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		
 		request.setCharacterEncoding("UTF-8");
 		
 		String c = request.getRequestURI().substring(request.getContextPath().length());
-		
-		
-		
+		System.out.println(c);
+		System.out.println("get");
 		switch(c) {
 		
 		
-		case "/store/find.do":
+		case "/find.do":
 			
-				str="/kakaoMap.jsp";
+				str="kakaoMap.jsp";
 			
 			break;
 			
