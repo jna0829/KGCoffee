@@ -35,7 +35,7 @@
 						<div class="sub_header_title_info">
 							STORE </div>
 						<div class="sub_header_title robo color">
-							<h2>MEGA STORE</h2>
+							<h2>KG STORE</h2>
 						</div>
 					</div>
 					<div class="sub_header_text_wrap">

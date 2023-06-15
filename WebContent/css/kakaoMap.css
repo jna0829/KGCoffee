@@ -53,7 +53,7 @@
 
 }
 
-.map_wrap div.map_marker_pop header {
+.map_wrap div.map_marker_pop .map_marker_pop_header {
     display: block;
     position: relative;
     height: 10%;

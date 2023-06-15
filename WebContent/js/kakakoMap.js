@@ -331,11 +331,11 @@ function displayPagination(pagination) {
 function displayInfowindow(marker, places) {
 
 
-
+  
 
     var content = '<div class="map_marker_pop_wrap">' +
         '<div class="map_marker_pop">' +
-        '<header>' + places.place_name.substr(7) + '</header>' +
+        '<div class="map_marker_pop_header">' + places.place_name.substr(7) + '</div>' +
         ' <div class="close" onclick="infowindow.close()" title="닫기"></div>' +
         '<article>' +
         '<div class="map_marker_pop_inner">' +
