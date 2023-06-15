@@ -15,7 +15,7 @@
 
 </head>
 <body>
-
+	<div class="header_wrap">
 	<header>
 		
 		<a href="main.jsp" class="logo"><img src="img/logo.png" width="180"></a><!-- 로고 이미지 -->
@@ -36,7 +36,7 @@
 		</div>
 		
 	</header>
-	
+	</div>
 	<!-- 자바스크립트 file link -->
 	<script src="js/main_script.js"></script>
 

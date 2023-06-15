@@ -17,8 +17,8 @@
 
 		<script type="text/javascript"
 			src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4053743493582ba95036931859f08a59&libraries=services"></script>
-		<script type="text/javascript" src="./js/kakakoMap.js" defer></script>
-		<script type="text/javascript" src="./js/sub_header.css.js" defer></script>
+		<script type="text/javascript" src="js/kakakoMap.js" defer></script>
+		<link rel="stylesheet" href="./css/sub_header.css" type="text/css">
 
 	</head>
 
