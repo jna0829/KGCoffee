@@ -684,6 +684,7 @@
 										<li data-store-area-name="제주"> 제주 </li>
 									</ul>
 									<ul class="store_area_search_list_result area_list off">
+										<li class="clear_btn" data-area="clear">뒤로가기</li>
 									</ul>
 								</div>
 
@@ -1176,36 +1177,16 @@
 
 			
 			
-		
+			//지역찾기 li 추가
 			$(".store_area_search_list li").click(function(){
 
 				const $result= $(".store_area_search_list_result");
 
-				var resetBtn = document.createElement('li');
-
-
-				resetBtn.className="store_area";
-				resetBtn.setAttribute("data-address","reset");
-				resetBtn.innerText="뒤로가기";
-				resetBtn.onclick=function(){
-
-					console.log($result)
-							while($result.hasChildNodes()) {
-										$result.removeChild($result.lastChild);
-								}
-
-							$(".area_list").toggleClass("off");
-
-			
-
-				}
-				$result.append(resetBtn);
 
 				var area = $(this).data("store-area-name")
 				areas = locationList[area];
-				
-				console.log(area);
-				console.log(areas);
+				$(".area_list").toggleClass("off");
+			
 				areas.forEach(address => {
 
 					var li = document.createElement('li');
@@ -1213,6 +1194,8 @@
 					li.className="store_area"
 					li.setAttribute("data-address",area+" "+address);
 					li.innerText=address;
+
+				
 					li.onclick=function(){
 						
 						key = li.getAttribute("data-address")
@@ -1222,16 +1205,28 @@
 						
 
 					}
-					
 					$result.append(li);
-
+					
 				
-					$(".area_list").toggleClass("off");
+					
 					
 					
 				});
 
 			});
+
+
+			//지역 li 지우기
+			$(".clear_btn").click(function(){
+
+	
+				$("li").remove(".store_area");
+
+							$(".area_list").toggleClass("off");
+
+			})
+
+
 	
 
 	
