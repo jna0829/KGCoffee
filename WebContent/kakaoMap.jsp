@@ -1,4 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%
+ response.setHeader("Cache-Control","no-cache");
+ response.setHeader("Pragma","no-cache");
+ response.setDateHeader("Expires",0);
+%>
+
 	<!DOCTYPE html>
 	<html>
 
@@ -21,12 +27,12 @@
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
 		<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
-		<link rel="stylesheet" href="./css/kakaoMap.css" type="text/css">
+		<link rel="stylesheet" href="./css/kakaoMap.css?ver=220610" type="text/css">
 
 		<script type="text/javascript"
 			src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4053743493582ba95036931859f08a59&libraries=services"></script>
 		<script type="text/javascript" src="js/kakakoMap.js" defer></script>
-		<link rel="stylesheet" href="./css/sub_header.css" type="text/css">
+		<link rel="stylesheet" href="./css/sub_header.css?ver=1" type="text/css">
 		<script src="js/main_script.js" defer></script>
 	</head>
  

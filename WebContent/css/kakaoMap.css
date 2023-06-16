@@ -631,11 +631,8 @@
 
     #menu_wrap .find_store_header {
 
-
-
-
-  
-        height: 8%;
+        
+        height: 45px;
 
 
     }
@@ -674,7 +671,7 @@
 
         min-height: 220px;
         height: auto;
-        max-height: 91%;;    
+        max-height: 430px;    
         
     }
 
@@ -742,7 +739,7 @@
     #menu_wrap .search_result {
         min-height: 15%;
         height: auto;
-        max-height: flex;
+        max-height: 250px;
         padding-top: 0;
 
     }
@@ -775,7 +772,7 @@
     #placesList {
 
         height: auto;
-        max-height: 35%;
+        max-height: 190px;
        
     }
 
@@ -882,7 +879,7 @@
         border-top: 1px solid rgba(0, 0, 0, 0.1);
        
         padding: 15px;
-        height: 50%;
+        height: 300px;
 
     }
 

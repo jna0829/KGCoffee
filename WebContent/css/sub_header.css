@@ -120,14 +120,15 @@
 
 @media (max-width: 600px) {
     .sub_header_wrap{
-        padding: 20px 20;
+        padding: 10px 0;
         height: 26vh;
 
-    }
+    }   
 
     .sub_header{
+    	margin-top:30px;
         margin-bottom: 0px;
-    
+     
     }
     
     .sub_header:last-child{
@@ -140,7 +141,7 @@
     
     }
     .sub_header_title_info{
-
+		font-size: 16px;
         
     }
     .sub_header_title{
@@ -157,6 +158,7 @@
     .sub_header_text_wrap{
     
         margin-top: 30px;
+        margin-bottom:10px;
 
     }
     

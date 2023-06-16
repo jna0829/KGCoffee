@@ -26,7 +26,7 @@ html {
 	position:relative;
 	display:flex;
 	width:100%;
-	height:76.63px;	
+	height:12vh;	
 
 }
 
@@ -40,6 +40,7 @@ header {
 	justify-content: space-between;
 	z-index: 1000;
 	box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,.1);
+	height: 12vh;
 }
 
 header .navbar a {
@@ -139,6 +140,8 @@ header .icons #menu-bar {
 /* 화면을 줄였을때 menu-bar(아이콘)에 메뉴가 옮겨지도록 */
 @media (max-width:885px) {
 	
+
+
 	header {
 		padding: 1rem 4rem;	
 	}
