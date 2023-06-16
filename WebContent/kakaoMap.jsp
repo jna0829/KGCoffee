@@ -3,6 +3,7 @@
 	<html>
 
 	<head>
+		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -63,12 +64,6 @@
 
 			</div>
 			<div class="map_wrap">
-				<!-- 지도를 표시할 div 입니다 -->
-				<div id="map"></div>
-
-
-
-
 				<section class="find_store_wrap">
 
 					<div class="find_store_cont" class="bg_white">
@@ -157,6 +152,12 @@
 					</div>
 
 				</section>
+				<!-- 지도를 표시할 div 입니다 -->
+				<div id="map"></div>
+
+
+
+
 
 
 

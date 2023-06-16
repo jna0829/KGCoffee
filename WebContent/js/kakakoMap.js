@@ -357,10 +357,10 @@ function displayInfowindow(marker, places) {
         '</div>' +
         '</div>';
 
-
-
-    infowindow.setContent(content);
-    infowindow.open(map, marker);
+        infowindow.setContent(content);
+        infowindow.open(map, marker);
+        
+        $(document).animate({scrollTop: ($('.window').height() / 2)}, 500);
 }
 
 
