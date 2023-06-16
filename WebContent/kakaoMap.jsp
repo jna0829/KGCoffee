@@ -12,7 +12,7 @@
 			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
-			rel="stylesheet">
+			rel="stylesheet"> 
 
 
 		<link rel="stylesheet" type="text/css" href="css/header_style.css">

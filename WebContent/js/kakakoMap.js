@@ -331,7 +331,7 @@ function displayPagination(pagination) {
 function displayInfowindow(marker, places) {
   
   
-  
+   
 
     var content = '<div class="map_marker_pop_wrap">' +
         '<div class="map_marker_pop">' +
