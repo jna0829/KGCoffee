@@ -36,13 +36,13 @@ public class KakaoService {
 			.append("?query=" + query)
 			.append("&size=" + size)
 			.append("&page=" + page)
-//			.append("&rect="+(startX-offset))
-//			.append(",")
-//			.append(startY-offset)
-//			.append(",")
-//			.append(endX+offset)
-//			.append(",")
-//			.append(endY+offset)
+			.append("&rect="+(startX-offset))
+			.append(",")
+			.append(startY-offset)
+			.append(",")
+			.append(endX+offset)
+			.append(",")
+			.append(endY+offset)
 			;
 
 			URL url = new URL(reqUri.toString());
@@ -70,10 +70,10 @@ public class KakaoService {
 				
 				JsonObject object = element.getAsJsonObject();
 				JsonObject meta = object.get("meta").getAsJsonObject();
-				JsonObject document = object.get("document").getAsJsonObject();
+				JsonObject documents = object.get("documents").getAsJsonObject();
 				
 				System.out.println("meta : "+ meta);
-				System.out.println("document : " + document);
+				System.out.println("documents : " + documents);
 
 				
 
