@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.kgcoffee.web.kakaoMap.service.KakaoService;
+
 /**
  * Servlet implementation class FrontController
  */
@@ -35,6 +37,11 @@ public class FrontController extends HttpServlet {
 		case "/find.do":
 			
 				str="kakaoMap.jsp";
+				
+				break;
+			
+		case "/save.do":
+			KakaoService.getStoreList(126,37,127,38);
 			
 			break;
 			
