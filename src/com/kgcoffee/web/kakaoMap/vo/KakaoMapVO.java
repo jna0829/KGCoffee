@@ -19,6 +19,17 @@ public class KakaoMapVO {
 
 	private String placeUrl;
 
+	
+	// 전화번호
+	private String phone;
+	// 도로명 주소명
+	private String roadAddressName;
+	// x 값
+	private Double x;
+	// y 값
+	private Double y;
+	
+	
 	public KakaoMapVO() {
 		// TODO Auto-generated constructor stub
 	}
@@ -135,13 +146,6 @@ public class KakaoMapVO {
 		this.y = y;
 	}
 
-	// 전화번호
-	private String phone;
-	// 도로명 주소명
-	private String roadAddressName;
-	// x 값
-	private Double x;
-	// y 값
-	private Double y;
+
 
 }

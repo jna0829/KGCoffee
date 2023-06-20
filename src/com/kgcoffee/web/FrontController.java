@@ -25,6 +25,7 @@ public class FrontController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		KakaoService service = new KakaoService();
 		
 		request.setCharacterEncoding("UTF-8");
 		
@@ -41,7 +42,8 @@ public class FrontController extends HttpServlet {
 				break;
 			
 		case "/save.do":
-			KakaoService.getStoreList(126,35,129,39);
+			
+			service.searchMap();
 			
 			break;
 			
