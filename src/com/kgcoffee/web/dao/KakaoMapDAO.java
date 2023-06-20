@@ -36,7 +36,7 @@ public class KakaoMapDAO {
 			
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, vo.getAddressName());
-			pstmt.setString(1, vo.getCategoryGroupCode()));
+			pstmt.setString(1, vo.getCategoryGroupCode());
 			pstmt.setString(1, vo.getCategoryGroupName());
 			pstmt.setString(1, vo.getCategoryName());
 			pstmt.setInt(1, vo.getMapId());
@@ -44,10 +44,9 @@ public class KakaoMapDAO {
 			pstmt.setString(1, vo.getPlaceUrl());
 			pstmt.setString(1, vo.getPhone());
 			pstmt.setString(1, vo.getRoadAddressName());
-			pstmt.setString(1, vo.getAddressName());
-			pstmt.setString(1, vo.getAddressName());
-			pstmt.setString(1, vo.getAddressName());
-			
+			pstmt.setDouble(1, vo.getX());
+			pstmt.setDouble(1, vo.getY());
+		
 			
 
 			if(pstmt.executeUpdate()>=1) {

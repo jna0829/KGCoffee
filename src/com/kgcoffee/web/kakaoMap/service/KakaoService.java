@@ -14,13 +14,16 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.kgcoffee.web.dao.KakaoMapDAO;
 import com.kgcoffee.web.kakaoMap.vo.KakaoMapVO;
 
 public class KakaoService {
 
 	private final String uri = "https://dapi.kakao.com/v2/local/search/keyword.json?size=15";
 	private final String apiKey = "KakaoAK 4811118d83cc4f11769af7407cf75b6e";
-
+	
+	KakaoMapDAO dao = new KakaoMapDAO();
+	
 
 	
 	public void searchMap() {
@@ -88,6 +91,18 @@ public class KakaoService {
 
 			resultList = new ArrayList<KakaoMapVO>(distinctMap.values());
 			System.out.println(resultList.size());
+			
+
+			for(KakaoMapVO vo : resultList){
+				
+				if(!(dao.insertMapList(vo))) {
+					System.out.println("Insert Map Fail - map id "+vo.getMapId());
+					
+				}
+				
+			}
+			
+			
 			
 		}
 
