@@ -28,11 +28,24 @@ public class KakaoMapDAO {
 	public boolean insertMapList(KakaoMapVO vo) {
 		
 		boolean result=false;
-		sql = "INSERT IN TO map_table values(?,?,?,?,?,?,?,?,?,?,?)";
+		sql = "INSERT IN TO map_table(address_name, categoryGroupCode"
+				+ ", categoryGroupName, categoryName, mapId, placeName, placeUrl, phone, roadAddressName, x, y) "
+				+ "values(?,?,?,?,?,?,?,?,?,?,?)";
 		
 		try {
 			
 			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, vo.getAddressName());
+			pstmt.setString(1, vo.getCategoryGroupCode()));
+			pstmt.setString(1, vo.getCategoryGroupName());
+			pstmt.setString(1, vo.getCategoryName());
+			pstmt.setInt(1, vo.getMapId());
+			pstmt.setString(1, vo.getPlaceName());
+			pstmt.setString(1, vo.getPlaceUrl());
+			pstmt.setString(1, vo.getPhone());
+			pstmt.setString(1, vo.getRoadAddressName());
+			pstmt.setString(1, vo.getAddressName());
+			pstmt.setString(1, vo.getAddressName());
 			pstmt.setString(1, vo.getAddressName());
 			
 			
@@ -51,12 +64,7 @@ public class KakaoMapDAO {
 			e.printStackTrace();
 			
 		}
-		
-
-		
-		
-		
-		
+			
 		
 		return result;
 	}
