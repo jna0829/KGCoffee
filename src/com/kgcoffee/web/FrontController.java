@@ -35,17 +35,17 @@ public class FrontController extends HttpServlet {
 		switch(c) {
 		
 		
-		case "/find.do":
+		case "/store/find.do":
 			
 				str="kakaoMap.jsp";
 				
 				break;
 			
-		case "/save.do":
-			
-			service.searchMap();
-			
-			break;
+//		case "/store/save.do":
+//			
+//			service.searchMap();
+//			
+//			break;
 			
 			
 

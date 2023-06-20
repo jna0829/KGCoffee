@@ -7,8 +7,8 @@
 		
 		<nav class="navbar">
 			<a href="main.jsp">HOME</a>
-			<a href="find.do">MENU</a>
-			<a href="#">STORE</a>
+			<a href="#">MENU</a>
+			<a href="/store/find.do">STORE</a>
 			<a href="#">NEWS</a>
 			<a href="#">ORDER</a>
 		</nav> 
