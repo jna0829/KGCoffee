@@ -77,6 +77,7 @@ public class KakaoService {
 			
 			System.out.println(resultList.size());
 			
+			//중복제거
 			Map<Integer,KakaoMapVO> distinctMap= new HashMap<Integer,KakaoMapVO>();
 			for(int i=0; i<resultList.size();i++) {
 				
