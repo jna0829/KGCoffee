@@ -14,7 +14,7 @@ import com.kgcoffee.web.kakaoMap.service.KakaoService;
 /**
  * Servlet implementation class FrontController
  */
-@WebServlet("save.do")
+@WebServlet("*.do")
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -69,13 +69,5 @@ public class FrontController extends HttpServlet {
 	}
 
 	
-	@Override
-	public void init() throws ServletException {
-		// TODO Auto-generated method stub
-	
-		
-		super.init();
-		
-		System.out.println("init");
-	}
+
 }
