@@ -76,6 +76,11 @@ public class KakaoService {
 				System.out.println("documents : " + documents);
 
 				
+				int search_count = meta.get("total_count").getAsInt();
+				
+				
+				
+				
 
 			} catch (Exception e) {
 				e.printStackTrace();
