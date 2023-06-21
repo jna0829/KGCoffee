@@ -268,7 +268,7 @@ function panTo(moveLatLon) {
 
 // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
 function addMarker(position, idx, title) {
-    var imageSrc = './img/icon/marker.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
+    var imageSrc = '/kgCoffee/img/icon/marker.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
         imageSize = new kakao.maps.Size(40, 50),  // 마커 이미지의 크기
         markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize),
         marker = new kakao.maps.Marker({
@@ -450,13 +450,13 @@ if (navigator.geolocation) {
         var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
            
         
-        var imageSrc = './img/icon/marker_my.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
+        var imageSrc = '/kgCoffee/img/icon/marker_my.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
         imageSize = new kakao.maps.Size(40, 50),  // 마커 이미지의 크기
         markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize),
         marker = new kakao.maps.Marker({
             position: locPosition, // 마커의 위치
             image: markerImage
-        });
+        });  
 
         marker.setMap(map); // 지도 위에 마커를 표출합니다
         

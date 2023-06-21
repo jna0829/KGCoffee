@@ -3,7 +3,7 @@
 	<div class="header_wrap">
 	<header>
 		
-		<a href="main.jsp" class="logo"><img src="img/logo.png" width="180"></a><!-- 로고 이미지 -->
+		<a href="main.jsp" class="logo"><img src="/kgCoffee/img/logo.png" width="180"></a><!-- 로고 이미지 -->
 		
 		<nav class="navbar">
 			<a href="main.jsp">HOME</a>

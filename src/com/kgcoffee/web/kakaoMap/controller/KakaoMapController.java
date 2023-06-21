@@ -1,6 +1,8 @@
 package com.kgcoffee.web.kakaoMap.controller;
 
 import java.io.IOException;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,11 +12,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kgcoffee.web.kakaoMap.service.KakaoService;
+import com.kgcoffee.web.order.MyView;
 
 /**
  * Servlet implementation class KakaoMapController
  */
-@WebServlet(urlPatterns="/store/*")
+@WebServlet("/store/*")
 public class KakaoMapController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -37,7 +40,7 @@ public class KakaoMapController extends HttpServlet {
 		
 		case "/store/find.map":
 			
-				str="kakaoMap.jsp";
+				str="kakaoMap";
 				
 				break;
 			
@@ -49,16 +52,30 @@ public class KakaoMapController extends HttpServlet {
 			
 	
 
+		default:
+			
+			System.out.println("mismatch");
+			break;
 			
 		
 		}
 		
-		rd = request.getRequestDispatcher(str);
 
-		rd.forward(request, response);
+	   MyView view = viewResolver(str);
+	       
+	   
+	   Map<String, Object> model = new ConcurrentHashMap<>();
+	   view.render(model, request, response);
+		
 		
 	}
 
+	
+	 private MyView viewResolver(String viewName) {
+	        return new MyView("/view/store/" + viewName + ".jsp");
+	    }
+	  
+	  
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
