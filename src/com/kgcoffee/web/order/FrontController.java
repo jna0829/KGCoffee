@@ -18,20 +18,21 @@ import com.kgcoffee.web.order.controller.order.OrderCompleteController;
 import com.kgcoffee.web.order.controller.order.OrderController;
 
 
-@WebServlet(name = "frontController", urlPatterns = "/api/*")
+@WebServlet(name = "frontController", urlPatterns = "/order/*")
 public class FrontController extends HttpServlet {
     private Map<String, Controller> controllerMap = new ConcurrentHashMap<>();
 
     public FrontController() {
-        controllerMap.put("/api/order", new
+    	
+        controllerMap.put("/kgCoffee/order/order", new
                 OrderController());
-        controllerMap.put("/api/order/complete", new
+        controllerMap.put("/kgCoffee/order/complete", new
                 OrderCompleteController());
-        controllerMap.put("/api/basket", new
+        controllerMap.put("/kgCoffee/order/basket", new
                 BasketListController());
-        controllerMap.put("/api/basket/delete", new
+        controllerMap.put("/kgCoffee/order/basket/delete", new
                 BasketDeleteController());
-        controllerMap.put("/api/basket/update", new
+        controllerMap.put("/kgCoffee/order/basket/update", new
                 BasketUpdateController());
     }
 
@@ -40,7 +41,13 @@ public class FrontController extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse
             response)
             throws ServletException, IOException {
+    	
+    	request.setCharacterEncoding("UTF-8");
+    	
+    	
         String requestURI = request.getRequestURI();
+        
+        System.out.println(requestURI);
         Controller controller = controllerMap.get(requestURI);
         // 해당 controller 없을 경우 404 page 반환
         if (controller == null) {
@@ -67,6 +74,21 @@ public class FrontController extends HttpServlet {
     }
 
     private MyView viewResolver(String viewName) {
-        return new MyView("/WEB-INF/views/" + viewName + ".jsp");
+        return new MyView("/order/" + viewName + ".jsp");
+    }
+    
+    
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    	// TODO Auto-generated method stub
+    	
+    	
+    	service(req, resp);
+    }
+    
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    	// TODO Auto-generated method stub
+    	service(req, resp);
     }
 }

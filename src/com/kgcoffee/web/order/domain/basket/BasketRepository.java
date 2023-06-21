@@ -50,11 +50,8 @@ public class BasketRepository {
     }
 
     public void delete(int basket_id){
-        Connection con = null;
-        PreparedStatement pst = null;
-        ResultSet rs = null;
 
-        String sql = "DELETE FROM BASKET WHERE BASKET_ID = ?";
+        sql = "DELETE FROM BASKET WHERE BASKET_ID = ?";
         try {
             
             pst = con.prepareStatement(sql);
@@ -68,11 +65,8 @@ public class BasketRepository {
     }
 
     public void update(int basket_id, int new_val){
-        Connection con = null;
-        PreparedStatement pst = null;
-        ResultSet rs = null;
-
-        String sql = "UPDATE BASKET SET PRODUCT_COUNT = ? WHERE BASKET_ID = ?";
+ 
+        sql = "UPDATE BASKET SET PRODUCT_COUNT = ? WHERE BASKET_ID = ?";
         try {
             
             pst = con.prepareStatement(sql);
@@ -89,11 +83,9 @@ public class BasketRepository {
 
 
     public ArrayList<BasketDto> findAllBasketsByUserId(){
-        Connection con = null;
-        PreparedStatement pst = null;
-        ResultSet rs = null;
+       
 
-        String sql = "SELECT * FROM BASKET INNER JOIN MENU ON FK_MENU_ID = MENUID WHERE FK_USER_ID=?";
+        sql = "SELECT * FROM BASKET INNER JOIN MENU ON FK_MENU_ID = MENUID WHERE FK_USER_ID=?";
         String tmpId = "test";
         ArrayList<BasketDto> arrayList = new ArrayList<>();
         try {
