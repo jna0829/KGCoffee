@@ -110,17 +110,17 @@ public class KakaoService {
 
 	}
 	
-	public void test() {
-		
-		KakaoMapVO vo = new KakaoMapVO("서울 마포구 동교동 164-22","CE7","카페","음식점 > 카페 > 커피전문점 > 메가MGC커피",
-				1969925488,"메가MGC커피 홍대입구역점","http://place.map.kakao.com/1969925488"
-				,"02-323-0650","서울 마포구 홍익로6길 48",126.9242387367584,37.55619709509767);
-	
-		dao.insertMapList(vo);
-		
-		
-		
-	}
+//	public void test() {
+//		
+//		KakaoMapVO vo = new KakaoMapVO("서울 마포구 동교동 164-22","CE7","카페","음식점 > 카페 > 커피전문점 > 메가MGC커피",
+//				1969925488,"메가MGC커피 홍대입구역점","http://place.map.kakao.com/1969925488"
+//				,"02-323-0650","서울 마포구 홍익로6길 48",126.9242387367584,37.55619709509767);
+//	
+//		dao.insertMapList(vo);
+//		
+//		
+//		
+//	}
 
 	public JsonArray getStoreList(double startX, double startY, double endX, double endY) {
 		

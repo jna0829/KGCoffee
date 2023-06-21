@@ -14,7 +14,7 @@ import com.kgcoffee.web.kakaoMap.service.KakaoService;
 /**
  * Servlet implementation class FrontController
  */
-@WebServlet("*.map")
+@WebServlet(urlPatterns="/store/*")
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
