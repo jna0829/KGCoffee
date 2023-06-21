@@ -3,7 +3,8 @@ package com.kgcoffee.web.kakaoMap.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.kgcoffee.web.common.DBConn;
 import com.kgcoffee.web.common.LoggableStatement;
@@ -83,6 +84,52 @@ public class KakaoMapDAO {
 
 
 
+	
+	public ArrayList<KakaoMapVO> findMap(HashMap<String,Object> map){
+		
+		ArrayList<KakaoMapVO> mapList = new ArrayList<KakaoMapVO>();
+		
+		sql="select * from map_table";
+		
+		
+		
+		int mapId = (Integer)map.get("mapId");
+		String keyWords = (String)map.get("keyword");
+		
+
+		
+		if(keyWords!=null) {
+			
+			
+			String[] keyList = keyWords.split(" ");
+			String temp="";
+			int i=0;
+			for(String key : keyList) {
+				if(i==0) {
+					temp+=" address_name = "+key+" or place_name = "+key+ " or road_address_name = "+key;
+	
+				}else{
+					temp+=" or address_name = "+key+" or place_name = "+key+ " or road_address_name = "+key;
+				}
+				i++;
+			}
+			
+			sql+=" where " + temp;
+			
+		}
+		
+		if(mapId!=0) {
+			
+			sql+="and map_id = "+mapId;
+
+		}
+		
+		return mapList;
+		
+		
+		
+		
+	}
 	
 	
 	
