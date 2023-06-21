@@ -74,7 +74,7 @@ public class FrontController extends HttpServlet {
     }
 
     private MyView viewResolver(String viewName) {
-        return new MyView("/order/" + viewName + ".jsp");
+        return new MyView("/view/order/" + viewName + ".jsp");
     }
     
     
