@@ -1,7 +1,5 @@
 package com.kgcoffee.web.kakaoMap.vo;
 
-import java.util.HashMap;
-
 public class KakaoMapVO {
 
 	// 주소명

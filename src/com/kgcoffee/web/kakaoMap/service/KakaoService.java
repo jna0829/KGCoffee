@@ -14,7 +14,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.kgcoffee.web.dao.KakaoMapDAO;
+import com.kgcoffee.web.kakaoMap.dao.KakaoMapDAO;
 import com.kgcoffee.web.kakaoMap.vo.KakaoMapVO;
 
 public class KakaoService {
