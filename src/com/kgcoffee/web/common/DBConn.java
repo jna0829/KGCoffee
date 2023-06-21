@@ -23,7 +23,7 @@ public class DBConn {
 	private DBConn() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","kgcoffee","kgcoffee");
+			con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","kgcoffee","0000");
 			
 					
 		}catch(Exception e) {

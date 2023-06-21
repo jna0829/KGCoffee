@@ -1,20 +1,13 @@
-package hello.servlet.web.frontcontroller.kgcoffee.controller.order;
+package com.kgcoffee.web.order.controller.order;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.siot.IamportRestClient.IamportClient;
-import com.siot.IamportRestClient.exception.IamportResponseException;
-import com.siot.IamportRestClient.response.IamportResponse;
-import com.siot.IamportRestClient.response.Payment;
-import hello.servlet.web.frontcontroller.kgcoffee.Controller;
-
-import java.io.IOException;
 import java.util.Map;
+
+import com.kgcoffee.web.order.Controller;
 
 
 public class OrderCompleteController implements Controller {
 
-    private ObjectMapper objectMapper;
+//    private ObjectMapper objectMapper;
 
 
     @Override

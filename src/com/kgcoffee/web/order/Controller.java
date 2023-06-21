@@ -1,4 +1,4 @@
-package hello.servlet.web.frontcontroller.kgcoffee;
+package com.kgcoffee.web.order;
 
 import java.util.Map;
 

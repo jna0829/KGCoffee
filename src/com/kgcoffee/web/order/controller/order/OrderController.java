@@ -1,8 +1,8 @@
-package hello.servlet.web.frontcontroller.kgcoffee.controller.order;
-
-import hello.servlet.web.frontcontroller.kgcoffee.Controller;
+package com.kgcoffee.web.order.controller.order;
 
 import java.util.Map;
+
+import com.kgcoffee.web.order.Controller;
 
 public class OrderController implements Controller {
     @Override

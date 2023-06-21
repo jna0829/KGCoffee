@@ -1,20 +1,21 @@
-package hello.servlet.web.frontcontroller.kgcoffee;
+package com.kgcoffee.web.order;
 
 
-import hello.servlet.web.frontcontroller.kgcoffee.controller.basket.BasketDeleteController;
-import hello.servlet.web.frontcontroller.kgcoffee.controller.basket.BasketUpdateController;
-import hello.servlet.web.frontcontroller.kgcoffee.controller.order.OrderCompleteController;
-import hello.servlet.web.frontcontroller.kgcoffee.controller.order.OrderController;
-import hello.servlet.web.frontcontroller.kgcoffee.controller.basket.BasketListController;
+import java.io.IOException;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+
+import com.kgcoffee.web.order.controller.basket.BasketDeleteController;
+import com.kgcoffee.web.order.controller.basket.BasketListController;
+import com.kgcoffee.web.order.controller.basket.BasketUpdateController;
+import com.kgcoffee.web.order.controller.order.OrderCompleteController;
+import com.kgcoffee.web.order.controller.order.OrderController;
 
 
 @WebServlet(name = "frontController", urlPatterns = "/api/*")

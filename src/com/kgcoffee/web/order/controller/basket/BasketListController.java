@@ -1,12 +1,12 @@
-package hello.servlet.web.frontcontroller.kgcoffee.controller.basket;
-
-import hello.servlet.domain.basket.BasketDto;
-import hello.servlet.domain.basket.BasketRepository;
-import hello.servlet.web.frontcontroller.kgcoffee.Controller;
-import hello.servlet.web.frontcontroller.kgcoffee.service.BasketService;
+package com.kgcoffee.web.order.controller.basket;
 
 import java.util.ArrayList;
 import java.util.Map;
+
+import com.kgcoffee.web.order.Controller;
+import com.kgcoffee.web.order.domain.basket.BasketDto;
+import com.kgcoffee.web.order.domain.basket.BasketRepository;
+import com.kgcoffee.web.order.service.BasketService;
 
 public class BasketListController implements Controller {
 
