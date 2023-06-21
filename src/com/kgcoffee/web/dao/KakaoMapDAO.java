@@ -3,18 +3,27 @@ package com.kgcoffee.web.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import com.kgcoffee.web.common.DBConn;
+import com.kgcoffee.web.common.LoggableStatement;
 import com.kgcoffee.web.kakaoMap.vo.KakaoMapVO;
 
 public class KakaoMapDAO {
 
-	Connection con = null;
-	String sql="";
-	PreparedStatement pstmt= null;
-	ResultSet rs = null;
+	private Connection con = null;
+	private String sql="";
+	private PreparedStatement pstmt= null;
+	private ResultSet rs = null;
 	
-	public KakaoMapDAO() {
+	
+	private static KakaoMapDAO dao = new KakaoMapDAO();
+	
+	public static KakaoMapDAO getInstance() {
+		return dao;
+	}
+	
+	private KakaoMapDAO() {
 		// TODO Auto-generated constructor stub
 		try {
 		con = DBConn.getInstance().getCon();
@@ -28,32 +37,36 @@ public class KakaoMapDAO {
 	public boolean insertMapList(KakaoMapVO vo) {
 		
 		boolean result=false;
-		sql = "INSERT IN TO map_table(address_name, categoryGroupCode"
+		sql = "INSERT INTO map_table(address_name, categoryGroupCode"
 				+ ", categoryGroupName, categoryName, mapId, placeName, placeUrl, phone, roadAddressName, x, y) "
 				+ "values(?,?,?,?,?,?,?,?,?,?,?)";
 		
 		try {
 			
-			pstmt=con.prepareStatement(sql);
+			pstmt= new LoggableStatement(con,sql);
 			pstmt.setString(1, vo.getAddressName());
-			pstmt.setString(1, vo.getCategoryGroupCode());
-			pstmt.setString(1, vo.getCategoryGroupName());
-			pstmt.setString(1, vo.getCategoryName());
-			pstmt.setInt(1, vo.getMapId());
-			pstmt.setString(1, vo.getPlaceName());
-			pstmt.setString(1, vo.getPlaceUrl());
-			pstmt.setString(1, vo.getPhone());
-			pstmt.setString(1, vo.getRoadAddressName());
-			pstmt.setDouble(1, vo.getX());
-			pstmt.setDouble(1, vo.getY());
+			pstmt.setString(2, vo.getCategoryGroupCode());
+			pstmt.setString(3, vo.getCategoryGroupName());
+			pstmt.setString(4, vo.getCategoryName());
+			pstmt.setInt(5, vo.getMapId());
+			pstmt.setString(6, vo.getPlaceName());
+			pstmt.setString(7, vo.getPlaceUrl());
+			pstmt.setString(8, vo.getPhone());
+			pstmt.setString(9, vo.getRoadAddressName());
+			pstmt.setDouble(10, vo.getX());
+			pstmt.setDouble(11, vo.getY());
 		
-			
+			System.out.println(((LoggableStatement)pstmt).getQueryString());
 
 			if(pstmt.executeUpdate()>=1) {
+				
+				
+				pstmt.close();
 				
 				return true;
 				
 			}else {
+				pstmt.close();
 				return result;
 			}
 			
@@ -67,7 +80,9 @@ public class KakaoMapDAO {
 		
 		return result;
 	}
-	
+
+
+
 	
 	
 	

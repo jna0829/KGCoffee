@@ -14,7 +14,7 @@ import com.kgcoffee.web.kakaoMap.service.KakaoService;
 /**
  * Servlet implementation class FrontController
  */
-@WebServlet("*.do")
+@WebServlet("*.map")
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -35,19 +35,19 @@ public class FrontController extends HttpServlet {
 		switch(c) {
 		
 		
-		case "/store/find.do":
+		case "/store/find.map":
 			
 				str="kakaoMap.jsp";
 				
 				break;
 			
-//		case "/store/save.do":
-//			
-//			service.searchMap();
-//			
-//			break;
+		case "/store/save.map":
 			
+			service.searchMap();
 			
+			break;
+			
+	
 
 			
 		

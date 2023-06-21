@@ -22,7 +22,7 @@ public class KakaoService {
 	private final String uri = "https://dapi.kakao.com/v2/local/search/keyword.json?size=15";
 	private final String apiKey = "KakaoAK 4811118d83cc4f11769af7407cf75b6e";
 	
-	KakaoMapDAO dao = new KakaoMapDAO();
+	KakaoMapDAO dao = KakaoMapDAO.getInstance();
 	
 
 	
@@ -78,7 +78,7 @@ public class KakaoService {
 
 			}
 			
-			System.out.println(resultList.size());
+			System.out.println("result List size - " + resultList.size());
 			
 			//중복제거
 			Map<Integer,KakaoMapVO> distinctMap= new HashMap<Integer,KakaoMapVO>();
@@ -90,9 +90,9 @@ public class KakaoService {
 			}
 
 			resultList = new ArrayList<KakaoMapVO>(distinctMap.values());
-			System.out.println(resultList.size());
+			System.out.println("distinct result - "+resultList.size());
 			
-
+			
 			for(KakaoMapVO vo : resultList){
 				
 				if(!(dao.insertMapList(vo))) {
@@ -104,8 +104,22 @@ public class KakaoService {
 			
 			
 			
+			
+			
 		}
 
+	}
+	
+	public void test() {
+		
+		KakaoMapVO vo = new KakaoMapVO("서울 마포구 동교동 164-22","CE7","카페","음식점 > 카페 > 커피전문점 > 메가MGC커피",
+				1969925488,"메가MGC커피 홍대입구역점","http://place.map.kakao.com/1969925488"
+				,"02-323-0650","서울 마포구 홍익로6길 48",126.9242387367584,37.55619709509767);
+	
+		dao.insertMapList(vo);
+		
+		
+		
 	}
 
 	public JsonArray getStoreList(double startX, double startY, double endX, double endY) {
@@ -192,5 +206,7 @@ public class KakaoService {
 
 
 	}
+
+	
 
 }
