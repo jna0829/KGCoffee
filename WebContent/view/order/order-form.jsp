@@ -76,7 +76,7 @@
         }
     </style>
     <script src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
-    <script type="text/javascript" src="../resources/js/order-form.js"></script>
+    <script type="text/javascript" src="/kgCoffee/js/order-form.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>

@@ -22,9 +22,9 @@
 
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="../resources/js/basket-form.js"></script>
+    <script type="text/javascript" src="/kgCoffee/js/basket-form.js"></script>
     <script src="https://kit.fontawesome.com/efb53b9ad1.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="../resources/css/basket-form.css">
+    <link rel="stylesheet" type="text/css" href="/kgCoffee/css/basket-form.css">
 </head>
 <body>
 
