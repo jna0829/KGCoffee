@@ -37,8 +37,8 @@ public class KakaoMapDAO {
 	public boolean insertMapList(KakaoMapVO vo) {
 		
 		boolean result=false;
-		sql = "INSERT INTO map_table(address_name, categoryGroupCode"
-				+ ", categoryGroupName, categoryName, mapId, placeName, placeUrl, phone, roadAddressName, x, y) "
+		sql = "INSERT INTO map_table(address_name, category_group_code"
+				+ ", category_group_name, category_name, map_id, place_name, place_url, phone, road_address_name, x, y) "
 				+ "values(?,?,?,?,?,?,?,?,?,?,?)";
 		
 		try {
