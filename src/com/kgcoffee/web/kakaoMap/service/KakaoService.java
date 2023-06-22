@@ -25,8 +25,8 @@ public class KakaoService {
 	KakaoMapDAO dao = KakaoMapDAO.getInstance();
 	
 
-	
-	public void searchMap() {
+	//얻어온 정보 db에 저장
+	public void saveMap() {
 
 		JsonArray jsonMapList = new JsonArray();
 		double jumpX = 0.5;
@@ -121,7 +121,8 @@ public class KakaoService {
 //		
 //		
 //	}
-
+	
+	//api를 통해 매장 검색
 	public JsonArray getStoreList(double startX, double startY, double endX, double endY) {
 		
 		
@@ -207,6 +208,20 @@ public class KakaoService {
 
 	}
 
+	
+	public ArrayList<KakaoMapVO> findMap(HashMap<String, Object> keyMap){
+		
+		ArrayList<KakaoMapVO> result = null;
+		
+		
+		result= dao.findMap(keyMap);
+		
+		
+		return result;
+		
+		
+		
+	}
 	
 
 }

@@ -11,9 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kgcoffee.web.order.controller.basket.BasketDeleteController;
-import com.kgcoffee.web.order.controller.basket.BasketListController;
-import com.kgcoffee.web.order.controller.basket.BasketUpdateController;
+import com.kgcoffee.web.order.controller.cart.CartDeleteController;
+import com.kgcoffee.web.order.controller.cart.CartInsertController;
+import com.kgcoffee.web.order.controller.cart.CartListController;
+import com.kgcoffee.web.order.controller.cart.CartUpdateController;
 import com.kgcoffee.web.order.controller.order.OrderCompleteController;
 import com.kgcoffee.web.order.controller.order.OrderController;
 
@@ -28,12 +29,15 @@ public class FrontController extends HttpServlet {
                 OrderController());
         controllerMap.put("/kgCoffee/order/complete", new
                 OrderCompleteController());
-        controllerMap.put("/kgCoffee/order/basket", new
-                BasketListController());
-        controllerMap.put("/kgCoffee/order/basket/delete", new
-                BasketDeleteController());
-        controllerMap.put("/kgCoffee/order/basket/update", new
-                BasketUpdateController());
+        controllerMap.put("/kgCoffee/order/cart", new
+                CartListController());
+        controllerMap.put("/kgCoffee/order/cart/insert", new
+                CartInsertController());
+        controllerMap.put("/kgCoffee/order/cart/delete", new
+                CartDeleteController());
+        controllerMap.put("/kgCoffee/order/cart/update", new
+                CartUpdateController());
+        
     }
 
 
@@ -74,7 +78,12 @@ public class FrontController extends HttpServlet {
     }
 
     private MyView viewResolver(String viewName) {
-        return new MyView("/view/order/" + viewName + ".jsp");
+        
+   
+    	return new MyView("/view/order/" + viewName + ".jsp");
+        
+        
+        
     }
     
     

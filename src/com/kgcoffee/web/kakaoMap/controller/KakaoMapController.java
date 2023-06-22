@@ -46,7 +46,7 @@ public class KakaoMapController extends HttpServlet {
 			
 		case "/store/save.map":
 			
-			service.searchMap();
+			service.saveMap();
 			
 			break;
 			

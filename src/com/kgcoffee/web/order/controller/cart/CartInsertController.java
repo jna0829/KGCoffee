@@ -7,10 +7,13 @@ import com.kgcoffee.web.order.Controller;
 import com.kgcoffee.web.order.dao.CartRepository;
 import com.kgcoffee.web.order.domain.CartVO;
 
-public class CartUpdateController implements Controller {
+public class CartInsertController implements Controller {
 
 	@Override
 	public String process(Map<String, String> paramMap, Map<String, Object> model) {
+
+		String result="fail";
+
 		int cartId = Integer.parseInt(paramMap.get("cart_id"));
 		int menuId = Integer.parseInt(paramMap.get("menu_id"));
 		String userId = paramMap.get("user_id");
@@ -18,17 +21,24 @@ public class CartUpdateController implements Controller {
 		CartRepository CartRepository = new CartRepository();
 		if (CartRepository.findCartByMenuId(userId, menuId) >= 1) {
 			CartRepository.update(cartId, menuAmount);
-			ArrayList<CartVO> CartList = CartRepository.findAllCartsByUserId(userId);
-			model.put("carts", CartList);
+			
+			result="update-sucess";
 
 		}else {
 			
 			CartVO cart = new CartVO(menuId,userId,menuAmount);
 			CartRepository.save(cart);
 			
-			
+			result="create-sucess";
 			
 		}
-		return "Cart-form";
+		
+		model.put("cart-msg", result);
+
+		return "insert-cart-result";
 	}
+
+		
+	
+
 }
