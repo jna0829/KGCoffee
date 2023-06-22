@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.kgcoffee.web.order.controller.cart.CartDeleteController;
 import com.kgcoffee.web.order.controller.cart.CartInsertController;
@@ -78,6 +79,11 @@ public class FrontController extends HttpServlet {
         request.getAttributeNames().asIterator()
         		.forEachRemaining(attrName -> paramMap.put(attrName,
         				(String)request.getAttribute(attrName)));
+        HttpSession session = request.getSession();
+        
+        session.getAttributeNames().asIterator()
+				.forEachRemaining(attrName -> paramMap.put(attrName,
+				(String)session.getAttribute(attrName)));
         
         return paramMap;
     }
