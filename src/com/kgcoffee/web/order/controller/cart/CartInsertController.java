@@ -14,12 +14,13 @@ public class CartInsertController implements Controller {
 
 		String result="fail";
 
-		int cartId = Integer.parseInt(paramMap.get("cart_id"));
 		int menuId = Integer.parseInt(paramMap.get("menu_id"));
 		String userId = paramMap.get("user_id");
 		int menuAmount = Integer.parseInt(paramMap.get("menu_amount"));
 		CartRepository CartRepository = new CartRepository();
-		if (CartRepository.findCartByMenuId(userId, menuId) >= 1) {
+		
+		int cartId= CartRepository.findCartByMenuId(userId, menuId);
+		if ( cartId >= 1) {
 			CartRepository.update(cartId, menuAmount);
 			
 			result="update-sucess";

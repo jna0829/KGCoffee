@@ -12,19 +12,23 @@ console.log("시작");
 function menuBasket() {
 
 	var reqUrl = "/kgCoffee/order/cart/insert";
-	var vo = $(this).parent().data("vo", "menuId");
+	var menuId = $(this).parent().data("vo", "menuId");
 	var amount = $(this).prev().val();
 
-
-	console.log($(this).parent().data("vo", "menuId"));
-	console.log($(this).prev().val());
-	console.log(vo);
+	console.log(menuId);
 	console.log(amount);
 
 	$.ajax({
 		url: reqUrl,
 		type: "POST",
-		data: 'JSON',
+		data: {
+
+			"menu_id" : menuId,
+			"menu_amount" : amount
+
+
+		},
+
 		success: function(data) {
 
 
