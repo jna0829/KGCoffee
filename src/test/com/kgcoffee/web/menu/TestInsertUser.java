@@ -19,7 +19,7 @@ class TestInsertUser {
 			for (int i = 1; i <= 100; i++) {
 
 				String user_id = "유저" + i;
-				String user_pw = "유저" + i;
+				String user_pw = "pw" + i;
 				String user_name = "유저" + i;
 				
 				String birthday = "1993-01-01";

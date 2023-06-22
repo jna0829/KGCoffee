@@ -31,18 +31,20 @@ public class UserLogin implements com.kgcoffee.web.common.ControllerImpl {
 		//로그인이 성공되면 UsersVO 객체가 넘어오고 실패하면 null이 넘어옴
 		if (loginUser != null) {
 			
+			session = request.getSession();
+			session.setAttribute("loginUser", loginUser);
 			if (user_id.equals("admin")) {
 
 				result = 1; //관리자
 				
-				session = request.getSession();
+				
 				session.setAttribute("result", result);
 				
 			} else {
 				
 				result = 2; //일반회원
 				
-				session = request.getSession();
+				
 				session.setAttribute("result", result);
 				
 			}

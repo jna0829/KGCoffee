@@ -17,7 +17,7 @@ class TestInsertBoard {
 			SnsDAO dao = new SnsDAO();
 
 			String jemok = "";
-			String writer = "유저";
+			String writer = "";
 			String content = "";
 			String filename = "";
 
@@ -29,16 +29,13 @@ class TestInsertBoard {
 				filename="";
 				
 				writer = "유저"+i;
-			
 				
-				
-				
-				
+				assertEquals(true, dao.insert(jemok, writer, content, filename));
+
 
 			}
 
-			assertEquals(true, dao.insert(jemok, writer, content, filename));
-
+		
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

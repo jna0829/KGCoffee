@@ -18,12 +18,14 @@ import com.kgcoffee.web.order.controller.cart.CartListController;
 import com.kgcoffee.web.order.controller.cart.CartUpdateController;
 import com.kgcoffee.web.order.controller.order.OrderCompleteController;
 import com.kgcoffee.web.order.controller.order.OrderController;
+import com.kgcoffee.web.users.vo.UsersVO;
 
 
 @WebServlet(name = "frontController", urlPatterns = "/order/*")
 public class FrontController extends HttpServlet {
     private Map<String, Controller> controllerMap = new ConcurrentHashMap<>();
-
+    String viewName ="";
+    Map<String, Object> model=null;
     public FrontController() {
     	
         controllerMap.put("/kgCoffee/order/order", new
@@ -60,18 +62,29 @@ public class FrontController extends HttpServlet {
             return;
         }
         // 파라미터가 있을 경우 Map 구조에 담음
-        Map<String, String> paramMap = createParamMap(request);
+        Map<String, Object> paramMap = createParamMap(request);
+        if(paramMap.containsKey("loginUser")) {
         // Model 객체 생성
-        Map<String, Object> model = new ConcurrentHashMap<>();
-        String viewName = controller.process(paramMap, model);
+        model = new ConcurrentHashMap<>();
+        viewName = controller.process(paramMap, model);
+        }else {
+        	
+        	viewName= "beforeLogin";
+        	
+        }
+        
         // view 반환
         MyView view = viewResolver(viewName);
         // 렌더링
         view.render(model, request, response);
+        
+  
+        
+        
     }
 
-    private Map<String, String> createParamMap(HttpServletRequest request) {
-        Map<String, String> paramMap = new ConcurrentHashMap<>();
+    private Map<String, Object> createParamMap(HttpServletRequest request) {
+        Map<String, Object> paramMap = new ConcurrentHashMap<>();
         request.getParameterNames().asIterator()
                 .forEachRemaining(paramName -> paramMap.put(paramName,
                         request.getParameter(paramName)));
@@ -80,10 +93,12 @@ public class FrontController extends HttpServlet {
         		.forEachRemaining(attrName -> paramMap.put(attrName,
         				(String)request.getAttribute(attrName)));
         HttpSession session = request.getSession();
+        UsersVO loginUser=((UsersVO)session.getAttribute("loginUser"));
         
-        session.getAttributeNames().asIterator()
-				.forEachRemaining(attrName -> paramMap.put(attrName,
-				(String)session.getAttribute(attrName)));
+        paramMap.put("loginUser",loginUser);
+        
+        
+        
         
         return paramMap;
     }

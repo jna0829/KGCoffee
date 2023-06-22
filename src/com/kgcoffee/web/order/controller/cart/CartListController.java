@@ -13,11 +13,11 @@ public class CartListController implements Controller {
     public CartService cartService = new CartService();
 
     @Override
-    public String process(Map<String, String> paramMap, Map<String, Object> model) {
+    public String process(Map<String, Object> paramMap, Map<String, Object> model) {
         // user data 없어서 임시로 test 바로 보냄 후에 paramMap에서 받아오는 것으로 수정
         CartRepository cartRepository = new CartRepository();
         
-        String userId = paramMap.get("user_id");
+        String userId = (String) paramMap.get("user_id");
         ArrayList<CartVO> cartList = cartRepository.findAllCartsByUserId(userId);
         int totalAmountByUser = cartService.getTotalAmountByUser(cartList);
         model.put("total_amount_fee", totalAmountByUser);
