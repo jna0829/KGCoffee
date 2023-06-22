@@ -21,7 +21,7 @@
 						<span class="discount">${vo.menuType }</span>
 						<div class="image">
 							<img
-								src="http://localhost:8080/kg_coffee/img/menuImg/${vo.fileName }"
+								src="http://localhost:8080/kgCoffee/img/menuImg/${vo.fileName }"
 								alt="" />
 						</div>
 						<div class="content">
