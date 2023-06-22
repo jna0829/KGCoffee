@@ -2,6 +2,7 @@ package com.kgcoffee.web.order;
 
 
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -55,6 +56,7 @@ public class FrontController extends HttpServlet {
         String requestURI = request.getRequestURI();
         
         System.out.println(requestURI);
+ 
         Controller controller = controllerMap.get(requestURI);
         // 해당 controller 없을 경우 404 page 반환
         if (controller == null) {
@@ -63,13 +65,14 @@ public class FrontController extends HttpServlet {
         }
         // 파라미터가 있을 경우 Map 구조에 담음
         Map<String, Object> paramMap = createParamMap(request);
+  
         if(paramMap.containsKey("loginUser")) {
         // Model 객체 생성
         model = new ConcurrentHashMap<>();
         viewName = controller.process(paramMap, model);
         }else {
         	
-        	viewName= "beforeLogin";
+        	viewName= "before-login";
         	
         }
         
@@ -95,11 +98,14 @@ public class FrontController extends HttpServlet {
         HttpSession session = request.getSession();
         UsersVO loginUser=((UsersVO)session.getAttribute("loginUser"));
         
+        if(loginUser!=null) {
         paramMap.put("loginUser",loginUser);
         
+        }
         
         
         
+        		
         return paramMap;
     }
 

@@ -26,6 +26,10 @@ public class MyView {
 
     private void modelToRequestAttribute(Map<String, Object> model,
                                          HttpServletRequest request) {
+    	
+    	if(model!=null) {
         model.forEach((key, value) -> request.setAttribute(key, value));
+    	}
+    	
     }
 }

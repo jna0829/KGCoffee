@@ -13,8 +13,8 @@ public class CartDeleteController implements Controller {
     @Override
     public String process(Map<String, Object> paramMap, Map<String, Object> model) {
         paramMap.forEach((key, value) -> System.out.println("Key: " + key + ", Value: " + value));
-        int cartId = (Integer)(paramMap.get("cart_id"));
-        String userId = (String) paramMap.get("user_id");
+        int cartId = (Integer)(paramMap.get("cartId"));
+        String userId = (String) paramMap.get("userId");
         CartRepository cartRepository = new CartRepository();
         cartRepository.delete(cartId);
         ArrayList<CartVO> cartDtos = cartRepository.findAllCartsByUserId(userId);

@@ -14,9 +14,9 @@ public class CartInsertController implements Controller {
 
 		String result="fail";
 
-		int menuId = (Integer)(paramMap.get("menu_id"));
-		String userId = (String) paramMap.get("user_id");
-		int menuAmount = (Integer)(paramMap.get("menu_amount"));
+		int menuId = (Integer)(paramMap.get("menuId"));
+		String userId = (String) paramMap.get("userId");
+		int menuAmount = (Integer)(paramMap.get("menuAmount"));
 		CartRepository CartRepository = new CartRepository();
 		
 		int cartId= CartRepository.findCartByMenuId(userId, menuId);

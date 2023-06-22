@@ -13,10 +13,10 @@ public class CartUpdateController implements Controller {
 	public String process(Map<String, Object> paramMap, Map<String, Object> model) {
 		
 		
-		int cartId = (Integer)(paramMap.get("cart_id"));
+		int cartId = (Integer)(paramMap.get("cartId"));
 	
-		String userId = (String) paramMap.get("user_id");
-		int menuAmount = (Integer)(paramMap.get("menu_amount"));
+		String userId = (String) paramMap.get("userId");
+		int menuAmount = (Integer)(paramMap.get("menuAmount"));
 		CartRepository CartRepository = new CartRepository();
 
 		CartRepository.update(cartId, menuAmount);

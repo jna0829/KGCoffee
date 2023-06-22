@@ -17,7 +17,7 @@ public class CartListController implements Controller {
         // user data 없어서 임시로 test 바로 보냄 후에 paramMap에서 받아오는 것으로 수정
         CartRepository cartRepository = new CartRepository();
         
-        String userId = (String) paramMap.get("user_id");
+        String userId = (String) paramMap.get("userId");
         ArrayList<CartVO> cartList = cartRepository.findAllCartsByUserId(userId);
         int totalAmountByUser = cartService.getTotalAmountByUser(cartList);
         model.put("total_amount_fee", totalAmountByUser);

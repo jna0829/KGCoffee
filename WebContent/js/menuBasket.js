@@ -23,12 +23,11 @@ function menuBasket() {
 		type: "POST",
 		data: {
 
-			"menu_id" : menuId,
-			"menu_amount" : amount
+			menuId : menuId,
+			menuAmount: amount
 
 
 		},
-
 		success: function(data) {
 
 
