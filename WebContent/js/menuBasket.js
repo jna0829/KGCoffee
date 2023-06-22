@@ -1,37 +1,38 @@
 /**
  * 
  */
-$(function(){
-	
-	//장바구니 클릭 이벤트
-	$(".basket_btn").click(menuBasket);
 
 
+//장바구니 클릭 이벤트
+$(".basket_btn").click(menuBasket);
 
-	function menuBasket(){
-	
+console.log("시작");
+
+
+function menuBasket() {
+
 	var reqUrl = "/kgCoffee/order/cart/insert";
-	var vo =  $(this).parent().data("vo","menuId");
+	var vo = $(this).parent().data("vo", "menuId");
 	var amount = $(this).prev().val();
-	
-	/*console.log(JSON.parse(vo));*/
 
-	/*console.log($(this).parent());
-	console.log($(this).prev());
+
+	console.log($(this).parent().data("vo", "menuId"));
+	console.log($(this).prev().val());
 	console.log(vo);
-	console.log(amount);*/
-	
-	$.ajax({
-			url : reqUrl,
-			type : "POST",
-			data : 'JSON',
-			success : function(vo) {
-						
+	console.log(amount);
 
-	
-	}
-		
-	
-}) 
-		}})
-	
+/*	$.ajax({
+		url: reqUrl,
+		type: "POST",
+		data: 'JSON',
+		success: function(data) {
+
+
+			console.log(data);
+
+
+		}
+
+
+	})*/
+}

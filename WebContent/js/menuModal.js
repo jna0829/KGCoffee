@@ -1,15 +1,8 @@
-/**
- * 
- */
-
-			/*모달창 클릭 이벤트*/
 
 	  $(".box").click(function (event) {
 
-         event.stopPropagation();
-			console.log($(this));
-		console.log($(this).children(".inner_modal"));
-
+         event.stopPropagation();  
+		
          $(this).children(".inner_modal").addClass("active")
 
 
