@@ -20,6 +20,7 @@
 
  <script src="/kgCoffee/js/menuType.js" defer></script>
 <script src="/kgCoffee/js/menuModal.js" defer></script>
+<script src="/kgCoffee/js/menuBasket.js" defer></script>
 </head>
 <body>
 	<%@include file="/include/header.jsp" %>
