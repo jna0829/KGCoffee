@@ -16,7 +16,7 @@ class TestInsertUser {
 		try {
 			UsersDAO dao = UsersDAO.getInstance();
 
-			for (int i = 0; i < 100; i++) {
+			for (int i = 1; i <= 100; i++) {
 
 				String user_id = "유저" + i;
 				String user_pw = "유저" + i;

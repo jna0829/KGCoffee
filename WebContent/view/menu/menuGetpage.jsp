@@ -39,7 +39,7 @@
 						<div class="inner_modal_text3">${vo.menuExplain }</div>
 						<div class="inner_modal_basket">
 							수량: <input type="number" name="num"/>
-							<input type="submit" value="장바구니 담기">
+							<input type="submit" value="장바구니 담기" class="basket_btn">
 						</div>
 					</div>
 				<!-- </form> -->	

@@ -18,7 +18,7 @@
 	crossorigin="anonymous">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
- <script src="/kgCoffee/js/menuType.js" defer></script>
+<script src="/kgCoffee/js/menuType.js" defer></script>
 <script src="/kgCoffee/js/menuModal.js" defer></script>
 <script src="/kgCoffee/js/menuBasket.js" defer></script>
 </head>

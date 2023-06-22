@@ -21,7 +21,7 @@ function menuBasket() {
 	console.log(vo);
 	console.log(amount);
 
-/*	$.ajax({
+	$.ajax({
 		url: reqUrl,
 		type: "POST",
 		data: 'JSON',
@@ -34,5 +34,5 @@ function menuBasket() {
 		}
 
 
-	})*/
+	})
 }
