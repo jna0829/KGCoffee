@@ -54,11 +54,6 @@ public class CartVO extends MenuVO {
 		this.menuAmount = menuAmount;
 	}
 
-	public CartVO(int menuId, String userId, int menuAmount) {
-		
-		this.cartId = cartId;
-		this.userId = userId;
-		this.menuAmount = menuAmount;
-	}
+
 
 }

@@ -64,9 +64,17 @@ public class FrontController extends HttpServlet {
             return;
         }
         // 파라미터가 있을 경우 Map 구조에 담음
-        Map<String, Object> paramMap = createParamMap(request);
+        Map<String, String> paramMap = createParamMap(request);
   
-        if(paramMap.containsKey("loginUser")) {
+        
+        HttpSession session = request.getSession();
+        UsersVO loginUser=((UsersVO)session.getAttribute("loginUser"));
+        
+        if(loginUser!=null) {
+        paramMap.put("userId",loginUser.getUser_id());
+        
+     
+          
         // Model 객체 생성
         model = new ConcurrentHashMap<>();
         viewName = controller.process(paramMap, model);
@@ -79,6 +87,8 @@ public class FrontController extends HttpServlet {
         // view 반환
         MyView view = viewResolver(viewName);
         // 렌더링
+        
+        System.out.println("result : " + viewName);
         view.render(model, request, response);
         
   
@@ -86,23 +96,13 @@ public class FrontController extends HttpServlet {
         
     }
 
-    private Map<String, Object> createParamMap(HttpServletRequest request) {
-        Map<String, Object> paramMap = new ConcurrentHashMap<>();
+    private Map<String, String> createParamMap(HttpServletRequest request) {
+        Map<String, String> paramMap = new ConcurrentHashMap<>();
         request.getParameterNames().asIterator()
                 .forEachRemaining(paramName -> paramMap.put(paramName,
                         request.getParameter(paramName)));
-        
-        request.getAttributeNames().asIterator()
-        		.forEachRemaining(attrName -> paramMap.put(attrName,
-        				(String)request.getAttribute(attrName)));
-        HttpSession session = request.getSession();
-        UsersVO loginUser=((UsersVO)session.getAttribute("loginUser"));
-        
-        if(loginUser!=null) {
-        paramMap.put("loginUser",loginUser);
-        
-        }
-        
+       
+
         
         
         		

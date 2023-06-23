@@ -9,7 +9,7 @@
 	rel="stylesheet"
 	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 	crossorigin="anonymous">
-	
+	 
 	<!--================= 메뉴 리스트 페이지 =======================-->
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -37,7 +37,7 @@
 						<div class="inner_modal_text1"><b>${vo.menuName }</b></div>
 						<div class="inner_modal_text2">가격: ${vo.menuPrice }</div>
 						<div class="inner_modal_text3">${vo.menuExplain }</div>
-						<div class="inner_modal_basket">
+						<div class="inner_modal_basket" data-menu-id=${vo.menuId}>
 							수량: <input type="number" name="num"/>
 							<input type="submit" value="장바구니 담기" class="basket_btn">
 						</div>

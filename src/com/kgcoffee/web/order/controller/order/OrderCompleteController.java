@@ -11,7 +11,7 @@ public class OrderCompleteController implements Controller {
 
 
     @Override
-    public String process(Map<String, Object> paramMap, Map<String, Object> model) {
+    public String process(Map<String, String> paramMap, Map<String, Object> model) {
         // DB TABLE 생성해서 주문 정보 원하는 값들만 넣어주면 됨.
 
 

@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.kgcoffee.web.common.DBConn;
+import com.kgcoffee.web.common.LoggableStatement;
 import com.kgcoffee.web.order.domain.CartVO;
 
 
@@ -34,15 +35,16 @@ public class CartRepository {
      
     	boolean result=false;
 
-        sql = "INSERT INTO cart(cart_id, user_id, menu_id, menu_amount)"
-        		+ " values(cart_seq.nextVal(), ?, ?, ?)";
+        sql = "INSERT INTO cart_table(cart_id, user_id, menu_id, menu_amount)"
+        		+ " values(cart_seq.nextVal, ?, ?, ?)";
         try {
             
-            pst = con.prepareStatement(sql);
+            pst = new LoggableStatement(con, sql);
             pst.setString(1, cart.getUserId());
             pst.setInt(2, cart.getMenuId());
             pst.setInt(3, cart.getMenuAmount());
             
+            System.out.println(((LoggableStatement)pst).getQueryString());
             
             if(pst.executeUpdate()>=1) {
             	result=true;
@@ -60,7 +62,7 @@ public class CartRepository {
     public boolean delete(int Cart_id){
     	
     	boolean result=false;
-        sql = "DELETE FROM Cart WHERE Cart_ID = ?";
+        sql = "DELETE from cart_table WHERE Cart_ID = ?";
         try {
             
             pst = con.prepareStatement(sql);
@@ -83,13 +85,13 @@ public class CartRepository {
    
     	int cartId=0;
 
-        sql = "SELECT cart_id FROM Cart WHERE user_id = ? and menu_id = ?";
+        sql = "SELECT cart_id from cart_table WHERE user_id = ? and menu_id = ?";
         
        try {
             
             pst = con.prepareStatement(sql);
             pst.setString(1, userId);
-            pst.setInt(1, menuId);
+            pst.setInt(2, menuId);
           
             rs = pst.executeQuery();
             while(rs.next()){
@@ -113,7 +115,7 @@ public class CartRepository {
     	boolean result=false;
     	
     	
-        sql = "UPDATE Cart SET menu_amount = ? WHERE Cart_ID = ?";
+        sql = "UPDATE Cart_table SET menu_amount = ? WHERE Cart_ID = ?";
         try {
             
             pst = con.prepareStatement(sql);
@@ -139,7 +141,7 @@ public class CartRepository {
     public ArrayList<CartVO> findAllCartsByUserId(String userId){
        
 
-        sql = "SELECT * FROM Cart INNER JOIN MENU ON cart.menu_id = menu.menu_id WHERE cart.USER_ID=?";
+        sql = "SELECT * from cart_table INNER JOIN MENU ON cart.menu_id = menu.menu_id WHERE cart.USER_ID=?";
         
         ArrayList<CartVO> arrayList = new ArrayList<>();
         try {

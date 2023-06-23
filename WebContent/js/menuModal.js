@@ -2,6 +2,7 @@
 	  $(".box").click(function (event) {
 
          event.stopPropagation();  
+         
 		
          $(this).children(".inner_modal").addClass("active")
 

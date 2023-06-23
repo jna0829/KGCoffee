@@ -2,4 +2,5 @@
     pageEncoding="UTF-8"%>
 
     
-${cart-msg}
+
+<%= request.getAttribute("cart-msg") %>

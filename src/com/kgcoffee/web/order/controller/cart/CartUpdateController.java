@@ -10,13 +10,13 @@ import com.kgcoffee.web.order.domain.CartVO;
 public class CartUpdateController implements Controller {
 
 	@Override
-	public String process(Map<String, Object> paramMap, Map<String, Object> model) {
+	public String process(Map<String, String> paramMap, Map<String, Object> model) {
 		
 		
-		int cartId = (Integer)(paramMap.get("cartId"));
+		int cartId = Integer.parseInt(paramMap.get("cartId"));
 	
-		String userId = (String) paramMap.get("userId");
-		int menuAmount = (Integer)(paramMap.get("menuAmount"));
+		String userId = paramMap.get("userId");
+		int menuAmount = Integer.parseInt(paramMap.get("menuAmount"));
 		CartRepository CartRepository = new CartRepository();
 
 		CartRepository.update(cartId, menuAmount);
