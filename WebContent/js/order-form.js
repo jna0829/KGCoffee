@@ -23,7 +23,7 @@ let order = {
                 // 결제검증
                 $.ajax({
                     type : "POST",
-                    url : "order/complete",
+                    url : "/kgcoffee/order/complete",
                     data : {
                         // 저장할 pay 정보 넣어서 서버 보내서 DB 테이블 저장
                         imp_uid : res.imp_uid,
@@ -53,3 +53,9 @@ let order = {
         });
     },
 }
+
+$("back-button").click(function(){
+
+    history.back();
+
+})

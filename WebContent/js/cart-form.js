@@ -25,9 +25,7 @@ let basket = {
         var item = document.querySelector('input[name=p_num'+pos+']');
         var p_num = parseInt(item.getAttribute('value'));
         var new_val = event.target.classList.contains('plus') ? p_num+1 : event.target.classList.contains('minus') ? p_num-1 : event.target.value;
-        console.log(item);
-        console.log(p_num);
-        console.log(new_val);
+     
         if (parseInt(new_val) < 1 || parseInt(new_val) > 999) { return false; }
 
         item.setAttribute('value', new_val);
@@ -70,7 +68,7 @@ let basket = {
             url: "/kgCoffee/order/cart/delete",
             type: "post",
             data : {
-                basket_id : bi
+                cartId : bi
             },
             success: function (response){
                 console.log("delete success")

@@ -82,9 +82,33 @@
 <body>
 <div class="container" style="justify-content: center">
     <h1>주문 상세</h1>
-    <div class="form-group">
+    <div class="form-group menu-list-form">
         <label class="font" for="order-list">주문 상품</label>
-        <textarea id="order-list" rows="4" placeholder="주문 상품 내용"></textarea>
+        <div class="menu-list-wrap">
+
+            <c:forEach var="item" items="${cartList}" varStatus="status">
+                <div class="product-info" id="ix${status.count}">
+
+                    <div style="flex-grow: 1; width: max-content">
+                        <div>
+                            <div class="product-info-name">${item.menuName}</div>
+                            <div class="product-info-count">
+                                <div type="text" name="p_num${status.count}" id="p_num${status.count}" size="2" maxlength="4" class="p_num" value="${item.menuAmount}" >
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="delete_button fa-solid fa-xmark" onclick="javascript:basket.delItem(${status.count}, ${item.cartId})"></button>
+                        <div class="product-info-fee" id="amount${status.count}" style="margin-top: 40px">${item.menuPrice * item.menuAmount}원</div>
+                    </div>
+                </div>
+            </c:forEach>
+
+
+        </div>
+
+
+
     </div>
 
     <div class="form-group">
@@ -132,7 +156,7 @@
     </div>
 </div>
 <div class="buttons">
-    <button id="pay-button" onclick="javascript:order.go_pay('${user_id}', '${totalPrice}', '${user_id}')">결제하기</button>
+    <button id="pay-button" onclick="javascript:order.go_pay('${userId}', '${totalPrice}', '${userId}')">결제하기</button>
     <button id="back-button">뒤로가기</button>
 </div>
 

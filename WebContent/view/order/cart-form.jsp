@@ -22,6 +22,17 @@
             text-align: center;
         }
 
+        .buttons .form_wrap{
+
+            margin: 0 auto;
+        }
+
+        
+        .buttons .form_wrap form{
+
+            display: inline-block;
+        }
+
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="/kgCoffee/js/cart-form.js"></script>
@@ -62,14 +73,17 @@
     </div>
 </div>
 <div class="buttons" style="display: flex">
-    <form action="order" method="GET">
-        <input type="hidden" name="user_id" value=${userId}>
-        <input type="hidden" name="totalPrice" id="totalPrice" value=${totalPrice}>
-        <button type="submit"  onclick="javascript:basket.go_pay_form()">결제하기</button>
-    </form>
-    <form action="order" method="GET">
-        <button type="submit">뒤로가기</button>
-    </form>
+    <div class="form_wrap">
+
+        <form action="/kgCoffee/order/order" method="GET">
+            <input type="hidden" name="cartList" value=${cartList}>
+            <input type="hidden" name="totalPrice" id="totalPrice" value=${totalPrice}>
+            <button type="submit"  onclick="javascript:basket.go_pay_form()">결제하기</button>
+        </form>
+        <form action="order" method="GET">
+            <button type="submit">뒤로가기</button>
+        </form>
+    </div>
 </div>
 <%@include file="/include/footer.jsp"%>
 
