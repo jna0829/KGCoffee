@@ -69,20 +69,26 @@ public class FrontController extends HttpServlet {
         
         HttpSession session = request.getSession();
         UsersVO loginUser=((UsersVO)session.getAttribute("loginUser"));
-        
+        String userId="";
         if(loginUser!=null) {
-        paramMap.put("userId",loginUser.getUser_id());
+        	userId = loginUser.getUser_id();
+        }else {
+        	userId="admin";
+        }
+        
+        
+        paramMap.put("userId",userId);
         
      
           
         // Model 객체 생성
         model = new ConcurrentHashMap<>();
         viewName = controller.process(paramMap, model);
-        }else {
-        	
-        	viewName= "before-login";
-        	
-        }
+//        }else {
+//        	
+//        	viewName= "before-login";
+//        	
+//        }
         
         // view 반환
         MyView view = viewResolver(viewName);

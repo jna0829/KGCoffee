@@ -25,27 +25,28 @@ let basket = {
         var item = document.querySelector('input[name=p_num'+pos+']');
         var p_num = parseInt(item.getAttribute('value'));
         var new_val = event.target.classList.contains('plus') ? p_num+1 : event.target.classList.contains('minus') ? p_num-1 : event.target.value;
-        if (parseInt(new_val) < 1 || parseInt(new_val) > 99) { return false; }
+        console.log(item);
+        console.log(p_num);
+        console.log(new_val);
+        if (parseInt(new_val) < 1 || parseInt(new_val) > 999) { return false; }
 
         item.setAttribute('value', new_val);
         item.value = new_val;
 
 
-        var reqUrl = "/kgCoffee/order/cart/insert";
+        var reqUrl = "/kgCoffee/order/cart/update";
 
-        console.log(bi)
-        
-        
-        console.log(new_val)
+     
         
 
         //AJAX 업데이트 전송
         $.ajax({
             url: reqUrl,
             type: "POST",
+            // contentType: "application/x-www-form-urlencoded; charset=UTF-8",
             data : {
-                basket_id: bi,
-                new_val : new_val
+                cartId: bi,
+                menuAmount : new_val
             },
             success: function (response){   
                 console.log("update success")

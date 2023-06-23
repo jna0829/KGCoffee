@@ -17,8 +17,8 @@ public class CartDeleteController implements Controller {
         String userId =  paramMap.get("userId");
         CartRepository cartRepository = new CartRepository();
         cartRepository.delete(cartId);
-        ArrayList<CartVO> cartDtos = cartRepository.findAllCartsByUserId(userId);
-        model.put("carts", cartDtos);
+        ArrayList<CartVO> cartList = cartRepository.findAllCartsByUserId(userId);
+        model.put("cartList", cartList);
         return "cart-form";
     }
 }

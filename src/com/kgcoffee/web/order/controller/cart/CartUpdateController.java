@@ -21,8 +21,8 @@ public class CartUpdateController implements Controller {
 
 		CartRepository.update(cartId, menuAmount);
 		ArrayList<CartVO> CartList = CartRepository.findAllCartsByUserId(userId);
-		model.put("carts", CartList);
+		model.put("CartList", CartList);
 
-		return "Cart-form";
+		return "cart-form";
 	}
 }
