@@ -81,11 +81,18 @@ public class KakaoMapDAO {
 		ArrayList<KakaoMapVO> mapList = new ArrayList<KakaoMapVO>();
 		
 		sql = "select * from map_table";
-
-		int mapId = (Integer) keyMap.get("mapId");
-		String keyword = (String) keyMap.get("keyword");
-
-		if (keyword != null) {
+		int mapId =0;
+		String keyword="";
+		
+		if(keyMap.get("mapId")!=null) {
+		
+			mapId=(int) keyMap.get("mapId");
+		}
+		if(keyMap.get("keyword")!=null) {
+		keyword = (String) keyMap.get("keyword");
+		}
+		
+		if (keyword != "") {
 
 			if (!(keyword.equals("all"))) {
 				

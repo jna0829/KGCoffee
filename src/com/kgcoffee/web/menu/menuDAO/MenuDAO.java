@@ -120,9 +120,9 @@ public class MenuDAO {
 	
 	public ArrayList<MenuVO> getMenuListByPage(int page, int amount){
 		
-		String sql = "select * from (select A. *, ROW_NUMBER() over(order by menuId) as num"
+		String sql = "select * from (select A. *, ROW_NUMBER() over(order by menuId desc) as num"
 				+ "    from Menu A)"
-				+ "    where num between ? and ? order by menuId desc";
+				+ "    where num between ? and ?";
 		ArrayList<MenuVO> array = new ArrayList<MenuVO>();
 
 		
