@@ -141,7 +141,7 @@ public class CartRepository {
     public ArrayList<CartVO> findAllCartsByUserId(String userId){
        
 
-        sql = "SELECT * from cart_table INNER JOIN MENU ON cart.menu_id = menu.menu_id WHERE cart.USER_ID=?";
+        sql = "SELECT * from cart_table INNER JOIN MENU ON  cart_table.menu_id = menu.menuId WHERE  cart_table.USER_ID=?";
         
         ArrayList<CartVO> arrayList = new ArrayList<>();
         try {

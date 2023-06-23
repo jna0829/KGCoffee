@@ -6,8 +6,6 @@
 //장바구니 클릭 이벤트
 $(".basket_btn").click(menuBasket);
 
-console.log("시작");
-
   
 function menuBasket() {
 
@@ -29,7 +27,7 @@ function menuBasket() {
 
 			
 			var msg = data.trim();
-			console.log(msg);
+	
 			if(!(msg===null)){
 
 				if(msg==="update-success"){

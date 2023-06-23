@@ -19,10 +19,10 @@ public class CartListController implements Controller {
         
         String userId = paramMap.get("userId");
         ArrayList<CartVO> cartList = cartRepository.findAllCartsByUserId(userId);
-        int totalAmountByUser = cartService.getTotalAmountByUser(cartList);
-        model.put("total_amount_fee", totalAmountByUser);
-        model.put("carts", cartList);
-        model.put("user_id", "test");
+        int totalPrice = cartService.getTotalAmountByUser(cartList);
+        model.put("totalPrice", totalPrice);
+        model.put("cartList", cartList);
+        model.put("userId", userId);
 
         return "cart-form";
     }

@@ -88,7 +88,7 @@ public class FrontController extends HttpServlet {
         MyView view = viewResolver(viewName);
         // 렌더링
         
-        System.out.println("result : " + viewName);
+        System.out.println("result page : " + viewName);
         view.render(model, request, response);
         
   

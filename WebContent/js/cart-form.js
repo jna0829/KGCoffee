@@ -19,6 +19,9 @@ let basket = {
     },
     //개별 수량 변경
     changePNum: function (pos, bi, pr) {
+
+        console.log("수량 변경 이벤트")
+
         var item = document.querySelector('input[name=p_num'+pos+']');
         var p_num = parseInt(item.getAttribute('value'));
         var new_val = event.target.classList.contains('plus') ? p_num+1 : event.target.classList.contains('minus') ? p_num-1 : event.target.value;
@@ -27,19 +30,28 @@ let basket = {
         item.setAttribute('value', new_val);
         item.value = new_val;
 
+
+        var reqUrl = "/kgCoffee/order/cart/insert";
+
+        console.log(bi)
+        
+        
+        console.log(new_val)
+        
+
         //AJAX 업데이트 전송
         $.ajax({
-            url: "basket/update",
-            type: "post",
+            url: reqUrl,
+            type: "POST",
             data : {
                 basket_id: bi,
                 new_val : new_val
             },
-            success: function (response){
-                console.log("delete success")
+            success: function (response){   
+                console.log("update success")
             },
             error: function (xhr, status, error){
-                console.log("delete fail")
+                console.log("update fail")
             }
 
 
@@ -47,13 +59,14 @@ let basket = {
 
         // ui UPDATE
         $("#amount"+pos).text((new_val * pr) + "원");
+
         this.reCalc();
         this.updateUI();
     },
     delItem: function (pos, bi) {
         //AJAX 서버 업데이트 전송
         $.ajax({
-            url: "basket/delete",
+            url: "/kgCoffee/order/cart/delete",
             type: "post",
             data : {
                 basket_id : bi
