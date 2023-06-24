@@ -10,6 +10,10 @@ let order = {
         //
 
         var mapId = $("#"+($("#store_list").val())).data("val");
+        if(mapId===null){
+            alert("매장을 선택하세요");
+            return;
+        }
 
         console.log(mapId);
         IMP.request_pay({
@@ -95,8 +99,3 @@ let order = {
     },
 }
 
-$("#back-button").click(function(){
-
-    history.back();
-
-})

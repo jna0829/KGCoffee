@@ -44,11 +44,11 @@ public class KakaoMapController extends HttpServlet {
 				
 				break;
 			
-//		case "/store/save.map":
-//			
-//			service.saveMap();
-//			
-//			break;
+		case "/store/save.map":
+			
+			service.saveMap();
+			
+			break;
 			
 	
 

@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
         <!DOCTYPE html>
         <html>
 
@@ -122,13 +123,16 @@
                     <label class="font" for="request">매장 선택</label>
 
                     <div style="display: flex" class="store_list_wrap">
-                        <input id="store_list" name="store_list" list="store_list" type="text">
+                        <input id="store_list" name="store_list" list="store_list_data" type="text">
                             <datalist id="store_list_data" class="store_list_data">
                                 <c:forEach var="store" items="${storeList}" varStatus="status">
-                                    <!-- <option data-val=${store.mapId} id="${store.plcaeName}" value=${store.plcaeName}></option> -->
-
-                                ${store}
+	                                <c:set var="placeName" value="${store.placeName}"/>
+	                                <c:set var="pLen" value="${fn:length(placeName)}"/>
+                                
+                                     <option data-val=${store.mapId} id="${store.mapId}" value="${fn:substring(placeName,8,pLen)}" label="${store.roadAddressName }"/>
+                        
                                 </c:forEach>
+                                
                             </datalist>
                         </input>
                     </div>
@@ -183,7 +187,7 @@
             <div class="buttons">
                 <button id="pay-button"
                     onclick="javascript:order.go_pay('${userId}', '${totalPrice}', '${userId}')">결제하기</button>
-                <button id="back-button">뒤로가기</button>
+                <button id="back-button" onclick="history.back()">뒤로가기</button>
             </div>
 
         </body>

@@ -55,7 +55,7 @@ public class KakaoMapDAO {
 			pstmt.setDouble(10, vo.getX());
 			pstmt.setDouble(11, vo.getY());
 
-			System.out.println(((LoggableStatement) pstmt).getQueryString());
+//			System.out.println(((LoggableStatement) pstmt).getQueryString());
 
 			if (pstmt.executeUpdate() >= 1) {
 

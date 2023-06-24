@@ -25,6 +25,10 @@ class TestKakaoMapDAO {
 		
 		System.out.println(storeList.size());
 		
+		
+		String str = "메가MGC커피 동대문점";
+		str = str.substring(8);
+		System.out.println(str);
 
 	}
 
