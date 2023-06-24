@@ -26,8 +26,7 @@ public class OrderController implements Controller {
         
         
         storeList = KakaoMapDAO.getInstance().findMap(keyMap);
-        System.out.println(storeList);
-        
+
      	model.put("userId", userId);
         model.put("totalPrice", paramMap.get("totalPrice"));
         model.put("storeList", storeList);

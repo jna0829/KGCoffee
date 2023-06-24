@@ -95,7 +95,7 @@ let order = {
     },
 }
 
-$("back-button").click(function(){
+$("#back-button").click(function(){
 
     history.back();
 

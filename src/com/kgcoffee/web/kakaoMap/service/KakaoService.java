@@ -41,7 +41,6 @@ public class KakaoService {
 			double startY = 33;
 
 			for (int j = 0; j < 13; j++) {
-
 				double endY = startY + jumpY;
 
 				jsonMapList.addAll(getStoreList(startX, startY, endX, endY));

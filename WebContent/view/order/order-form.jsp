@@ -124,8 +124,10 @@
                     <div style="display: flex" class="store_list_wrap">
                         <input id="store_list" name="store_list" list="store_list" type="text">
                             <datalist id="store_list_data" class="store_list_data">
-                                <c:forEach var="item" items="${cartList}" varStatus="status">
-                                    <option data-val=${store.mapId} id="${store.plcaeName}" value=${store.plcaeName}></option>
+                                <c:forEach var="store" items="${storeList}" varStatus="status">
+                                    <!-- <option data-val=${store.mapId} id="${store.plcaeName}" value=${store.plcaeName}></option> -->
+
+                                ${store}
                                 </c:forEach>
                             </datalist>
                         </input>
