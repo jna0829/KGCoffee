@@ -35,8 +35,8 @@
 
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="/kgCoffee/js/cart-form.js"></script>
-    <script src="https://kit.fontawesome.com/efb53b9ad1.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/kgCoffee/js/cart-form.js" defer></script>
+    <script src="https://kit.fontawesome.com/efb53b9ad1.js" defer crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="/kgCoffee/css/cart-form.css">
 </head>
 <body>
@@ -55,7 +55,9 @@
                         <div class="product-info-name">${item.menuName}</div>
                         <div class="product-info-count">
                             <span onclick="javascript:basket.changePNum(${status.count}, ${item.cartId}, ${item.menuPrice})" style="margin-right: 15px"><i class="fa-solid fa-minus minus"></i></span>
-                            <input type="text" name="p_num${status.count}" id="p_num${status.count}" size="2" maxlength="4" class="p_num" value="${item.menuAmount}" onkeyup="javascript:basket.changePNum(${status.count});">
+                            <input type="text" name="p_num${status.count}" id="p_num${status.count}" 
+                            size="2" maxlength="4" class="p_num" value="${item.menuAmount}" 
+                            onkeyup="javascript:basket.changePNum(${status.count});">
                             <span onclick="javascript:basket.changePNum(${status.count}, ${item.cartId}, ${item.menuPrice})" style="margin-left: 15px"><i class="fa-solid fa-plus plus"></i></span>
                         </div>
                     </div>
