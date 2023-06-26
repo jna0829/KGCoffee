@@ -12,7 +12,7 @@ label.font {
     height: flex;
 }
 div{
-    font-size: 16px;
+    font-size: 14px;
 }
 
 label {
@@ -191,6 +191,7 @@ button:hover {
 
 .order-title > div:first-child{
     float:left;
+    font-size: 20px;
 }
 .order-title div:last-child {
 
