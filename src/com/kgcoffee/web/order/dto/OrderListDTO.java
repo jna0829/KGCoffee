@@ -1,17 +1,15 @@
 package com.kgcoffee.web.order.dto;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import com.kgcoffee.web.order.domain.OrderDetail;
 import com.kgcoffee.web.order.domain.OrderVO;
+import com.kgcoffee.web.order.domain.PaymentsVO;
 
 public class OrderListDTO {
 	
 	OrderVO order;
 	
-	List<OrderDetail> orderDetailList;
+	List<PaymentsVO> paymentsList;
 
 	public OrderListDTO() {
 		// TODO Auto-generated constructor stub
@@ -24,12 +22,12 @@ public class OrderListDTO {
 		this.order = order;
 	}
 
-	public List<OrderDetail> getOrderDetailList() {
-		return orderDetailList;
+	public List<PaymentsVO> getPaymentsList() {
+		return paymentsList;
 	}
 
-	public void setOrderDetailList(List<OrderDetail> orderDetailList) {
-		this.orderDetailList = orderDetailList;
+	public void setPaymentsListList(List<PaymentsVO> orderDetailList) {
+		this.paymentsList = orderDetailList;
 	}
 	
 	

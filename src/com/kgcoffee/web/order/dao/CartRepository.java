@@ -65,13 +65,15 @@ public class CartRepository {
     	boolean result=false;
     	
     	String type= (String) keyMap.get("type");
-    	int value = (int) keyMap.get("value");
+    	String value =  (String) keyMap.get("value");
+    	
+   
     	
         sql = "DELETE from cart_table WHERE "+type +" = ?";
         try {
             
             pst = con.prepareStatement(sql);
-            pst.setInt(1, value);
+            pst.setString(1, value);
         
             if(pst.executeUpdate()>=1) {
             	result=true;

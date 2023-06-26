@@ -1,24 +1,24 @@
 package com.kgcoffee.web.order.domain;
 
-public class OrderDetail extends CartVO{
+public class PaymentsVO extends CartVO{
 
-	private int OrderDetailId;
+	private int paymentsId;
 	
 	private int OrderId;
 	
 		
-	public OrderDetail() {
+	public PaymentsVO() {
 		// TODO Auto-generated constructor stub
 	}
 
 
-	public int getOrderDetailId() {
-		return OrderDetailId;
+	public int getPaymentsIdl() {
+		return paymentsId;
 	}
 
 
-	public void setOrderDetailId(int orderDetailId) {
-		OrderDetailId = orderDetailId;
+	public void setpPaymentsId(int paymentsId) {
+		paymentsId = paymentsId;
 	}
 
 
@@ -32,21 +32,25 @@ public class OrderDetail extends CartVO{
 	}
 
 
-	public OrderDetail(int orderDetailId, int orderId) {
+	public PaymentsVO(int paymentsId, int orderId) {
 		super();
-		OrderDetailId = orderDetailId;
+		paymentsId = paymentsId;
 		OrderId = orderId;
 	}
 
+	
 
 	@Override
 	public String toString() {
-		return "OrderDetail [OrderDetailId=" + OrderDetailId + ", OrderId=" + OrderId + ", getCartId()=" + getCartId()
+		return "PaymentsVO [paymentsId=" + paymentsId + ", OrderId=" + OrderId + ", getCartId()=" + getCartId()
 				+ ", getUserId()=" + getUserId() + ", getMenuAmount()=" + getMenuAmount() + ", getMenuId()="
 				+ getMenuId() + ", getFileName()=" + getFileName() + ", getCaffeineType()=" + getCaffeineType()
 				+ ", getMenuName()=" + getMenuName() + ", getMenuPrice()=" + getMenuPrice() + ", getMenuExplain()="
 				+ getMenuExplain() + ", getMenuType()=" + getMenuType() + "]";
 	}
+
+
+
 	
 	
 

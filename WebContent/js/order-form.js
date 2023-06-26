@@ -14,7 +14,8 @@ let order = {
         IMP.init('imp15145348');
         //
 
-        if($("#store_list").val()===null){
+        console.log($("#store_list").val())
+        if(!($("#store_list").val())){
             alert("매장을 선택하세요");
             return;
         }

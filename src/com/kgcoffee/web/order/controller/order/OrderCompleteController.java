@@ -1,6 +1,6 @@
 package com.kgcoffee.web.order.controller.order;
 
-import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -8,7 +8,9 @@ import java.util.Map;
 import com.kgcoffee.web.order.Controller;
 import com.kgcoffee.web.order.dao.CartRepository;
 import com.kgcoffee.web.order.dao.OrderDAO;
+import com.kgcoffee.web.order.domain.CartVO;
 import com.kgcoffee.web.order.domain.OrderVO;
+import com.kgcoffee.web.order.domain.PaymentsVO;
 
 public class OrderCompleteController implements Controller {
 
@@ -21,7 +23,8 @@ public class OrderCompleteController implements Controller {
 		String result = "order-complete-fail";
 
 		String userId = paramMap.get("userId");
-		int paidAt = Integer.parseInt(paramMap.get("paid_at"));
+		int paidAmount = Integer.parseInt(paramMap.get("paid_amount"));
+		String paidAt = (paramMap.get("paid_at"));
 		int totalPrice = Integer.parseInt(paramMap.get("total_price"));
 		int mapId = Integer.parseInt(paramMap.get("map_id"));
 
@@ -29,30 +32,64 @@ public class OrderCompleteController implements Controller {
 		Date pDate = new java.util.Date(timestamp * 1000L);
 
 		OrderDAO dao = new OrderDAO();
-		CartRepository cartDao = new CartRepository();
+		
 
-		if (paidAt == totalPrice) {
+		System.out.println("paid"+paidAmount);
+		System.out.println("total"+totalPrice);
+		if (paidAmount == totalPrice) {
 
 			OrderVO order = new OrderVO();
 
 			order.setUserId(userId);
 			order.setMapId(mapId);
-			order.setTotalPrice(paidAt);
+			order.setTotalPrice(paidAmount);
 			order.setOrderDate(pDate);
 
 			if (dao.insertOrder(order)) {
 				
+				int orderId = dao.getOrderSeq();
+				
+				CartRepository cartDao = new CartRepository();
+				
+				ArrayList<CartVO> cartList = cartDao.findAllCartsByUserId(userId);
+				
+				for(CartVO cart : cartList) {
+					
+					PaymentsVO payments = new PaymentsVO();
+					
+					
+					payments.setUserId(userId);
+					payments.setOrderId(orderId);
+					payments.setMenuId(cart.getMenuId());
+					payments.setMenuAmount(cart.getMenuAmount());
+					
+					
+				
+	                payments.setMenuAmount(cart.getMenuAmount());
+	                payments.setFileName(cart.getFileName());
+	                payments.setCaffeineType(cart.getCaffeineType());
+	                payments.setMenuName(cart.getMenuType());
+	                payments.setMenuPrice(cart.getMenuPrice());
+	                payments.setMenuType(cart.getMenuType());
+	                payments.setMenuExplain(cart.getMenuExplain());
+
+					dao.insertPayments(payments);
+					
+				}
+				
 				Map<String, Object> keyMap = new HashMap<String, Object>();
 
-				keyMap.put("type", "userId");
+				keyMap.put("type", "user_id");
 				keyMap.put("value", userId);
-
+				
 				cartDao.delete(keyMap);
 				
 				
 				result = "order-complete";
 			}
 
+		}else {
+			result="mismatch-paid";
 		}
 
 		model.put("res-msg", result);
