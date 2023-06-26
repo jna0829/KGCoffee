@@ -65,68 +65,6 @@
 
                     </div>
 
-                    <!-- <div class="form-group menu-list-form">
-                        <label class="font" for="menu-list-wrap">
-                            <div class="order-title">
-                                <div>주문 상품 </div>
-                                
-                                <div>아메리카노 1 외 1건  <div class="open-menu" onclick="arccodionMenu()"></div></div>
-                                
-                                
-                            </div>
-                        </label>
-
-                        <div class="menu-list-wrap ">
-
-
-                            <div class="product-info" id="ix1">
-                                <div>
-                                    <img src="/kgCoffee/img/menuImg/ame.jpg" width="70">
-                                </div>
-                                <div class="product-info-content">
-                                    <div>
-                                        <div class="product-info-name">아메리카노 1</div>
-                                        <div class="product-info-count">
-                                            <div id="p_num1" class="p_num">
-                                                11개
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-
-                                    <div class="product-info-fee" id="amount1" style="margin-top: 40px">11원</div>
-                                </div>
-
-                            </div>
-
-                            <div class="product-info" id="ix2">
-                                <div>
-                                    <img src="/kgCoffee/img/menuImg/ame.jpg" width="70">
-                                </div>
-                                <div class="product-info-content" >
-                                    <div>
-                                        <div class="product-info-name">아메리카노 0</div>
-                                        <div class="product-info-count">
-                                            <div id="p_num2" class="p_num">
-                                                100개
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-
-                                    <div class="product-info-fee" id="amount2" style="margin-top: 40px">0원</div>
-                                </div>
-
-                            </div>
-
-
-                        </div>
-
-
-
-                    </div> -->
 
                     <div class="form-group store_list_form">
                         <label class="font" for="request">매장 선택</label>

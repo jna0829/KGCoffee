@@ -62,16 +62,13 @@ public class OrderCompleteController implements Controller {
 					payments.setOrderId(orderId);
 					payments.setMenuId(cart.getMenuId());
 					payments.setMenuAmount(cart.getMenuAmount());
-					
-					
-				
-	                payments.setMenuAmount(cart.getMenuAmount());
-	                payments.setFileName(cart.getFileName());
-	                payments.setCaffeineType(cart.getCaffeineType());
-	                payments.setMenuName(cart.getMenuType());
-	                payments.setMenuPrice(cart.getMenuPrice());
-	                payments.setMenuType(cart.getMenuType());
-	                payments.setMenuExplain(cart.getMenuExplain());
+
+//	                payments.setFileName(cart.getFileName());
+//	                payments.setCaffeineType(cart.getCaffeineType());
+//	                payments.setMenuName(cart.getMenuType());
+//	                payments.setMenuPrice(cart.getMenuPrice());
+//	                payments.setMenuType(cart.getMenuType());
+//	                payments.setMenuExplain(cart.getMenuExplain());
 
 					dao.insertPayments(payments);
 					

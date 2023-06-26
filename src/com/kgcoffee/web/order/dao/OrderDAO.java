@@ -122,11 +122,11 @@ public class OrderDAO {
 	}
 	
 	
-	public List<PaymentsVO> findPayments(Map<String, String> keyMap) {
+	public List<PaymentsVO> findPayments(Map<String, Object> keyMap) {
 
 		List<PaymentsVO> paymentsList = new ArrayList<PaymentsVO>();
 
-		String type = keyMap.get("type");
+		String type = (String) keyMap.get("type");
 		String value = "%" + keyMap.get("value") + "%";
 
 
@@ -174,11 +174,11 @@ public class OrderDAO {
 
 	}
 
-	public List<OrderVO> findOrder(Map<String, String> keyMap, Paging paging) {
+	public List<OrderVO> findOrder(Map<String, Object> keyMap, Paging paging) {
 
 		List<OrderVO> orderList = new ArrayList<OrderVO>();
 
-		String type = keyMap.get("type");
+		String type = (String) keyMap.get("type");
 		String value = "%" + keyMap.get("value") + "%";
 
 		String type2 = "";
@@ -189,8 +189,12 @@ public class OrderDAO {
 			type2 = "order_id DESC";
 		}
 
-		String sql = "select * from (select A. *, ROW_NUMBER() over(order by " + type2 + ") as num"
-				+ "    from (select * from order_table where " + type + " = ?) A)" + "    where num between ? and ?";
+		String sql = "select * from "
+				+ "(select * from "
+				+ "(select A. *, ROW_NUMBER() over(order by " + type2 + ") as num "
+				+ "    from (select * from order_table where " + type + " = ?) A) " 
+				+ "    where num between ? and ?) B "
+						+ " inner join map_table C on B.map_id = C.map_id ";
 
 		int page = paging.getPage();
 		int amount = paging.getDisplayRow();
@@ -228,11 +232,11 @@ public class OrderDAO {
 
 	}
 
-	public int findTotalCnt(Map<String, String> keyMap) {
+	public int findTotalCnt(Map<String, Object> keyMap) {
 
 		int result = 0;
 
-		String type = keyMap.get("type");
+		String type = (String) keyMap.get("type");
 		String value = "%" + keyMap.get("value") + "%";
 
 		sql = "select count(*) cnt from order_table where " + type + " = ?";
