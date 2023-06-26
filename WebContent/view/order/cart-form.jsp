@@ -47,10 +47,10 @@
     <div class="form-group">
         <c:forEach var="item" items="${cartList}" varStatus="status">
             <div class="product-info" id="ix${status.count}">
-                <div>
+                <div class="product-info-first">
                     <img src="/kgCoffee/img/menuImg/${item.fileName}" width="70">
                 </div>
-                <div style="flex-grow: 1; width: max-content">
+                <div class ="product-info-middle" style="flex-grow: 1; width: max-content">
                     <div>
                         <div class="product-info-name">${item.menuName}</div>
                         <div class="product-info-count">
@@ -62,7 +62,7 @@
                         </div>
                     </div>
                 </div>
-                <div>
+                <div class="product-info-last">
                     <button class="delete_button fa-solid fa-xmark" onclick="javascript:basket.delItem(${status.count}, ${item.cartId})"></button>
                     <div class="product-info-fee" id="amount${status.count}" style="margin-top: 40px">${item.menuPrice * item.menuAmount}원</div>
                 </div>
