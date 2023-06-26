@@ -468,10 +468,16 @@ nav{
 }
 
 .pagination li {
-
+	cursor: pointer;
 	margin-top: 20px;
 	display:inline-block;
 	
+}
+
+.pagination li.active-li a{
+
+	background: #e5e5e5;
+
 }
 
 

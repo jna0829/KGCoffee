@@ -25,10 +25,10 @@
 		
 		<nav class="navbar">
 			<a href="/kgCoffee/view/user/index.jsp">HOME</a>
-			<a href="#">MENU</a>
-			<a href="/kgCoffee/kakaoMap.jsp">STORE</a>
+			<a href="/kgCoffee/menu/getAllmenu.do">MENU</a>
+			<a href="/kgCoffee/store/find.map">STORE</a>
 			<a href="/kgCoffee/board/getAll.do">NEWS</a>
-			<a href="#">ORDER</a>
+			<a href="/kgCoffee/order/cart">ORDER</a>
 		</nav> 
 		
 		

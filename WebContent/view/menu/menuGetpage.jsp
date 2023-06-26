@@ -58,7 +58,9 @@
 
 
 				<c:forEach var="n" begin="${paging.beginPage}" end="${paging.endPage}" step="1">
-					<li data-page-num="${n}" onclick=addPageEvent(${n}) class="page-item"><a class="page-link">${n}</a>
+					
+
+					<li data-page-num="${n}" onclick=addPageEvent(${n}) class="page-item page${n} <c:if test='${n eq 1}'>active-li</c:if>"><a class="page-link">${n}</a>
 					</li>
 				</c:forEach>
 				<c:if test="${paging.next}">
@@ -74,8 +76,9 @@
 			function addPageEvent(n) {
 
 				searchEvent(n);
+				
 
-
+	
 			}
 
 

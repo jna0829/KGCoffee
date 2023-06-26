@@ -13,14 +13,18 @@ $(".text > input").change(searchEvent);
 		}
 
 
-		var reqUrl = "/kgCoffee/menu/getSerchmenu.do?page="+n+"&amount=12&displayPage=10";
 
+
+
+
+		var reqUrl = "/kgCoffee/menu/getSerchmenu.do?page="+n+"&amount=12&displayPage=10";
+		
 		$("input:checkbox").each(function(index) {
 			if ($(this).is(":checked") == true) {
 
 				
 				
-				console.log($(this).data("type"));
+				
 			
 				 reqUrl += "&"+$(this).data("type") + "=" + $(this).data("value");
 				 
@@ -31,9 +35,8 @@ $(".text > input").change(searchEvent);
 		})
 		
 		
-			
-				var newEl = "";
-				
+
+				console.log(reqUrl);
 				$.ajax({
 					url : reqUrl,
 					type : "GET",
@@ -51,7 +54,10 @@ $(".text > input").change(searchEvent);
 						
 						$("div.page_wrap").html(data.toString());
 							
-							addModal();
+						$(".active-li").removeClass("active-li");
+						$(".page"+n).addClass("active-li");
+
+						addModal();
 							
 					
 						

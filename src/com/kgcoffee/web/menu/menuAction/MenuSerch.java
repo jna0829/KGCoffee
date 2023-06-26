@@ -72,6 +72,8 @@ public class MenuSerch implements MenuImpl {
 			int totalCount = mdao.totalCnt(menuAll, caffeineType, menuType);
 			
 			paging.setPage(page);
+			
+			paging.setDisplayRow(displayRow);
 
 			paging.setDisplayPage(displayPage);
 
