@@ -6,8 +6,6 @@ import javax.servlet.http.HttpSession;
 
 import com.kgcoffee.web.users.vo.UsersVO;
 
-
-
 public class UserLogin implements com.kgcoffee.web.common.ControllerImpl {
 
 	@Override
@@ -20,7 +18,7 @@ public class UserLogin implements com.kgcoffee.web.common.ControllerImpl {
 		String msg = null; //로그인 완료 했을때 보여줄 alert 메세지
 		int result = 0; // 로그인X = 0, 관리자 1, 일반회원 2
 		
-		HttpSession session = null;
+		HttpSession session = request.getSession();
 		
 		String user_id = request.getParameter("user_id");
 		String user_pw = request.getParameter("user_pw");
@@ -31,19 +29,17 @@ public class UserLogin implements com.kgcoffee.web.common.ControllerImpl {
 		//로그인이 성공되면 UsersVO 객체가 넘어오고 실패하면 null이 넘어옴
 		if (loginUser != null) {
 			
-			session = request.getSession();
 			session.setAttribute("loginUser", loginUser);
+			
 			if (user_id.equals("admin")) {
 
 				result = 1; //관리자
-				
 				
 				session.setAttribute("result", result);
 				
 			} else {
 				
 				result = 2; //일반회원
-				
 				
 				session.setAttribute("result", result);
 				
@@ -53,16 +49,16 @@ public class UserLogin implements com.kgcoffee.web.common.ControllerImpl {
 			
 		} else {
 			
-			session = request.getSession();
+			result = 0; 
+			
 			session.setAttribute("result", result);
 			
 			msg= "reg-failed";
-			result = 0; 
 			
 		}
 		
 		request.setAttribute("msg", msg);
-		request.setAttribute("user", loginUser);
+		request.setAttribute("loginUser", loginUser);
 		
 	}
 	

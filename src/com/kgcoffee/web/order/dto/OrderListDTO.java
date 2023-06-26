@@ -14,6 +14,8 @@ public class OrderListDTO {
 	public OrderListDTO() {
 		// TODO Auto-generated constructor stub
 	}
+
+	
 	public OrderVO getOrder() {
 		return order;
 	}
@@ -28,6 +30,12 @@ public class OrderListDTO {
 
 	public void setPaymentsListList(List<PaymentsVO> orderDetailList) {
 		this.paymentsList = orderDetailList;
+	}
+
+	public OrderListDTO(OrderVO order, List<PaymentsVO> paymentsList) {
+		super();
+		this.order = order;
+		this.paymentsList = paymentsList;
 	}
 	
 	

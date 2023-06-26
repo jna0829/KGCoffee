@@ -1,6 +1,6 @@
 package com.kgcoffee.web.users.vo;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class UsersVO {
 	
@@ -10,12 +10,6 @@ public class UsersVO {
 	private Date birthday;
 	private String tel;
 	
-	@Override
-	public String toString() {
-		return "UsersVO [user_id=" + user_id + ", user_pw=" + user_pw + ", user_name=" + user_name + ", birthday="
-				+ birthday + ", tel=" + tel + "]";
-	}
-
 	public UsersVO() { }
 	
 	public UsersVO(String user_id, String user_pw, String user_name, Date birthday, String tel) {

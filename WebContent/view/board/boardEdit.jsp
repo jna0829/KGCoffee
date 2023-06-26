@@ -38,7 +38,7 @@
 				<div class="info">
 					<dl>
 						<dt>글쓴이</dt>
-						<dd><input type="text" value="${ssv.writer}" name="writer"></dd>
+						<dd><input type="text" name="writer" value="${loginUser.user_name}"></dd>
 					</dl>
 					<dl>
 						<dt>첨부파일</dt>

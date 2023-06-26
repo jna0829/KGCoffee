@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+
+.page_name {
+	display: inline-block;
+	width: 700px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 4px 0px, rgba(0, 0, 0, 0.16) 0px 0px 1px 0px;
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 20px;
+    padding: 15px 0px;
+	text-align: center;
+	
+	font-size: 14px;
+}
+
+
+.orderOneView {
+	display: grid;
+	gap: 1.5rem;
+	align-content:center;
+	width: 700px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 4px 0px, rgba(0, 0, 0, 0.16) 0px 0px 1px 0px;
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 20px;
+    padding: 24px 35px 24px;
+}
+
+
+.order_date_view {
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+
+.hr_view {
+	display: block;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	margin-left: auto;
+	margin-right: auto;
+	border-style: inset;
+	border-width: 1px;
+}
+
+.order_total_view {
+    padding: 5px 0 20px 0;
+    line-height:2;
+}
+
+.order_total_view strong {	
+    font-size: 20px;
+}
+
+.order_total_view h3 {
+    font-size: 15px;
+}

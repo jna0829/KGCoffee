@@ -84,6 +84,7 @@ header .icons #menu-bar {
 /* footer section ------------------------------------------------------------- */
 .footer {
 	text-align: center;
+	background: #fff;
 }
 
 .footer .icons-container {
