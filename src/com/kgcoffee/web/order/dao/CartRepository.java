@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Map;
 
 import com.kgcoffee.web.common.DBConn;
 import com.kgcoffee.web.common.LoggableStatement;
@@ -59,14 +60,18 @@ public class CartRepository {
         return result;
     }
 
-    public boolean delete(int Cart_id){
+    public boolean delete(Map<String, Object> keyMap){
     	
     	boolean result=false;
-        sql = "DELETE from cart_table WHERE Cart_ID = ?";
+    	
+    	String type= (String) keyMap.get("type");
+    	int value = (int) keyMap.get("value");
+    	
+        sql = "DELETE from cart_table WHERE "+type +" = ?";
         try {
             
             pst = con.prepareStatement(sql);
-            pst.setInt(1, Cart_id);
+            pst.setInt(1, value);
         
             if(pst.executeUpdate()>=1) {
             	result=true;
@@ -81,6 +86,7 @@ public class CartRepository {
         return result;
     }
     
+
     public int findCartByMenuId(String userId, int menuId) {
    
     	int cartId=0;

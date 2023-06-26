@@ -1,6 +1,7 @@
 package com.kgcoffee.web.order.controller.cart;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 import com.kgcoffee.web.order.Controller;
@@ -16,7 +17,14 @@ public class CartDeleteController implements Controller {
         int cartId = Integer.parseInt(paramMap.get("cartId"));
         String userId =  paramMap.get("userId");
         CartRepository cartRepository = new CartRepository();
-        cartRepository.delete(cartId);
+        
+        Map<String,Object> keyMap = new HashMap<String,Object>();
+        
+        keyMap.put("type", "cartId");
+        keyMap.put("value", cartId);
+        
+        cartRepository.delete(keyMap);
+        
         ArrayList<CartVO> cartList = cartRepository.findAllCartsByUserId(userId);
         model.put("cartList", cartList);
         return "cart-form";

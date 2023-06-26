@@ -14,11 +14,13 @@ let order = {
         IMP.init('imp15145348');
         //
 
-        var mapId = $("#"+($("#store_list").val())).data("val");
-        if(mapId===null){
+        if($("#store_list").val()===null){
             alert("매장을 선택하세요");
             return;
         }
+        var mapId = $("#"+($("#store_list").val())).data("val");
+        
+       
 
         console.log(mapId);
         IMP.request_pay({
@@ -61,46 +63,56 @@ let order = {
                 //     status: "paid",
                 //     success: true
                 // }
+                var totalPrice = $(".total-price-value").text()
+                console.log(totalPrice);
                 console.log(res.status);
+
+                var reqUrl = "/kgCoffee/order/complete";
+
                 $.ajax({
                     type : "POST",
-                    url : "/kgcoffee/order/complete",
+                    url : reqUrl,
                     data : {
                         // 저장할 pay 정보 넣어서 서버 보내서 DB 테이블 저장
                         imp_uid : res.imp_uid,
                         paid_amount : res.paid_amount,
                         pay_method : res.pay_method,
-                        pg_provider : res.pg_provider,
+                        pg_provider : res.pg_provider,  
                         paid_at : res.paid_at,
                         card_name : res.card_name,
-                        map_id : mapId
+                        map_id : mapId,
+                        total_price: totalPrice
 
+                    },
+                    success:function(res_data) {
 
+                    	
+                        var msg = res_data.trim();
+        
+                        if(!(msg===null)){
+    
+                            if(msg==="order-complete"){
+                                alert("결제가 완료되었습니다.");
+    
+                            }else if(msg==="order-complete-fail"){
+    
+                                alert("결제 실패.");
+    
+                            }else if(msg==="mismatch-paid"){
+                                alert("결제금액 불일치");
+    
+                            }
+    
+                        }
+    
                     }
-                }).done(function(res_data) {
-
-                    // view 페이지 전환
-                    // 결제 검증이 제외됐기때문에 href 바로 complete 화면 이동
-
-
-                });
+                })
             }
         });
 
-        // 아임포트 결제 요청
-        IMP.request_pay(paymentInfo, function(response) {
-            if (response.success) {
-                // 결제 성공 시 동작
-                console.log('결제가 완료되었습니다.');
-                console.log(response);
-            } else {
-                // 결제 실패 시 동작
-                console.log('결제에 실패하였습니다.');
-                console.log('error_code : '+response.error_code);
-                console.log('error_msg : '+response.error_msg);
-                console.log(response);
-            }
-        });
-    },
+
+
+
+    }
 }
 

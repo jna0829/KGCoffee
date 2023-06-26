@@ -1,4 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
             <!DOCTYPE html>
@@ -136,8 +138,9 @@
                                     <c:set var="placeName" value="${store.placeName}" />
                                     <c:set var="pLen" value="${fn:length(placeName)}" />
 
-                                    <option data-val=${store.mapId} id="${store.mapId}"
-                                        value="${fn:substring(placeName,8,pLen)}" label="${store.roadAddressName }" />
+                                    <option data-val=${store.mapId} id="${fn:substring(placeName,8,pLen)}"
+                                        value="${fn:substring(placeName,8,pLen)}" label="${store.roadAddressName }">
+                                        </option>
 
                                 </c:forEach>
 
@@ -193,7 +196,7 @@
 
                     <div class="total-price" style="display:flex; text-align: center; justify-content: center">
                         <p class="font">결제 금액: &nbsp</p>
-                        <p class="font">${totalPrice}</p>
+                        <p class="font total-price-value">${totalPrice}</p>
                     </div>
                 </div>
                 <div class="buttons">

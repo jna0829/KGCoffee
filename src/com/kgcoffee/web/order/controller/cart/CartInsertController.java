@@ -42,9 +42,9 @@ public class CartInsertController implements Controller {
 		}
 		
 		
-		model.put("cart-msg", result);
+		model.put("res-msg", result);
 
-		return "insert-cart-result";
+		return "result-form";
 	}
 
 		
