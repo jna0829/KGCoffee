@@ -94,11 +94,19 @@ public class MenuDAO {
 	}
 	
 	
-	public int totalCnt(){
-		String sql = "SELECT COUNT(*) cnt FROM Menu";
+	public int totalCnt(String menuAll, String caffeineType, String menuType){
+		String sql = "SELECT COUNT(*) cnt FROM Menu WHERE "
+				+ "caffeineType like ? and menuType like ?";
+		
+		if(menuAll.equals("")&&caffeineType.equals("")&&menuType.equals("")) {
+			return 0;
+		}
+		
 		
 		try {
 			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, "%"+caffeineType+"%");
+			pstmt.setString(2,"%"+ menuType+"%");
 			rs=pstmt.executeQuery();
 			rs.next();
 			int result =rs.getInt("cnt");
@@ -169,13 +177,16 @@ public class MenuDAO {
 	}
 	
 	
-	public boolean deleteMenu(String menuName) {
+	
+	
+	
+	public boolean deleteMenu(int menuId) {
 		
-		String sql = "DELETE FROM Menu WHERE menuName=?";
+		String sql = "DELETE FROM Menu WHERE menuId=?";
 		
 		try {
 			pstmt=con.prepareStatement(sql);
-			pstmt.setString(1, menuName);
+			pstmt.setInt(1, menuId);
 			pstmt.executeUpdate();
 		}catch (Exception e) {
 			// TODO: handle exception
@@ -185,18 +196,24 @@ public class MenuDAO {
 		
 	}
 	
-	public boolean updateMenu(String menuName, int menuPrice, 
+	
+	
+	
+	public boolean updateMenu(int menuId, String img, String caffeineType, String menuName, int menuPrice, 
 			String menuExplain, String menuType ) {
 		
-		String sql = "UPDATE Menu SET menuName=?, menuPrice=?, menuExplain,"
-				+ "menuType=? WHERE menuName=?";
+		String sql = "UPDATE Menu SET imgurl=?, caffeineType=?, menuName=?, menuPrice=?, menuExplain=?,"
+				+ "menuType=? WHERE menuId=?";
 		
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(4, menuName);
-			pstmt.setInt(1, menuPrice);
-			pstmt.setString(2, menuExplain);
-			pstmt.setString(3, menuType);
+			pstmt.setInt(7, menuId);
+			pstmt.setString(1, img);
+			pstmt.setString(2, caffeineType);
+			pstmt.setString(3, menuName);
+			pstmt.setInt(4, menuPrice);
+			pstmt.setString(5, menuExplain);
+			pstmt.setString(6, menuType);
 			pstmt.executeUpdate();
 		}catch (Exception e) {
 			// TODO: handle exception
@@ -210,19 +227,29 @@ public class MenuDAO {
 	
 	
 	
-	public ArrayList<MenuVO> getInfoMenu(String caffeineType, String menuType, int page, int amount ) {
+	public ArrayList<MenuVO> getInfoMenu(String menuAll, String caffeineType, String menuType, int page, int amount ) {
 		
 		ArrayList<MenuVO> arr = new ArrayList<MenuVO>();
-		String sql = "select * from (select A.*, ROW_NUMBER() over(order by menuId) as num"
+		String sql = "select * from (select A.*, ROW_NUMBER() over(order by menuId desc) as num"
 				+ "    from Menu A WHERE caffeineType like ? and menuType like ?) "
-				+ "    where num between ? and ? order by menuId desc";
+				+ "    where num between ? and ?";
 		try {
+			
+			System.out.println("menuall :" +menuAll);
+			System.out.println("menuall :" +caffeineType);
+			System.out.println("menuall :" +menuType);
+			
+			if(menuAll.equals("")&&caffeineType.equals("")&&menuType.equals("")) {
+				page=0;
+				amount=0;
+			}
+			
 			pstmt = new LoggableStatement(con, sql);
 			
 			pstmt.setString(1, "%"+caffeineType+"%");
 			pstmt.setString(2,"%"+ menuType+"%");
-			pstmt.setInt(3, page);
-			pstmt.setInt(4, amount);
+			pstmt.setInt(3, (page*amount)-amount+1);
+			pstmt.setInt(4, (page*amount));
 			
 			System.out.println("Executing query: "+
 			         ((LoggableStatement)pstmt).getQueryString());

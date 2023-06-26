@@ -11,10 +11,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.kgcoffee.web.menu.menuAction.MenuDelete;
 import com.kgcoffee.web.menu.menuAction.MenuImpl;
 import com.kgcoffee.web.menu.menuAction.MenuInsert;
 import com.kgcoffee.web.menu.menuAction.MenuSerch;
-import com.kgcoffee.web.menu.menuAction.MenugetAllPage;
+import com.kgcoffee.web.menu.menuAction.MenuUpdate;
 import com.kgcoffee.web.order.MyView;
 
 /**
@@ -59,13 +60,13 @@ public class MenuFrontController extends HttpServlet {
 		String str = null;
 
 		MenuImpl mi = null;
-
-		switch (c) {
+		System.out.println(c);
+		switch (c) { 
 
 		// 상품등록
 		case "/menu/insert.do":
 			mi = new MenuInsert();
-			try {
+			try { 
 				mi.menuAction(request, response);
 			} catch (Exception e) {
 				// TODO: handle exception
@@ -76,9 +77,12 @@ public class MenuFrontController extends HttpServlet {
 
 		// 페이징 기법 처리
 		case "/menu/getAllmenu.do":
-			mi = new MenugetAllPage();
+			mi = new MenuSerch();
 			try {
+				request.setAttribute("chk", true);  
+				
 				mi.menuAction(request, response);
+				
 			} catch (Exception e) {
 				// TODO: handle exception
 			}
@@ -89,15 +93,46 @@ public class MenuFrontController extends HttpServlet {
 		case "/menu/getSerchmenu.do":
 			mi = new MenuSerch();
 			try {
+				
+				request.setAttribute("chk", false); 
 				mi.menuAction(request, response);
 			} catch (Exception e) {
 				// TODO: handle exception
 			}
 			str = "menuGetpage";
 
-			System.out.println(request.getAttribute("alist"));
+			
 
 			break;
+			
+			
+		//메뉴 삭제	
+		case "#":
+			mi = new MenuDelete();
+			try {
+				mi.menuAction(request, response);
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			str = "#";
+
+			
+			break;
+			
+			
+		//메뉴 수정	
+		case "":
+			mi = new MenuUpdate();
+			try {
+				mi.menuAction(request, response);
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			str = "#";
+
+			
+			break;
+			
 		}
 
 		MyView view = viewResolver(str);

@@ -7,16 +7,19 @@
 $(".text > input").change(searchEvent);
 	
 	
-	function searchEvent(){
-		
+	function searchEvent(n){
+		if(!(n>0)){
+			n=1;
+		}
 
-		var reqUrl = "/kgCoffee/menu/getSerchmenu.do?page=1&amount=12&displayPage=10";
+
+		var reqUrl = "/kgCoffee/menu/getSerchmenu.do?page="+n+"&amount=12&displayPage=10";
 
 		$("input:checkbox").each(function(index) {
 			if ($(this).is(":checked") == true) {
 
 				
-				console.log($(this));
+				
 				console.log($(this).data("type"));
 			
 				 reqUrl += "&"+$(this).data("type") + "=" + $(this).data("value");
@@ -26,13 +29,12 @@ $(".text > input").change(searchEvent);
 			}
 
 		})
-		console.log(reqUrl);
+		
 		
 			
 				var newEl = "";
 				
-				$
-				.ajax({
+				$.ajax({
 					url : reqUrl,
 					type : "GET",
 					data : 'JSON',
@@ -41,16 +43,17 @@ $(".text > input").change(searchEvent);
 						
 						
 						
-						console.log(data)
+						
 						
 						var newEl = data;
-						console.log($("div.page_wrap"));
+						
 						
 						
 						$("div.page_wrap").html(data.toString());
-						
-						
-						console.log("종료");
+							
+							addModal();
+							
+					
 						
 
 			}})

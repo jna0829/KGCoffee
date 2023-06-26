@@ -18,8 +18,8 @@
 	crossorigin="anonymous">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
-<script src="/kgCoffee/js/menuType.js" defer></script>
 <script src="/kgCoffee/js/menuModal.js" defer></script>
+ <script src="/kgCoffee/js/menuType.js" defer></script>
 <script src="/kgCoffee/js/menuBasket.js" defer></script>
 </head>
 <body>
@@ -30,7 +30,7 @@
 		<h1 class="heading"></h1>
 		<div class="row">
 			<div class="video-container">
-				<video src="http://localhost:8080/kg_coffee/img/menuImg/coffee.mp4"
+				<video src="http://localhost:8080/kgCoffee/img/menuImg/coffee.mp4"
 					loop autoplay muted></video>
 				<h3>Best Coffee</h3>
 			</div>
@@ -48,11 +48,11 @@
 		<div class="heading">
 			<h1>KG MENU</h1>
 			<div class="text">
-				<input type="checkbox" value="all" /> 전체메뉴 &nbsp; <input
+				<input type="checkbox" data-type="menuAll" data-value="All" checked/> 전체메뉴 &nbsp; <input
 					type="checkbox" data-type="caffeineType" data-value="decaffeine" /> 디카페인
 				&nbsp; <input data-type="menuType" type="checkbox" data-value="Ice" />
 				아이스 &nbsp; <input type="checkbox" data-type="menuType" data-value="Hot" /> 핫
-				&nbsp;
+				&nbsp; <input type="checkbox" data-type="menuType" data-value="Food"/> 디저트
 			</div>
 		</div>
 		

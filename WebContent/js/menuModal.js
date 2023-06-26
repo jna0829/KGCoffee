@@ -1,4 +1,4 @@
-
+function addModal(){
 	  $(".box").click(function (event) {
 
          event.stopPropagation();  
@@ -21,3 +21,7 @@
 
 
       });
+}
+
+
+addModal();
