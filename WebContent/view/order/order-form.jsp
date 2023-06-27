@@ -74,7 +74,7 @@
                                 <c:forEach var="store" items="${storeList}" varStatus="status">
                                     <c:set var="placeName" value="${store.placeName}" />
                                     <c:set var="pLen" value="${fn:length(placeName)}" />
-
+                              
                                     <option data-val=${store.mapId} id="${fn:substring(placeName,8,pLen)}"
                                         value="${fn:substring(placeName,8,pLen)}" label="${store.roadAddressName }">
                                         </option>

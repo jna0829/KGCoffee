@@ -14,16 +14,19 @@ let order = {
         IMP.init('imp15145348');
         //
 
-        console.log($("#store_list").val())
-        if(!($("#store_list").val())){
+       
+        var $storeListEl = $("#store_lsit");
+      
+        var mapId = $("#"+($storeListEl.val())).data("val");
+        
+        console.log(mapId);
+
+        if(mapId===undefined){
             alert("매장을 선택하세요");
             return;
         }
-        var mapId = $("#"+($("#store_list").val())).data("val");
         
-       
 
-        console.log(mapId);
         IMP.request_pay({
             pg : paymentMethod,
             pay_method : 'card',

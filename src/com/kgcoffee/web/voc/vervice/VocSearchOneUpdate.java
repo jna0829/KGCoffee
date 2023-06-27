@@ -25,15 +25,16 @@ public class VocSearchOneUpdate implements VocImpli{
 		
 		int result = 0;
 		
+		String user_id = request.getParameter("user_id");
+			
+		
 		if(sv1.getWriter().equals(v_name)) {
 			result = 1;
-		} else if (sv1.getWriter().equals(v_name.equals("관리자"))) {
+		} else if (user_id.equals("admin")) {
 			result = 2;
 		} else {
 			result = 3;
-		}
-		
-
+		} 
 		request.setAttribute("result", result);
 		
 	}
