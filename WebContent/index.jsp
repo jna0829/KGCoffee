@@ -9,16 +9,16 @@
 <!-- 구글폰트 -->
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 <!-- css 파일 링크 -->
-<link rel="stylesheet" type="text/css" href="/kgCoffee/css/header_style.css">
-<link rel="stylesheet" type="text/css" href="/kgCoffee/css/main_style.css">
 
+<link rel="stylesheet" type="text/css" href="/kgCoffee/css/main_style.css">
+<link rel="stylesheet" href="/kgCoffee/css/header_style.css" type="text/css">
 <!-- home_슬라이드쇼 만들기 -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
 
 </head>
 <body>
 	
-		<%@include file="/include/header.jsp" %>
+		<%@include file="./include/header.jsp" %>
 	
 	
 	<!-- home section start -------------------------------------------------------- -->

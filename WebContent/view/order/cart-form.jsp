@@ -5,8 +5,8 @@
 <html>
 <head>
     <!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
-    <title>Title</title>
-
+    <title>장바구니</title>
+<link rel="stylesheet" href="/kgCoffee/css/header_style.css" type="text/css">
     <style>
         /* 테이블 가운데 정렬 */
         table {

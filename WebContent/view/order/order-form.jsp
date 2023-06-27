@@ -9,11 +9,10 @@
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Payment Page</title>
+                <title>결제</title>
+                <link rel="stylesheet" href="/kgCoffee/css/header_style.css" type="text/css">
                 <link rel="stylesheet" type="text/css" href="/kgCoffee/css/order-form.css">
-                <style>
-                
-                </style>
+        
                 <script src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
                 <script type="text/javascript" src="/kgCoffee/js/order-form.js"></script>
                 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
