@@ -10,7 +10,7 @@
 <title>Insert title here</title>
 
 <link rel="stylesheet" href="css/board.css">
-
+<link rel="stylesheet" href="../css/pagingOrder.css">
 </head>
 <body>
 

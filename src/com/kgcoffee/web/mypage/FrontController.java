@@ -71,7 +71,7 @@ public class FrontController extends HttpServlet {
 				e1.printStackTrace();
 			}
 			
-			str = "userOrderList";
+			str = "/mypage/findOrder.do";
 			break;
 			
 		case "/mypage/findOrder.do":
@@ -108,8 +108,11 @@ public class FrontController extends HttpServlet {
 
 	
 	 private MyView viewResolver(String viewName) {
+		 if((viewName.substring(viewName.length()-2,viewName.length()).equals("do"))){
+			 return new MyView(viewName);
+		 }else {
 			return new MyView("/view/mypage/" + viewName + ".jsp");
-	        
+		 }
 	    }
 	 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

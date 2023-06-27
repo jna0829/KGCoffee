@@ -37,7 +37,7 @@
 			<i class='fa fa-bars' id="menu-bar"></i> <!-- 창이 작아지면 메뉴바 생김 -->
 			
 			<c:choose>
-				 <c:when test="${sessionSScope.result==1}">
+				 <c:when test="${sessionScope.result==1}">
 					<a href="#" id="admin_page" class='fas fa-user-cog'></a> <!-- 관리자페이지 -->
 					<a href="/kgCoffee/user/logout.do" id="logout" class='fas fa-user-slash'></a> <!-- 로그아웃 -->
 					<a href="/kgCoffee/voc/getAll.do" id="ask" class='fas fa-headphones-alt'></a> <!-- 고객센터(문의) -->

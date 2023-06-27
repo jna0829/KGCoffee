@@ -26,7 +26,7 @@ class TestOrderComplete {
 	
 		Map<String, Object> model = new ConcurrentHashMap<>();
 				
-		for(int i=0; i<10; i++) {
+		for(int i=0; i<30; i++) {
 			
 			
 			
