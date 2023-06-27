@@ -21,7 +21,7 @@
 					</div>
 					<div class="content">
 						<h3>${vo.menuName }</h3>
-						<div class="price">${vo.menuPrice }</div>
+						<div class="price">${vo.menuPrice}원</div>
 					</div>
 
 
@@ -32,10 +32,10 @@
 						<div class="inner_modal_text1">
 							<b>${vo.menuName }</b>
 						</div>
-						<div class="inner_modal_text2">가격: ${vo.menuPrice }</div>
+						<div class="inner_modal_text2">가격: ${vo.menuPrice }원</div>
 						<div class="inner_modal_text3">${vo.menuExplain }</div>
 						<div class="inner_modal_basket" data-menu-id="${vo.menuId}">
-							<input type="number" class="amount" placeholder="수량" data-vo="${vo }" value="1"/>
+							수량 : <input type="number" class="amount" placeholder="수량" data-vo="${vo }" value="1"/> 개
 							<input type="button" value="장바구니 담기" class="basket_btn">
 						</div>
 					</div>

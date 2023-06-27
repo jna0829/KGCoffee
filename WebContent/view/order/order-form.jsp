@@ -133,7 +133,7 @@
 
                     <div class="total-price" style="display:flex; text-align: center; justify-content: center">
                         <p class="font">결제 금액: &nbsp</p>
-                        <p class="font total-price-value">${totalPrice}</p>
+                        <p class="font total-price-value">${totalPrice}원</p>
                     </div>
                 </div>
                 <div class="buttons">
