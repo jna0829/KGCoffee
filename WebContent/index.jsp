@@ -82,10 +82,7 @@
 	
 	<!-- home_슬라이드쇼 -->
 	<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-	
-	<!-- 자바스크립트 file link -->
-	<script src="/kgCoffee/js/main_script.js"></script>
-	
+
 	<script>
 		
 	
