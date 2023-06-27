@@ -1,4 +1,4 @@
-package com.kgcoffee.web.board;
+package com.kgcoffee.web.board.controller;
 
 import java.io.PrintWriter;
 import java.util.Enumeration;

@@ -1,4 +1,4 @@
-package com.kgcoffee.web.board;
+package com.kgcoffee.web.board.controller;
 
 import java.io.IOException;
 import java.util.Map;
@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.kgcoffee.web.board.controller.HaevaDelete;
 import com.kgcoffee.web.common.ControllerImpl;
 import com.kgcoffee.web.order.MyView;
-import com.kgcoffee.web.board.HaevaDelete;
 import com.kgcoffee.web.users.UserLogin;
 import com.kgcoffee.web.users.UserLogout;
 
@@ -28,8 +28,6 @@ public class FrontController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
 
 		String c = request.getRequestURI().substring(request.getContextPath().length()); // .do 파일명 only
 		String str = "/board/";
@@ -120,6 +118,18 @@ public class FrontController extends HttpServlet {
 
 			str = "boardEdit";
 			break;
+			
+		//검색창 
+		case "/board/seachboard.do":
+			impl = new HaevaSearchBoard();
+			try {
+				impl.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("검색창 에러");
+			}
+			
+			str = "boardSearchList";
 
 		}// switch-end
 

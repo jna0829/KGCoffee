@@ -15,20 +15,23 @@
 <!--서브밋해주는 자바스크립트 -->
 <script type="text/javascript" src="/kgCoffee/js/boardSubmit.js" defer></script>
 
+
 </head>
 <body>
 
 	<%@include file="../../include/header.jsp" %>
-
+	
 	<div class="board_wrap">
-
+	
 		<div class="board_title">
 			<strong><h3 align="center">종로 KG커피 공지사항</h3></strong>
 			<p align="center">종로 KG커피 소식을 알려드립니다.</p>
 		</div>
-
+		
+		
 		<!----------------------------------- 공지사항 검색 ------------------------------------>
 
+		<!-- css test -->
 		<form id="frm1" action="/kgCoffee/board/seachboard.do" method="get" enctype="multipart/form-data">
 		<ul>
 			<div class="board_search_wrap">
@@ -71,11 +74,15 @@
 				</form>
 			</div>
 		</ul>
-		
+
+
 	<!----------------------------------- 공지사항 검색 ------------------------------------>
 
 
-	<%-- <form class="frm1" action="/kgCoffee/board/seachboard.do" method="get">
+
+
+
+		<%-- <form class="frm1" action="/kgCoffee/board/seachboard.do" method="get">
   			<select name="searchKeywordType">
     			<option value="title" <c:if test="${param.searchKeywordType == 'title'}">selected</c:if>>제목</option>
     			<option value="writer" <c:if test="${param.searchKeywordType == 'writer'}">selected</c:if>>작성자</option>
@@ -118,7 +125,9 @@
 				
 				
 				
-				<c:forEach var="v1" items="${alist1}">
+				
+				
+				<c:forEach var="v1" items="${list}">
 					<div>
 						<div class="num">${v1.bunho}</div>
 						<%-- <div class="title"><a href="boardView.jsp"> ${v1.jemok}</a></div> --%>
@@ -127,14 +136,16 @@
 						</div>
 						<div class="writer">${v1.writer}</div>
 						<%-- <div class="date">${v1.date}</div> --%>
-						<div class="date"><fmt:formatDate value="${v1.date }" pattern="yyyy-MM-dd" /></div>
+						<div class="date"><fmt:formatDate value="${v1.date}" pattern="yyyy-MM-dd" /></div>
 						<div class="count">${v1.count}</div>
 					</div>
 				</c:forEach>
-			</div>				
-	
+			</div>
+			</div>
 				
-				<jsp:include page="../../paging/paging.jsp">
+		
+			
+				<jsp:include page="../../paging/paging3.jsp">
 				    <jsp:param value="${paging.page}" name="page"/>
 				    <jsp:param value="${paging.beginPage}" name="beginPage"/>
 				    <jsp:param value="${paging.endPage}" name="endPage"/>
@@ -155,7 +166,7 @@
 				</c:choose>
 				
 			</div>
-	
+		</div>
 
 		<%@include file="../../include/footer.jsp" %>
 	

@@ -1,4 +1,4 @@
-package com.kgcoffee.web.board;
+package com.kgcoffee.web.board.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

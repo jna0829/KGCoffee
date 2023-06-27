@@ -1,11 +1,5 @@
-package com.kgcoffee.web.board;
+package com.kgcoffee.web.board.controller;
 
-import java.io.File;
-import java.io.PrintWriter;
-import java.util.Enumeration;
-
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -13,7 +7,7 @@ import com.kgcoffee.web.board.dao.SnsDAO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-public class HaevaInsert implements com.kgcoffee.web.common.ControllerImpl {
+public class HaevaUpdate implements com.kgcoffee.web.common.ControllerImpl {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -22,7 +16,10 @@ public class HaevaInsert implements com.kgcoffee.web.common.ControllerImpl {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
+		
 		MultipartRequest multi = null;
+		
+		SnsDAO sdao1 = new SnsDAO();
 		
 		int sizeLimit = 10 * 1024 * 1024 ; // 10메가
 		
@@ -38,9 +35,9 @@ public class HaevaInsert implements com.kgcoffee.web.common.ControllerImpl {
 		String writer = multi.getParameter("writer");
 		String content = multi.getParameter("content");
 		
-		SnsDAO sdao1 = new SnsDAO();
+		int bunho = Integer.parseInt(multi.getParameter("bunho"));
 		
-		sdao1.insert(jemok, writer, content, filename);
+		sdao1.update(jemok, writer, content, bunho, filename);
 		
 	}
 

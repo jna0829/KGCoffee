@@ -23,7 +23,7 @@ class TestCartInsert {
 		Map<String, Object> model = new ConcurrentHashMap<>();
 				
 		for(int i=0; i<10; i++) {
-		paramMap.put("userId", "admin");
+		paramMap.put("userId", "lee02");
 		paramMap.put("menuId", ""+i);
 		paramMap.put("menuAmount",""+i);
 		

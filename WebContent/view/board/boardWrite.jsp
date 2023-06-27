@@ -1,4 +1,3 @@
-<%@page import="com.kgcoffee.web.users.vo.UsersVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
@@ -38,7 +37,8 @@
 				<div class="info">
 					<dl>
 						<dt>글쓴이</dt>
-						<dd><input type="text" name="writer" value="${loginUser.user_name}"></dd>
+						<dd><input type="text" name="writer" value="<c:out value='${loginUser.user_name}'/>"></dd>
+						<!-- <dd><input type="text" name="writer" placeholder="글쓴이 입력"></dd> -->
 					</dl>
 					<dl>
 						<dt>첨부파일</dt>
