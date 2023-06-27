@@ -88,17 +88,20 @@
 	
 	<script>
 		
-		
-		if (msg === 'reg-success') {
-		    alert('${loginUser.user_name}'+'님 로그인 되었습니다.');
-		} else if (msg === 'reg-failed') {
-			alert('아이디 또는 비밀번호를 잘못입력하셨습니다. 다시 입력해주세요.');
-			history.back();
-		}
-		
-		
-		if (msg === 'logout') {
-			alert('로그아웃 되었습니다.');
+	
+		var msg="${msg}"
+		if(msg){
+			if (msg === 'reg-success') {
+			    alert('${loginUser.user_name}'+'님 로그인 되었습니다.');
+			} else if (msg === 'reg-failed') {
+				alert('아이디 또는 비밀번호를 잘못입력하셨습니다. 다시 입력해주세요.');
+				history.back();
+			}
+			
+			
+			if (msg === 'logout') {
+				alert('로그아웃 되었습니다.');
+			}
 		}
 		
 	

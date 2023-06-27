@@ -69,10 +69,8 @@ public class Paging {
         
         // 1/10 0.1(올림) 1 (2번 방법)
         endPage = ((int)Math.ceil(page/(double)displayPage))*displayPage;
-        System.out.println("endPage : " + endPage);
-        
+       
         beginPage = endPage - (displayPage - 1);
-        System.out.println("beginPage : " + beginPage);
         
         // 글 32개
         // 32/10 = 3.2 (올림) 4페이지
@@ -89,10 +87,7 @@ public class Paging {
         
         //prev(이전페이지)
         prev = (beginPage==1)?false:true; //page가 11이상에만 나온다.
-	        
-        System.out.println("endPage : " + endPage);
-        System.out.println("totalPage : " + totalPage);
-        
+	
 		/*
 		 * startNum = (page-1) * displayRow + 1; 
 		 * endNum = page * displayRow;

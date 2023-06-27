@@ -133,27 +133,28 @@ public class OrderDAO {
 
 		String sql = "select * from payments_table"
 				+ " inner join MENU ON   payments_table.menu_id = menu.menuId "
-				+ " where payments_table." + type + " = ? ";
+				+ " where payments_table." + type + " like ? ";
 
 		
 		
 
 		try {
 
-			pst = con.prepareStatement(sql);
+			pst = new LoggableStatement(con, sql);
 
 			pst.setString(1, value);
 
 
+			System.out.println(((LoggableStatement) pst).getQueryString());
 			rs = pst.executeQuery();
 
-			if (rs.next()) {
+			while (rs.next()) {
 
 				PaymentsVO payments = new PaymentsVO();
 
 				payments.setUserId(rs.getString("user_id"));
 				payments.setOrderId(rs.getInt("order_id"));
-				payments.setpPaymentsId(rs.getInt("payment_id"));
+				payments.setpPaymentsId(rs.getInt("payments_id"));
 				payments.setMenuAmount(rs.getInt("menu_amount"));
                 payments.setMenuId(rs.getInt("menu_id"));
                 payments.setFileName(rs.getString("imgurl"));
@@ -163,7 +164,7 @@ public class OrderDAO {
                 payments.setMenuType(rs.getString("menuExplain"));
                 payments.setMenuExplain(rs.getString("menuType"));
 		
-
+                paymentsList.add(payments);
 			}
 
 		} catch (SQLException e) {
@@ -192,7 +193,7 @@ public class OrderDAO {
 		String sql = "select * from "
 				+ "(select * from "
 				+ "(select A. *, ROW_NUMBER() over(order by " + type2 + ") as num "
-				+ "    from (select * from order_table where " + type + " = ?) A) " 
+				+ "    from (select * from order_table where " + type + " like ?) A) " 
 				+ "    where num between ? and ?) B "
 						+ " inner join map_table C on B.map_id = C.map_id ";
 
@@ -201,25 +202,26 @@ public class OrderDAO {
 
 		try {
 
-			pst = con.prepareStatement(sql);
+			pst = new LoggableStatement(con, sql);
 
 			pst.setString(1, value);
 
 			pst.setInt(2, (page * amount) - amount + 1);
 			pst.setInt(3, page * amount);
-
+			System.out.println(((LoggableStatement) pst).getQueryString());
 			rs = pst.executeQuery();
 
-			if (rs.next()) {
+			while (rs.next()) {
 
 				OrderVO order = new OrderVO();
 
 				order.setOrderId(rs.getInt("order_id"));
 				order.setUserId(rs.getString("user_id"));
 				order.setMapId(rs.getInt("map_id"));
-				order.setTotalPrice(rs.getInt("total_price"));
+				order.setTotalPrice(rs.getInt("order_price"));
 				order.setOrderDate(rs.getDate("order_date"));
-
+				order.setPlaceName(rs.getString("place_name"));
+				System.out.println(order);
 				orderList.add(order);
 
 			}
@@ -239,7 +241,7 @@ public class OrderDAO {
 		String type = (String) keyMap.get("type");
 		String value = "%" + keyMap.get("value") + "%";
 
-		sql = "select count(*) cnt from order_table where " + type + " = ?";
+		sql = "select count(*) cnt from order_table where " + type + " like ?";
 
 		try {
 

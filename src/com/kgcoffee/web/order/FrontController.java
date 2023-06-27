@@ -51,8 +51,8 @@ public class FrontController extends HttpServlet {
             throws ServletException, IOException {
     	
     	request.setCharacterEncoding("UTF-8");
-    	
-    	
+    	model = new ConcurrentHashMap<>();
+    	MyView view=null;
         String requestURI = request.getRequestURI();
         
         System.out.println(requestURI);
@@ -70,28 +70,33 @@ public class FrontController extends HttpServlet {
         HttpSession session = request.getSession();
         UsersVO loginUser=((UsersVO)session.getAttribute("loginUser"));
         String userId="";
+        
         if(loginUser!=null) {
         	userId = loginUser.getUser_id();
-        }else {
-        	userId="admin";
-        }
-        
-        
+//        }else {
+//        	userId="admin";
+//        }
+//        
+//        
         paramMap.put("userId",userId);
         
      
           
-        // Model 객체 생성
-        model = new ConcurrentHashMap<>();
+       
         viewName = controller.process(paramMap, model);
-//        }else {
-//        	
-//        	viewName= "before-login";
-//        	
-//        }
+        view = viewResolver(viewName);
+        
+        }else {
+        	
+        	viewName= "/";
+        	
+        	view = new MyView(viewName);
+        	model.put("msg", "no-login");
+        	
+        }
         
         // view 반환
-        MyView view = viewResolver(viewName);
+        
         // 렌더링
         
         System.out.println("result page : " + viewName);
