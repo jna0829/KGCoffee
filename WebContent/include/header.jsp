@@ -43,7 +43,7 @@
 					<a href="/kgCoffee/voc/getAll.do" id="ask" class='fas fa-headphones-alt'></a> <!-- 고객센터(문의) -->
 				</c:when>
 				<c:when test="${sessionScope.result==2}">
-					<a href="#" id="user_page" class='fa fa-user'></a> <!-- 마이페이지 -->
+					<a href="/kgCoffee/mypage/findOrder.do" id="user_page" class='fa fa-user'></a> <!-- 마이페이지 -->
 					<a href="/kgCoffee/user/logout.do" id="logout" class='fas fa-user-slash'></a> <!-- 로그아웃 -->
 					<a href="/kgCoffee/voc/getAll.do" id="ask" class='fas fa-headphones-alt'></a> <!-- 고객센터(문의) -->
 				</c:when>

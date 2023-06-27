@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +14,11 @@
 	type="text/css">
 <link rel="stylesheet" href="/kgCoffee/css/userOrderList.css?after"
 	type="text/css">
-<link rel="stylesheet" href="/kgCoffee/css/userOrderView.css?after" type="text/css">
+<link rel="stylesheet" href="/kgCoffee/css/userOrderView.css?after"
+	type="text/css">
+
+<script src="/kgCoffee/js/jquery-3.7.0.min.js"></script>
+<!-- jquery -->
 
 </head>
 <body>
@@ -44,7 +52,7 @@
 						<div class="item">
 
 							<div class="order_date">
-								<strong>${dto.orderVO.orderDate} 주문</strong>
+								<strong>${dto.order.orderDate} 주문</strong>
 								<!-- 주문일 -->
 							</div>
 
@@ -58,27 +66,27 @@
 								<div class="product_content_list">
 									<div class="content_list_box">
 										<h3 class="menu_name">${dto.paymentsList[0].menuName}</h3>
-										<!-- 첫번째 상품 이름 -->
-										<a class="place_name">${dto.orderVO.placeName}</a>
-										<!-- 지점이름 -->
-										<a class="order_total">${dto.orderVO.totalPrice}</a>
-										<!-- 총 금액 -->
+
+											<c:set var="placeName" value="${dto.order.placeName}" /> <!-- 지점명 자르기 위해서 -->
+                                   	 		<c:set var="pLen" value="${fn:length(placeName)}" /> <!-- 지점명 자르기 위해서 -->
+										<a class="place_name">${fn:substring(placeName,8,pLen)}</a>
+
+										<a class="order_total">총 금액 : ${dto.order.totalPrice} 원</a>
 									</div>
 								</div>
 							</div>
 
 							<div>
-								<button type="button" class="btn_order_list"
-									onclick="location.href='/kgCoffee/mypage/userOrderView.do?orderId=${dto.orderVO.orderId}'">주문
-									상세보기</button>
-								<!-- 주문상세페이지로 이동 (orderId 를 가져가서) -->
+								<button type="button" class="btn_order_list" onclick="arccodionMenu(${dto.order.orderId})">주문 상세보기</button>
 							</div>
 
 
-						</div>
-						<div class="">
+						</div> 
+						
+						
+						<div id="content${dto.order.orderId}" class="content">
 							<ul class="paymentList">
-								<c:set var="totalAmount" value=0 />
+								<c:set var="totalAmount" value="0" />
 
 								<!-- --------------------------------------------------- -->
 								<c:forEach var="payments" items="${dto.paymentsList}">
@@ -86,12 +94,7 @@
 									<li class="orderOneView">
 										<div class="itme-one">
 
-											<div class="order_date_view">
-												<strong>${dto.orderVO.orderDate}</strong>
-											</div>
-
 											<!-- 구입한 상품정보들 -->
-
 											<div class="product_content">
 												<div class="product_content_list">
 													<img alt="상품1"
@@ -100,42 +103,41 @@
 
 												<div class="product_content_list">
 													<div class="content_list_box">
-														<h3 class="menu_name">${payments.fileName}</h3>
+														<h3 class="menu_name">${payments.menuName}</h3>
 														<!-- 각상품들의 이름 -->
-														<a class="order_total">${payments.menuPrice}원</a>
+														<a class="order_total">${payments.menuPrice} 원</a>
 														<!-- 각 상품들의 가격 -->
-														<a class="order_total">${payments.menuAmount}개</a>
+														<a class="order_total">${payments.menuAmount} 개</a>
 														<!-- 각상품들의 수량 -->
 													</div>
 												</div>
 											</div>
 
-
-
-
 										</div>
 									</li>
 									<c:set var="totalAmount"
-										value=${totalAmount + payments.menuAmount } />
+										value="${totalAmount + payments.menuAmount }" />
 
 								</c:forEach>
-								<hr class="hr_view">
+								<!-- <hr class="hr_view"> -->
 								<div class="order_total_view">
-									<strong>결제 정보</strong><br>
-									<h2>지점명 : ${dto.orderVO.placeName}</h2>
-									<h2>총 수량 : ${totalAmount }개</h2>
-									<h2>총 금액 : ${dto.orderVO.totalPrice}원</h2>
+									<strong>[ 결제 정보 ]</strong><br>
+									<p>지점명 : ${fn:substring(placeName,8,pLen)}</p>
+									<p>총 수량 : ${totalAmount} 개</p>
+									<p>총 금액 : ${dto.order.totalPrice} 원</p>
 								</div>
 							</ul>
 
 
 						</div>
+						
+
 					</li>
 				</c:forEach>
 				<!-- --------------------------------------------------- -->
 
 			</ul>
-
+			
 		</div>
 		<!-- payment div end -->
 
@@ -154,6 +156,18 @@
 	<%@include file="../../include/footer.jsp"%>
 
 	<script>
+	
+		var temp = "${paging}";
+		console.log(temp);
+		
+
+		//아코디언 메뉴 클릭 이벤트
+		function arccodionMenu(orderId){
+		    $("#content"+orderId).toggleClass("show");
+		}
+		
+		
+		//회원 수정 후 메세지
 		console.log('${update_msg}');
 		const update_msg = '${update_msg}';
 
@@ -163,6 +177,7 @@
 			alert('${loginUser.user_name}' + '님 수정을 실패했습니다. 다시 입력해주세요.');
 			history.back();
 		}
+		
 	</script>
 
 </body>
