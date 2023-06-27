@@ -34,9 +34,9 @@
 						</div>
 						<div class="inner_modal_text2">가격: ${vo.menuPrice }</div>
 						<div class="inner_modal_text3">${vo.menuExplain }</div>
-						<div class="inner_modal_basket">
-							<input type="number" class="amount" placeholder="수량" data-vo="${vo }" /> <input
-								type="button" value="장바구니 담기" class="basket_btn">
+						<div class="inner_modal_basket data-menu-id=${vo.menuId}">
+							<input type="number" class="amount" placeholder="수량" data-vo="${vo }" /> 
+							<input type="button" value="장바구니 담기" class="basket_btn">
 						</div>
 					</div>
 
