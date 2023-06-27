@@ -2,10 +2,12 @@
  * 
  */
 
-
+function addBasketEvent(){
+	
 //장바구니 클릭 이벤트
 $(".basket_btn").click(menuBasket);
 
+}
   
 function menuBasket() {
 
@@ -49,3 +51,6 @@ function menuBasket() {
 
 	})
 }
+
+
+addBasketEvent();

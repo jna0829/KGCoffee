@@ -58,7 +58,7 @@ $(".text > input").change(searchEvent);
 						$(".page"+n).addClass("active-li");
 
 						addModal();
-							
+						addBasketEvent();
 					
 						
 
