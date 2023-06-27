@@ -21,7 +21,7 @@
 					</div>
 					<div class="content">
 						<h3>${vo.menuName }</h3>
-						<div class="price">${vo.menuPrice}원</div>
+						<div class="price">${vo.menuPrice} 원</div>
 					</div>
 
 
