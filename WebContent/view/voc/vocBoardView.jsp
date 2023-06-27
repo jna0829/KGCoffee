@@ -56,7 +56,7 @@
 					</dd> -->
 					
 					<dd>
-						<textarea name="content">${ssv.content}</textarea>
+						<textarea name="content" readonly>${ssv.content}</textarea>
 					</dd>
 				</div>
 					
