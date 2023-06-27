@@ -34,9 +34,7 @@ body {
   	margin: 30px auto;
 }
 
-ul .paymentList {
-	display: block;
-}
+
 
 
 .select_btn_list {
@@ -80,7 +78,7 @@ div .select_btn:first-child{
 }
 
 .product_content {
-	margin-bottom: 16px;
+	margin-bottom: 10px;
 }
 
 div .product_content_list {
@@ -90,7 +88,7 @@ div .product_content_list {
 
 div .product_content_list .content_list_box {
 	display: grid;
-	gap: 0.5rem;
+	gap: 0.4rem;
 }
 
 div .product_content_list img {
@@ -101,16 +99,16 @@ div .product_content_list img {
 
 
 .order_date {
-	font-size: 20px;
-	padding-bottom: 5px;
+	font-size: 22px;
+	padding-bottom: 10px;
 }
 
 .menu_name {
-	font-size: 15px;
+	font-size: 18px;
 }
 
 div .product_content_list a {
-	font-size: 15px;
+	font-size: 18px;
 }
 
 /* 버튼 */

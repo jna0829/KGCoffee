@@ -8,8 +8,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kgcoffee.web.common.ControllerImpl;
 import com.kgcoffee.web.common.Paging;
+import com.kgcoffee.web.common.ControllerImpl;
 import com.kgcoffee.web.order.dao.OrderDAO;
 import com.kgcoffee.web.order.domain.OrderVO;
 import com.kgcoffee.web.order.domain.PaymentsVO;
@@ -19,13 +19,13 @@ import com.kgcoffee.web.users.vo.UsersVO;
 public class MypageController implements ControllerImpl{
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		
 		OrderDAO dao = new OrderDAO();
 		
 		UsersVO user = (UsersVO)request.getSession().getAttribute("loginUser");
-		
 		String user_id = user.getUser_id();
+		
 		
 		Map<String, Object> keyMap = new HashMap<String, Object>();
 		
@@ -51,9 +51,8 @@ public class MypageController implements ControllerImpl{
 		
 		List<OrderVO> orderList = dao.findOrder(keyMap, paging);
 		
+		System.out.println(orderList.size());
 		List<OrderListDTO> dtoList = new ArrayList<OrderListDTO>();
-		
-		
 		for(OrderVO vo : orderList) {
 			
 			keyMap.put("type","order_id");
@@ -68,7 +67,11 @@ public class MypageController implements ControllerImpl{
 			
 		}
 		
+		System.out.println(dtoList.size());
+		
+		
 		request.setAttribute("dtoList", dtoList);
+		request.setAttribute("paging", paging);
 		
 		
 		
