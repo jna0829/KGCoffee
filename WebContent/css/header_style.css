@@ -149,7 +149,7 @@ header .icons #menu-bar {
 		display: inline-block;
 	}
 	
-	header .navbar {
+	header nav.navbar {
 		position: absolute;
 		top:100%; left:0%; right:0%;
 		text-align: center;
@@ -160,16 +160,20 @@ header .icons #menu-bar {
 		clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
 	}
 	
-	header .navbar.active {
+	header nav.navbar.header_active {
 		clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+		display:block;
 	}
 	
-	header .navbar a {
+	header nav.navbar a {
 		display: block;
 		padding: 1.5rem;
 		margin: 1.5rem;
 		font-size: 2rem;
 		background: #eee;
+		text-decoration: none;
+		outline: none;
+		border: none;
 	}
 	
 }

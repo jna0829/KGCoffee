@@ -5,5 +5,5 @@ var navbar = document.querySelector('.navbar');
 
 menu.addEventListener('click', function(event){
 	menu.classList.toggle('fa-times');
-	navbar.classList.toggle('active');
+	navbar.classList.toggle('header_active');
 });
