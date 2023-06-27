@@ -14,13 +14,13 @@ public class CartDeleteController implements Controller {
     @Override
     public String process(Map<String, String> paramMap, Map<String, Object> model) {
         paramMap.forEach((key, value) -> System.out.println("Key: " + key + ", Value: " + value));
-        int cartId = Integer.parseInt(paramMap.get("cartId"));
+        String cartId = paramMap.get("cartId");
         String userId =  paramMap.get("userId");
         CartRepository cartRepository = new CartRepository();
         
         Map<String,Object> keyMap = new HashMap<String,Object>();
         
-        keyMap.put("type", "cartId");
+        keyMap.put("type", "cart_Id");
         keyMap.put("value", cartId);
         
         cartRepository.delete(keyMap);
