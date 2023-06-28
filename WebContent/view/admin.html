@@ -45,7 +45,11 @@
             
             width: 20%;
             height: 100%;
-            background: yellow;
+            background: #000;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700px;
+            font-family: Pretendard,sans-serif;
 
         }
         .content_section{
@@ -54,6 +58,7 @@
             height: 100%;
             background: lightgray;
             padding: 40px;
+            padding-top: 0;
 
         }
 
@@ -78,8 +83,10 @@
         }
 
         .nav_list a{
-
+            font-family: Pretendard,sans-serif;
+            color: #fff;
             text-decoration: none;
+            font-weight: 700;
 
         }
         .content_hedear_wrap{
@@ -116,9 +123,9 @@
                 <div class="nav">
 
                     <ul class="nav_menu">
-
+                        
                         <li class="nav_list">
-                            <a href=""></a>
+                            <a href="">헤더헤더</a>
                         </li>
                         <li class="nav_list">
                             <a href=""></a>
@@ -150,42 +157,5 @@
 </body>
 </html>
 
-
-
-
-가장잘팔리는메뉴
-payments count(menuId) 
-
-
-가장주문이많은매장
-order_table group by map_id
-
-
-
-
-나이대별로 가장인기있는 메뉴
-select r.*, m.* from
-(select age, menu_id, sum(menu_amount) 수량,(row_number() over (partition by age order by sum(menu_amount) desc)) rank 
-    from(
-        select A.age, B.menu_id, B.menu_amount from (select o.*, floor((to_char(sysdate, 'YYYY') - extract(year from u.birthday))/10) * 10 as age 
-            from order_table o inner join users u on o.user_id = u.user_id)A inner join payments_table B on A.order_id = B.order_id) C
-group by age,menu_id order by age, rank) R, menu m where rank <= 3 and R.menu_id = m.menuId;
-							        등수
-
-매장별 일 월 년 총 주문량
-select A.*, B.place_name from
-    (select count(*) 주문량, map_id, 날짜 from 
-             (select map_id, TO_CHAR(order_date, 'YYYY') as 날짜 from order_table) where 날짜='2023' group by 날짜,map_id  order by 주문량 desc) A
-    inner join map_table B on A.map_id=B.map_id;
-
-select A.*, B.place_name from
-    (select count(*) 주문량, map_id, 날짜 from 
-             (select map_id, TO_CHAR(order_date, 'YYYYMM') as 날짜 from order_table) where 날짜='202306' group by 날짜,map_id  order by 주문량 desc) A
-    inner join map_table B on A.map_id=B.map_id;
-
-select A.*, B.place_name from
-    (select count(*) 주문량, map_id, 날짜 from 
-             (select map_id, TO_CHAR(order_date, 'YYYYMMDD') as 날짜 from order_table) where 날짜='20230627' group by 날짜,map_id  order by 주문량 desc) A
-    inner join map_table B on A.map_id=B.map_id;
 
 
