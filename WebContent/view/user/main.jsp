@@ -32,7 +32,7 @@
 					<div class="content">
 						<span>다양한 음료를 제공합니다</span>
 						<h3>KG COFFEE</h3>
-						<a href="#" class="btn">메뉴보기</a>
+						<a href="/kgCoffee/menu/getAllmenu.do" class="btn">메뉴보기</a>
 					</div>
 				</div>
 				
@@ -40,7 +40,7 @@
 					<div class="content">
 						<span>다양한 음료를 제공합니다</span>
 						<h3>KG COFFEE</h3>
-						<a href="#" class="btn">메뉴보기</a>
+						<a href="/kgCoffee/menu/getAllmenu.do" class="btn">메뉴보기</a>
 					</div>
 				</div>
 				
@@ -48,7 +48,7 @@
 					<div class="content">
 						<span>다양한 음료를 제공합니다</span>
 						<h3>KG COFFEE</h3>
-						<a href="#" class="btn">메뉴보기</a>
+						<a href="/kgCoffee/menu/getAllmenu.do" class="btn">메뉴보기</a>
 					</div>
 				</div>
 				
@@ -72,7 +72,7 @@
 			<h3 class="title">Welcome To KG COFFEE</h3>
 			<p>전국 어디에서나 <br>
 			   합리적인 가격의 다양한 음료를 제공합니다</p>
-			<a href="#" class="btn">매장찾기</a>
+			<a href="/kgCoffee/store/find.map" class="btn">매장찾기</a>
 		</div>
 		
 	</section> <!-- about section end -->
@@ -84,6 +84,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 	
 	<!-- 자바스크립트 file link -->
+	<script src="/kgCoffee/js/main_script.js"></script>
 	
 	<script>
 		

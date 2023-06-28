@@ -39,16 +39,16 @@ class TestOrderComplete {
 		
 			Map<String, Object> model2 = new ConcurrentHashMap<>();
 					
-			for(int j=0; j<10; j++) {
-			paramMap2.put("userId", "lee02");
-			paramMap2.put("menuId", ""+i);
-			paramMap2.put("menuAmount",""+i);
+			for(int j=0; j<30; j++) {
+			paramMap2.put("userId", "유저"+i);
+			paramMap2.put("menuId", ""+(int)(Math.ceil(Math.random()*60)));
+			paramMap2.put("menuAmount",""+(int)(Math.ceil(Math.random()*90)));
 			
 			
 			insert.process(paramMap2, model2);
 			}
 			
-		paramMap.put("userId", "lee02");
+		paramMap.put("userId", "유저"+i);
 		paramMap.put("paid_at", ""+1554181801);
 		paramMap.put("paid_amount",""+(i*1000));
 		paramMap.put("total_price",""+(i*1000));
