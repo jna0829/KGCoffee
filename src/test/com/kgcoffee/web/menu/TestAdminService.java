@@ -11,13 +11,11 @@ import com.kgcoffee.web.admin.service.AdminService;
 
 class TestAdminService {
 
+	AdminService service = new AdminService();
 	@Test
-	void test() {
+	void testOrderByAgeGroup() {
 		
-		
-		AdminService service = new AdminService();
-		
-		
+
 		
 		Map<String, String> keyMap = new HashMap<String, String>();
 		
@@ -31,7 +29,7 @@ class TestAdminService {
 		Map<String, Object> model = service.reportOrderByAgeGroup(keyMap);
 
 
-		System.out.println(model.size());
+		
 	
 		if(model!=null) {
 	        model.forEach((key, value) -> System.out.println(key+value));
@@ -40,5 +38,64 @@ class TestAdminService {
 		
 		
 	}
+
+	@Test
+	void testOrderByMenu() {
+		
+		
+		
+		
+		
+		
+		Map<String, String> keyMap = new HashMap<String, String>();
+		
+		
+		keyMap.put("rank", "3");
+		keyMap.put("dateType","YYYY");
+		keyMap.put("dateValue", "2023");
+		
+		
+		
+		Map<String, Object> model = service.reportOrderByMenu(keyMap);
+
+
+	
+	
+		if(model!=null) {
+	        model.forEach((key, value) -> System.out.println(key+value));
+	    	}
+		
+		
+		
+	}
+	
+	@Test
+	void testOrderByMap() {
+		
+
+		
+		Map<String, String> keyMap = new HashMap<String, String>();
+		
+		
+		
+		keyMap.put("dateType","YYYY");
+		keyMap.put("dateValue", "2023");
+		keyMap.put("page", "1");
+		
+		
+		Map<String, Object> model = service.reportOrderByAgeGroup(keyMap);
+
+
+		
+	
+		if(model!=null) {
+	        model.forEach((key, value) -> System.out.println(key+value));
+	    	}
+		
+		
+		
+	}
+	
+	
 
 }

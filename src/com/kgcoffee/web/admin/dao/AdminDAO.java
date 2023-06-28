@@ -42,6 +42,7 @@ public class AdminDAO {
 
 		Map<String, Object> resMap = new HashMap<String, Object>();
 
+		
 		String menuName = keyMap.get("menuName");
 		String dateType = keyMap.get("dateType");
 		String dateValue = "%" + keyMap.get("dateValue") + "%";
@@ -233,20 +234,34 @@ public class AdminDAO {
 
 		HashMap<String, Object> resMap = new HashMap<String, Object>();
 
-		String keyword = (String) keyMap.get("keyword");
+		String keywords = (String) keyMap.get("keywords");
 		String dateType = (String) keyMap.get("dateType");
 		String dateValue = "%" + (String) keyMap.get("dateValue") + "%";
 		int page =  Integer.parseInt(keyMap.get("page"));
 		int amount = Integer.parseInt(keyMap.get("amount"));
 
-
+		
+		String temp = "where (b.road_address_name like ? or b.address_name like ? or b.place_name like ?) ";
+		
+		String[] keyword = keywords.split("\\s+");
+		
+		if(keyword.length>1) {
+			
+			for(int i=1; i<keyword.length; i++) {
+				
+				temp += " and (b.road_address_name like ? or b.address_name like ? b.place_name like ?) ";
+					
+			}
+			
+		}
+		
 		
 		sql = "select * from "
 				+ "    (select ROW_NUMBER() over(order by 날짜 desc, 주문량 desc) rn, A.주문량, a.map_id, a.날짜, B.place_name, B.road_address_name, b.address_name fromn"
 				+ "        (select count(*) 주문량, map_id, 날짜 from  "
 				+ "             (select map_id, TO_CHAR(order_date, ?) as 날짜 from order_table)  "
 				+ "                where 날짜 like ? or 날짜 IS NULL group by 날짜, map_id  order by 날짜 desc, 주문량 desc) A "
-				+ "    inner join map_table B on A.map_id=B.map_id where b.road_address_name like ? or b.address_name like ?)  "
+				+ "    inner join map_table B on A.map_id=B.map_id " + temp + ")  "
 				+ "    where rn between ? and ? ";
 
 		try {
@@ -257,11 +272,19 @@ public class AdminDAO {
 			
 			pstmt.setString(1, dateType);
 			pstmt.setString(2, dateValue);
-			pstmt.setString(3, keyword);
-			pstmt.setString(4, keyword);
-	
-			pstmt.setInt(4, (page - 1) * amount + 1);
-			pstmt.setInt(5, page * amount);
+			
+			for(int i=0; i<keyword.length; i++) {
+				
+				String key = keyword[i];
+				pstmt.setString((3*i)+3, key);
+				pstmt.setString((3*i)+4, key);
+				pstmt.setString((3*i)+5, key);
+				
+			}
+			
+
+			pstmt.setInt(3*(keyword.length-1)+6, (page - 1) * amount + 1);
+			pstmt.setInt(3*(keyword.length-1)+7, page * amount);
 
 			List<ReportMapDTO> mapDTOList = null;
 

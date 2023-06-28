@@ -33,24 +33,33 @@ class TestCartInsert {
 //		insert.process(paramMap, model);
 //		}
 		
-		HashMap<String, Object> resMap = new HashMap<String, Object>();
-		ArrayList<ReportMenuDTO> menuDTOList = new ArrayList<ReportMenuDTO>();
-
-		resMap.put("test", menuDTOList);
-		ReportMenuDTO dto = new ReportMenuDTO();
-		
-		dto.setAgeGroup("블라블라");
-		
-		menuDTOList.add(dto);
-		
-		System.out.println(resMap.size());
-		
-		System.out.println(((ArrayList<ReportMenuDTO>)resMap.get("test")).get(0));
-		System.out.println(resMap.size());
-		
-		
-		
+//		HashMap<String, Object> resMap = new HashMap<String, Object>();
+//		ArrayList<ReportMenuDTO> menuDTOList = new ArrayList<ReportMenuDTO>();
+//
+//		resMap.put("test", menuDTOList);
+//		ReportMenuDTO dto = new ReportMenuDTO();
 //		
+//		dto.setAgeGroup("블라블라");
+//		
+//		menuDTOList.add(dto);
+//		
+//		System.out.println(resMap.size());
+//		
+//		System.out.println(((ArrayList<ReportMenuDTO>)resMap.get("test")).get(0));
+//		System.out.println(resMap.size());
+//		
+		
+		
+
+		String keywords ="서울 공립";
+		
+		String[] keyword =keywords.split("\\s+");
+		
+		for(String key : keyword) {
+		System.out.println("1"+key);
+		}
+		
+		System.out.println(keyword.length);
 		
 		
 	}

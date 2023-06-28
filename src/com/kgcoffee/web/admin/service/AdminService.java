@@ -20,30 +20,16 @@ public class AdminService {
 		System.out.println("reportOrderByMap");
 		System.out.println(keyMap.size());
 		
-		int page = 1;
-		int amount =10;
-		
-		
-		if(keyMap.containsKey("page")) {
-		
+		if(!keyMap.containsKey("keywords")) {
 			
-			page=Integer.parseInt(keyMap.get("page"));
+			keyMap.put("keywords", "");
 			
 		}
-		if(keyMap.containsKey("amount")) {
-			
-			amount=Integer.parseInt(keyMap.get("amount"));
-			
-		};
-		keyMap.put("page", ""+page);
-		keyMap.put("amount", ""+amount);
-		int totalCnt = dao.findOrderByMapTotalCnt(keyMap);
 		
-		Paging paging = new Paging();
 		
-		paging.setPage(page);
-		paging.setDisplayRow(amount);
-		paging.setTotalCount(totalCnt);
+		Paging paging = makePage(keyMap);
+		
+		
 		
 		
 		Map<String, Object> resMap =null;
@@ -63,34 +49,18 @@ public class AdminService {
 		System.out.println("reportOrderByMenu");
 		System.out.println(keyMap.size());
 		
-		int page = 1;
-		int amount =10;
+		if(!keyMap.containsKey("manu_name")) {
 		
-		
-		if(keyMap.containsKey("page")) {
-		
-			
-			page=Integer.parseInt(keyMap.get("page"));
+			keyMap.put("menu_name", "");
 			
 		}
-		if(keyMap.containsKey("amount")) {
-			
-			amount=Integer.parseInt(keyMap.get("amount"));
-			
-		};
-		keyMap.put("page", ""+page);
-		keyMap.put("amount", ""+amount);
-		int totalCnt = dao.findOrderByMenuTotalCnt(keyMap);
 		
-		Paging paging = new Paging();
 		
-		paging.setPage(page);
-		paging.setDisplayRow(amount);
-		paging.setTotalCount(totalCnt);
-		
+		Paging paging = makePage(keyMap);		
 		
 		
 		Map<String, Object> resMap =null;
+		
 		resMap = dao.findOrderByMenu(keyMap);
 		resMap.put("paging", paging);
 		
@@ -104,7 +74,24 @@ public class AdminService {
 		
 		System.out.println("reportOrderByAgeGroup");
 		System.out.println(keyMap.size());
+		
 		Map<String, Object> resMap =null;
+		
+	
+		Paging paging = makePage(keyMap);
+		
+		
+		
+		resMap = dao.findOrderByAgeGroup(keyMap);
+		resMap.put("paging", paging);
+		
+		
+		return resMap;
+	}
+
+	
+	public Paging makePage(Map<String, String> keyMap) {
+		
 		
 		int page = 1;
 		int amount =10;
@@ -132,16 +119,9 @@ public class AdminService {
 		paging.setDisplayRow(amount);
 		paging.setTotalCount(totalCnt);
 		
+		return paging;
 		
 		
-		resMap = dao.findOrderByAgeGroup(keyMap);
-		resMap.put("paging", paging);
-		
-		
-		return resMap;
 	}
-
-	
-	
 
 }
