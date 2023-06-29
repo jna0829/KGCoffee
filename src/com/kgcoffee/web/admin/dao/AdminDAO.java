@@ -51,19 +51,21 @@ public class AdminDAO {
 
 		String temp = "";
 
-		if (menuName!="") {
+		if (menuName!=""&&menuName!=null) {
 
-			temp = " and menuName like ?";
+			temp = " where menuName like ?";
 
 		}
 
-		sql = "select * from"
-				+ " (select ROW_NUMBER() over(order by 날짜 desc, 주문량 desc) rn, C.menu_id, C.주문량, C.날짜,  D.* fromn"
-				+ "    (select B.menu_id, sum(B.menu_amount) 주문량, A.날짜 from "
-				+ "      (select order_id, TO_CHAR(order_date, ?) as 날짜 from order_table)A "
-				+ "   	 inner join payments_table B on A.order_id = B.order_id where (날짜 like ? or 날짜 IS NULL) " + temp
-				+ " group by 날짜, menu_id)C "
-				+ "        inner join menu D on C.menu_id = D.menuId order by 날짜 desc, 주문량 desc) where rn between ? and ?";
+		sql = "select * from\r\n"
+				+ "(select row_number() over(order by 날짜 desc, 주문량 desc) rn, E.* from "
+				+ "		(select C.menu_id, C.주문량, C.날짜,  D.* from   "
+				+ "			(select B.menu_id, sum(B.menu_amount) 주문량, A.날짜 from       "
+				+ "				(select order_id, TO_CHAR(order_date, ?) as 날짜 from order_table)A    	"
+				+ "			inner join payments_table B on A.order_id = B.order_id where "
+				+ "			 (날짜 like ? or 날짜 IS NULL) group by 날짜, menu_id)C      "
+				+ "		inner join menu D on C.menu_id = D.menuId " +temp
+				+ "		order by 날짜 desc, 주문량 desc) E) where rn between ? and ?";
 
 		try {
 
@@ -73,7 +75,7 @@ public class AdminDAO {
 			int i = 3;
 			pstmt.setString(1, dateType);
 			pstmt.setString(2, dateValue);
-			if (menuName!="") {
+			if (menuName!=""&&menuName!=null) {
 
 				pstmt.setString(i, "%"+menuName+"%");
 				i++;
@@ -93,7 +95,7 @@ public class AdminDAO {
 				ReportMenuDTO dto = new ReportMenuDTO();
 
 				String orderDate = rs.getString("날짜");
-				keySet.add(orderDate);
+				keySet.add("orderDate"+orderDate);
 				dto.setOrderDate("orderDate"+orderDate);
 				dto.setOrderAmount(rs.getInt("주문량"));
 				dto.setMenuId(rs.getInt("menu_id"));
@@ -104,6 +106,7 @@ public class AdminDAO {
 				dto.setMenuType(rs.getString("menuExplain"));
 				dto.setMenuExplain(rs.getString("menuType"));
 
+				
 				if(resMap.containsKey("orderDate"+orderDate)) {
 					
 					menuDTOList = (List<ReportMenuDTO>) resMap.get("orderDate"+orderDate);
@@ -118,6 +121,8 @@ public class AdminDAO {
 					menuDTOList.add(dto);
 					resMap.put("orderDate"+orderDate, menuDTOList);
 				}
+				
+				
 				
 			}
 			
@@ -150,7 +155,7 @@ public class AdminDAO {
 		int amount = Integer.parseInt(keyMap.get("amount"));
 
 		
-		sql = "select r.*, m.* from"
+		sql = "select * from"
 				+ "(select ROW_NUMBER() over(order by 날짜 desc, age asc, sum(menu_amount) desc) rn, age, menu_id, sum(menu_amount) 주문량, 날짜, "
 				+ "   ROW_NUMBER() over(partition by 날짜, age order by 날짜 desc, age asc, sum(menu_amount) desc) rank from"
 				+ "       (select A.age, B.menu_id, B.menu_amount, 날짜 from "
@@ -181,11 +186,18 @@ public class AdminDAO {
 			
 			while (rs.next()) {
 				ReportMenuDTO dto = new ReportMenuDTO();
-				String ageGroup= rs.getString("age");
+				String ageGroup= rs.getString("AGE");
+				
+			
+				
 				String orderDate = rs.getString("날짜");
+				
 				keySet.add("ageGroup"+ageGroup+"orderDate"+orderDate);
+				
+				
 				dto.setAgeGroup(ageGroup);
-				dto.setOrderDate(orderDate);
+				
+				dto.setOrderDate(rs.getString("날짜"));
 				dto.setOrderAmount(rs.getInt("주문량"));
 				dto.setMenuId(rs.getInt("menu_id"));
 				dto.setFileName(rs.getString("imgurl"));
@@ -194,7 +206,9 @@ public class AdminDAO {
 				dto.setMenuPrice(rs.getInt("menuPrice"));
 				dto.setMenuType(rs.getString("menuExplain"));
 				dto.setMenuExplain(rs.getString("menuType"));
-
+				
+			
+				
 				if(resMap.containsKey("ageGroup"+ageGroup+"orderDate"+orderDate)) {
 					
 					menuDTOList = (List<ReportMenuDTO>) resMap.get("ageGroup"+ageGroup+"orderDate"+orderDate);

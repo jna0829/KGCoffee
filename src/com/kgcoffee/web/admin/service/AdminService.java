@@ -62,6 +62,7 @@ public class AdminService {
 		Map<String, Object> resMap =null;
 		
 		resMap = dao.findOrderByMenu(keyMap);
+		System.out.println(paging);
 		resMap.put("paging", paging);
 		
 		
@@ -112,6 +113,9 @@ public class AdminService {
 		keyMap.put("amount", ""+amount);
 		
 		int totalCnt = dao.findOrderByAgeGroupTotalCnt(keyMap);
+		
+		System.out.println("totalCnt : "+ totalCnt);
+		
 		
 		Paging paging = new Paging();
 		
