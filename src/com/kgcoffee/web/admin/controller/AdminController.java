@@ -1,7 +1,6 @@
 package com.kgcoffee.web.admin.controller;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -12,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonIOException;
 import com.kgcoffee.web.admin.service.AdminService;
 import com.kgcoffee.web.order.MyView;
 import com.kgcoffee.web.users.vo.UsersVO;
@@ -60,33 +61,54 @@ public class AdminController extends HttpServlet {
 				
 				switch (c) {
 
-				case "/admin/reportOrderByMenu.do":
+				case "/admin/getChart.do":
 
-					model = service.reportOrderByMenu(keyMap);
 					
-					str = "reportOrderByMenu";
+					String reqType = request.getParameter("select");
+					
+					switch(reqType) {
+					
+					case "chart-menu":
+						
+						model = service.reportOrderByMenu(keyMap);
+						break;
+					
+					case "chart-age":
+						model = service.reportOrderByAgeGroup(keyMap);
+						break;
+						
+					case "chart-store":
+						model = service.reportOrderByMap(keyMap);
+						break;
+						
+					
+					}
+					
+					
+					
+					
+					response.setContentType("application/json");
+			        response.setCharacterEncoding("UTF-8");
+			        
+			        request.setAttribute("resMap", model);
+			        
+			         String gson = new Gson().toJson(model);
+			           
+			            try {
+			                
+			                response.getWriter().write(gson);
+			            } catch (JsonIOException e) {
+			                e.printStackTrace();
+			            } catch (IOException e) {
+			                e.printStackTrace();
+			            }
+					
+					
+					
+					str = "";
 
 					break;
-					
-				case "/admin/reportOrderByAgeGroup.do":
-
-					model = service.reportOrderByAgeGroup(keyMap);
-					
-					str = "reportOrderByAgeGroup";
-
-					break;
-					
-				case "/admin/reportOrderByMap.do":
-
-					model= service.reportOrderByMap(keyMap);
-					
-					
-					
-					str = "reportOrderByMap";
-
-					break;
-					
-
+				
 				default:
 
 					System.out.println("mismatch");
