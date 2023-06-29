@@ -40,11 +40,11 @@ public class AdminController extends HttpServlet {
 			throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
-		String str = "/";
+
 		Map<String, String> keyMap = createParamMap(request);
 
 		Map<String, Object> model = null;
-		MyView view=null;
+		
 		HttpSession session = request.getSession();
 		UsersVO loginUser = ((UsersVO) session.getAttribute("loginUser"));
 		String userId = "";
@@ -58,86 +58,61 @@ public class AdminController extends HttpServlet {
 			if (userId == "admin") {
 
 				AdminService service = new AdminService();
-				
+
 				switch (c) {
 
 				case "/admin/getChart.do":
 
-					
 					String reqType = request.getParameter("select");
-					
-					switch(reqType) {
-					
+
+					switch (reqType) {
+
 					case "chart-menu":
-						
+
 						model = service.reportOrderByMenu(keyMap);
 						break;
-					
+
 					case "chart-age":
 						model = service.reportOrderByAgeGroup(keyMap);
 						break;
-						
+
 					case "chart-store":
 						model = service.reportOrderByMap(keyMap);
 						break;
-						
-					
+
+					default:
+						return;
+
 					}
-					
-					
-					
-					
+
 					response.setContentType("application/json");
-			        response.setCharacterEncoding("UTF-8");
-			        
-			        request.setAttribute("resMap", model);
-			        
-			         String gson = new Gson().toJson(model);
-			           
-			            try {
-			                
-			                response.getWriter().write(gson);
-			            } catch (JsonIOException e) {
-			                e.printStackTrace();
-			            } catch (IOException e) {
-			                e.printStackTrace();
-			            }
-					
-					
-					
-					str = "";
+					response.setCharacterEncoding("UTF-8");
+
+					request.setAttribute("resMap", model);
+
+					String gson = new Gson().toJson(model);
+
+					try {
+
+						response.getWriter().write(gson);
+					} catch (JsonIOException e) {
+						e.printStackTrace();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
 
 					break;
-				
+
 				default:
 
 					System.out.println("mismatch");
 					break;
 
 				}
-				
-				view = viewResolver(str);
-				
-			}else {
-				
-				view = new MyView(str);
-				request.setAttribute("msg", "no-admin");
-				
 			}
-			
-
 		} else {
-
-			
-
-			view = new MyView(str);
-			request.setAttribute("msg", "no-login");
-
+			return;
 		}
-
-		
-
-		view.render(model, request, response);
 
 	}
 
