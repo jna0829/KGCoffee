@@ -271,7 +271,7 @@ public class AdminDAO {
 		
 		
 		sql = "select * from "
-				+ "    (select ROW_NUMBER() over(order by 날짜 desc, 주문량 desc) rn, A.주문량, a.map_id, a.날짜, B.place_name, B.road_address_name, b.address_name fromn"
+				+ "    (select ROW_NUMBER() over(order by 날짜 desc, 주문량 desc) rn, A.주문량, a.map_id, a.날짜, B.place_name, B.road_address_name, b.address_name from"
 				+ "        (select count(*) 주문량, map_id, 날짜 from  "
 				+ "             (select map_id, TO_CHAR(order_date, ?) as 날짜 from order_table)  "
 				+ "                where 날짜 like ? or 날짜 IS NULL group by 날짜, map_id  order by 날짜 desc, 주문량 desc) A "
@@ -289,7 +289,7 @@ public class AdminDAO {
 			
 			for(int i=0; i<keyword.length; i++) {
 				
-				String key = keyword[i];
+				String key = "%"+keyword[i]+"%";
 				pstmt.setString((3*i)+3, key);
 				pstmt.setString((3*i)+4, key);
 				pstmt.setString((3*i)+5, key);
