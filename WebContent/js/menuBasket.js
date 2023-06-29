@@ -11,6 +11,17 @@ $(".basket_btn").click(menuBasket);
   
 function menuBasket() {
 
+	
+	
+	if(!(loginUser)){
+		
+		alert("로그인이 필요합니다");
+		return;
+	
+	}
+
+
+
 	var reqUrl = "/kgCoffee/order/cart/insert";
 	var menuId = $(this).parent().data("menu-id");
 	var amount = $(this).prev().val();

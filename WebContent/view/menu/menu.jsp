@@ -64,6 +64,11 @@
 		
 		
 	</section>
+	<script>
+	
+		const loginUser = "${loginUser}"
+		console.log(loginUser)
+	</script>
 
 	<%@include file="/include/footer.jsp"%>
 
