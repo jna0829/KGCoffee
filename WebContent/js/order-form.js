@@ -15,9 +15,12 @@ let order = {
         //
 
        
-        var $storeListEl = $("#store_lsit");
+        var storeListVal = $("#store_list").val();
       
-        var mapId = $("#"+($storeListEl.val())).data("val");
+
+        
+     
+        var mapId = $("#"+storeListVal).data("val");
         
         console.log(mapId);
 
