@@ -3,6 +3,10 @@ package test.com.kgcoffee.web.menu;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+import java.util.Random;
 
 import org.junit.jupiter.api.Test;
 
@@ -13,16 +17,32 @@ class TestInsertUser {
 	@Test
 	void testExecute() {
 
+
+		
+		
 		try {
 			UsersDAO dao = UsersDAO.getInstance();
+			
+			
+			LocalDate now = LocalDate.now();
+		      
+		      LocalDate start = now.minusYears(90);
+
+		      Random random = new Random();
+		      
+		      
+		      
 
 			for (int i = 1; i <= 100; i++) {
 
-				String user_id = "유저" + i;
-				String user_pw = "pw" + i;
-				String user_name = "유저" + i;
+				Long ranDay = (long) (random.nextInt((int) (now.toEpochDay() -start.toEpochDay()+1)) + start.toEpochDay());
+			      
 				
-				String birthday = "1993-01-01";
+				String user_id = "user" + i;
+				String user_pw = "pw" + i;
+				String user_name = "user" + i;
+				
+				String birthday = LocalDate.ofEpochDay(ranDay).toString();;
 				String tel = "010-1234-1234"; 
 
 				assertEquals(true, 
