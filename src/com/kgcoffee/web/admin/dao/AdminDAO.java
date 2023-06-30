@@ -95,6 +95,8 @@ public class AdminDAO {
 				ReportMenuDTO dto = new ReportMenuDTO();
 
 				String orderDate = rs.getString("날짜");
+			
+				
 				keySet.add("orderDate"+orderDate);
 				dto.setOrderDate("orderDate"+orderDate);
 				dto.setOrderAmount(rs.getInt("주문량"));
@@ -159,9 +161,9 @@ public class AdminDAO {
 				+ "(select ROW_NUMBER() over(order by 날짜 desc, age asc, sum(menu_amount) desc) rn, age, menu_id, sum(menu_amount) 주문량, 날짜, "
 				+ "   ROW_NUMBER() over(partition by 날짜, age order by 날짜 desc, age asc, sum(menu_amount) desc) rank from"
 				+ "       (select A.age, B.menu_id, B.menu_amount, 날짜 from "
-				+ "        (select o.order_id, TO_CHAR(order_date, ?) as 날짜, floor((to_char(sysdate, 'YYYY') - extract(year from u.birthday))/10 +1) * 10 as age from "
+				+ "        (select o.order_id, TO_CHAR(order_date, ?) as 날짜, floor((to_char(sysdate, 'YYYY') - extract(year from u.birthday)+1)/10 ) * 10 as age from "
 				+ "            order_table o inner join users u on o.user_id = u.user_id)A "
-				+ "        inner join payments_table B on A.order_id = B.order_id)C where 날짜 like ? or 날짜 IS NULL group by age, menu_id, 날짜) R, "
+				+ "        inner join payments_table B on A.order_id = B.order_id)C where (날짜 like ? or 날짜 IS NULL) and 날짜 != 0 group by age, menu_id, 날짜) R, "
 				+ "        menu m where R.menu_id = m.menuId and rank <= ? and r.rn between ? and ? order by rn";
 
 		try {

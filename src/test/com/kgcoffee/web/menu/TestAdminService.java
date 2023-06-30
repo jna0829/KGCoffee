@@ -50,8 +50,8 @@ class TestAdminService {
 		Map<String, String> keyMap = new HashMap<String, String>();
 
 		keyMap.put("rank", "3");
-		keyMap.put("dateType", "yyyy");
-		keyMap.put("dateValue", "2023");
+		keyMap.put("dateType", "YYYY MM");
+		keyMap.put("dateValue", "2023 06");
 
 		Map<String, Object> model = service.reportOrderByMenu(keyMap);
 
