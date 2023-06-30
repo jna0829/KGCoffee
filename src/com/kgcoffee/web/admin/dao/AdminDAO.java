@@ -4,11 +4,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 
 import com.kgcoffee.web.admin.DTO.ReportMapDTO;
 import com.kgcoffee.web.admin.DTO.ReportMenuDTO;
@@ -97,8 +100,8 @@ public class AdminDAO {
 				String orderDate = rs.getString("날짜");
 			
 				
-				keySet.add("orderDate"+orderDate);
-				dto.setOrderDate("orderDate"+orderDate);
+				keySet.add(orderDate);
+				dto.setOrderDate(orderDate);
 				dto.setOrderAmount(rs.getInt("주문량"));
 				dto.setMenuId(rs.getInt("menu_id"));
 				dto.setFileName(rs.getString("imgurl"));
@@ -109,9 +112,9 @@ public class AdminDAO {
 				dto.setMenuExplain(rs.getString("menuType"));
 
 				
-				if(resMap.containsKey("orderDate"+orderDate)) {
+				if(resMap.containsKey(orderDate)) {
 					
-					menuDTOList = (List<ReportMenuDTO>) resMap.get("orderDate"+orderDate);
+					menuDTOList = (List<ReportMenuDTO>) resMap.get(orderDate);
 					
 					menuDTOList.add(dto);
 					
@@ -121,7 +124,7 @@ public class AdminDAO {
 					
 					menuDTOList = new ArrayList<ReportMenuDTO>();
 					menuDTOList.add(dto);
-					resMap.put("orderDate"+orderDate, menuDTOList);
+					resMap.put(orderDate, menuDTOList);
 				}
 				
 				
@@ -163,7 +166,7 @@ public class AdminDAO {
 				+ "       (select A.age, B.menu_id, B.menu_amount, 날짜 from "
 				+ "        (select o.order_id, TO_CHAR(order_date, ?) as 날짜, floor((to_char(sysdate, 'YYYY') - extract(year from u.birthday)+1)/10 ) * 10 as age from "
 				+ "            order_table o inner join users u on o.user_id = u.user_id)A "
-				+ "        inner join payments_table B on A.order_id = B.order_id)C where (날짜 like ? or 날짜 IS NULL) and 날짜 != 0 group by age, menu_id, 날짜) R, "
+				+ "        inner join payments_table B on A.order_id = B.order_id)C where (날짜 like ? or 날짜 IS NULL)  group by age, menu_id, 날짜) R, "
 				+ "        menu m where R.menu_id = m.menuId and rank <= ? and r.rn between ? and ? order by rn";
 
 		try {
@@ -194,7 +197,7 @@ public class AdminDAO {
 				
 				String orderDate = rs.getString("날짜");
 				
-				keySet.add("ageGroup"+ageGroup+"orderDate"+orderDate);
+				keySet.add(ageGroup);
 				
 				
 				dto.setAgeGroup(ageGroup);
@@ -211,9 +214,9 @@ public class AdminDAO {
 				
 			
 				
-				if(resMap.containsKey("ageGroup"+ageGroup+"orderDate"+orderDate)) {
+				if(resMap.containsKey(ageGroup+orderDate)) {
 					
-					menuDTOList = (List<ReportMenuDTO>) resMap.get("ageGroup"+ageGroup+"orderDate"+orderDate);
+					menuDTOList = (List<ReportMenuDTO>) resMap.get(ageGroup+orderDate);
 					
 					menuDTOList.add(dto);
 					
@@ -223,7 +226,7 @@ public class AdminDAO {
 					
 					menuDTOList = new ArrayList<ReportMenuDTO>();
 					menuDTOList.add(dto);
-					resMap.put("ageGroup"+ageGroup+"orderDate"+orderDate, menuDTOList);
+					resMap.put(ageGroup+orderDate, menuDTOList);
 				}
 				
 			}
@@ -231,6 +234,7 @@ public class AdminDAO {
 			
 			List<String> keyNames = new ArrayList<String>(keySet);
 			
+			Collections.sort(keyNames);
 			resMap.put("keyNames", keyNames);
 			
 
@@ -315,7 +319,7 @@ public class AdminDAO {
 
 				String orderDate = rs.getString("날짜");
 				
-				keySet.add("orderDate"+orderDate);
+				keySet.add(orderDate);
 				dto.setOrderDate(orderDate);
 				dto.setOrderAmount(rs.getInt("주문량"));
 				dto.setAddressName(rs.getString("address_name"));
@@ -324,9 +328,9 @@ public class AdminDAO {
 				dto.setPlaceName(rs.getString("place_name"));
 				
 
-				if(resMap.containsKey("orderDate"+orderDate)) {
+				if(resMap.containsKey(orderDate)) {
 					
-					mapDTOList = (List<ReportMapDTO>) resMap.get("orderDate"+orderDate);
+					mapDTOList = (List<ReportMapDTO>) resMap.get(orderDate);
 					
 					mapDTOList.add(dto);
 					
@@ -336,7 +340,7 @@ public class AdminDAO {
 					
 					mapDTOList = new ArrayList<ReportMapDTO>();
 					mapDTOList.add(dto);
-					resMap.put("orderDate"+orderDate, mapDTOList);
+					resMap.put(orderDate, mapDTOList);
 				}
 				
 			}

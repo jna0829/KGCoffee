@@ -21,9 +21,10 @@ class TestAdminService {
 		Map<String, String> keyMap = new HashMap<String, String>();
 
 		keyMap.put("rank", "100");
-		keyMap.put("dateType", "YYYY");
-		keyMap.put("dateValue", "2023");
+		keyMap.put("dateType", "");
+		keyMap.put("dateValue", "");
 		keyMap.put("page", "1");
+		keyMap.put("amount", "10000");
 
 		Map<String, Object> model = service.reportOrderByAgeGroup(keyMap);
 
@@ -31,6 +32,7 @@ class TestAdminService {
 
 		for (String key : keyNames) {
 
+			System.out.println("key :" + key);
 			List<ReportMenuDTO> dtoList = (ArrayList<ReportMenuDTO>) model.get(key);
 
 			for (ReportMenuDTO dto : dtoList) {

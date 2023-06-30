@@ -7,14 +7,17 @@ create table mvcsnsboard(
     snscontent VARCHAR2(4000) NOT NULL,
     snsdate DATE,
     snscnt NUMBER(5) DEFAULT 0 NOT NULL,
-    filename varchar2(200)
+    filename varchar2(200),
+    user_id varchar2(20),
+    constraint mvc_user_id_fk foreign key (user_id) references users(user_id) on delete cascade
+    
 );
 
 create SEQUENCE mvcsnsboard_sequence1
 INCREMENT BY 1
 START WITH 1 
 MINVALUE 1 
-MAXVALUE 999 
+
 NOCYCLE 
 NOCACHE; 
 
