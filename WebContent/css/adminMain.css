@@ -1,6 +1,10 @@
 @charset "UTF-8";
 
 
+h2.h2 {
+    font-size: 30px;
+}
+
 * {
 	font-size: 16px;
 	box-sizing: border-box;
@@ -53,7 +57,7 @@ body {
 }
 
 .content {
-	margin: 25px 50%;
+	margin: 25px 50px;
 }
 .nav * {
 	list-style: none;
@@ -98,6 +102,20 @@ body {
     justify-content: center;
 }
 
-.content {
-	margin: 25px 50%;
+::-webkit-scrollbar {
+	width: 5px;
 }
+
+/* Track */
+::-webkit-scrollbar-track {
+	
+	border-radius: 3px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #f9ca24;
+	border-radius: 3px;
+	height: 20%;
+}
+

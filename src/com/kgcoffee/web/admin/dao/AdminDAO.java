@@ -197,7 +197,7 @@ public class AdminDAO {
 				
 				String orderDate = rs.getString("날짜");
 				
-				keySet.add(ageGroup);
+				keySet.add(ageGroup+orderDate);
 				
 				
 				dto.setAgeGroup(ageGroup);

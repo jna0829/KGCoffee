@@ -8,6 +8,7 @@ public class ReportMenuDTO extends MenuVO{
 	private int orderAmount;
 	private String ageGroup;
 	private String orderDate;
+	
 	public int getOrderAmount() {
 		return orderAmount;
 	}
