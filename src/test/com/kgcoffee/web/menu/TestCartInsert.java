@@ -1,14 +1,10 @@
 package test.com.kgcoffee.web.menu;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.junit.jupiter.api.Test;
-
-import com.kgcoffee.web.admin.DTO.ReportMenuDTO;
-import com.kgcoffee.web.order.controller.cart.CartInsertController;
 
 class TestCartInsert {
 
@@ -49,17 +45,23 @@ class TestCartInsert {
 //		System.out.println(resMap.size());
 //		
 		
-		
 
-		String keywords ="서울 공립";
 		
-		String[] keyword =keywords.split("\\s+");
+		SimpleDateFormat format = new SimpleDateFormat("yy-mm-dd");
 		
-		for(String key : keyword) {
-		System.out.println("1"+key);
+		try {
+			
+			Date now = format.parse("22-11-26");
+			System.out.println(now);
+			format.applyPattern("y m d");
+			
+			System.out.println(format.format(now));
+			
+			
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		
-		System.out.println(keyword.length);
 		
 		
 	}

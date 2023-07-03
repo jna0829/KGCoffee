@@ -112,7 +112,7 @@ class TestAdminService {
 			}
 
 		}
-		
+		// option { indexAxis:'y',}
 		
 		
 	}
