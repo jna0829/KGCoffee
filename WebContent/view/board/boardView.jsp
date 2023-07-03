@@ -129,7 +129,7 @@
 
 
 		<script>
-			const filename = '${prev}';
+			const filename = '${ssv.filename}';
 
 			console.log(filename); //확인용
 

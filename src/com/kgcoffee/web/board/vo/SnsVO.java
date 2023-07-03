@@ -10,6 +10,12 @@ public class SnsVO {
 	private String content;
 	private Date date;
 	private int count;
+	@Override
+	public String toString() {
+		return "SnsVO [bunho=" + bunho + ", jemok=" + jemok + ", writer=" + writer + ", content=" + content + ", date="
+				+ date + ", count=" + count + ", filename=" + filename + "]";
+	}
+
 	private String filename;
 	
 	

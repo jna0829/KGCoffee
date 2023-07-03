@@ -18,11 +18,14 @@ let order = {
         var storeListVal = $("#store_list").val();
       
 
-        
+        if(!storeListVal){
+            alert("매장을 선택하세요");
+            return;
+        }
      
         var mapId = $("#"+storeListVal).data("val");
         
-        console.log(mapId);
+        console.log(storeListVal);
 
         if(mapId===undefined){
             alert("매장을 선택하세요");

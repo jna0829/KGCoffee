@@ -23,10 +23,12 @@ public class HaevaSearchone implements com.kgcoffee.web.common.ControllerImpl {
 		SnsDAO sdao1 = new SnsDAO();
 		int bunho = Integer.parseInt(request.getParameter("bunho"));
 
+		System.out.println(bunho);
 		SnsVO prePost = sdao1.getPrevious(bunho);
 		SnsVO sv1 = sdao1.searchOne(bunho);
 		SnsVO nextPost = sdao1.getNext(bunho);
 
+		System.out.println(sv1);
 		request.setAttribute("prePost", prePost);
 		request.setAttribute("ssv", sv1);
 		request.setAttribute("nextPost", nextPost);
