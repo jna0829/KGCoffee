@@ -14,7 +14,40 @@
 
 </head>
 <body>
-	<%@include file="../../include/header.jsp" %>
+	<%@include file="/include/header.jsp" %>
+	
+	<%@include file="/include/sub_header_news.jsp" %>
+	
+	
+	<div class="sub_header_wrap">
+
+
+				<div class="sub_header">
+					<div class="sub_header_title_wrap">
+						<div class="sub_header_title_info">
+							NEWS </div>
+						<div class="sub_header_title robo color">
+							<h2>KG NEWS</h2>
+						</div>
+					</div>
+					<div class="sub_header_text_wrap">
+						<div class="sub_header_text sub_header_list_map">
+							<ul>
+								<li>
+									홈
+								</li>
+								<li>
+									NEWS </li>
+								<li>
+									공지사항 </li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+	
+	
+	
 	
 	<div class="board_wrap">
 		<div class="board_title">
@@ -25,7 +58,7 @@
 		
 		<form id="frm1" action="/kgCoffee/board/update.do?sbunho=${ssv.bunho}" method="post" enctype="multipart/form-data">
 		
-
+	
 		
 		<div class="board_write_wrap">
 			<div class="board_write">
@@ -46,7 +79,7 @@
 					</dl>
 				</div>
 				<div class="cont">
-					<textarea name="content" placeholder="${ssv.content}"></textarea>
+					<textarea name="content">${ssv.content}</textarea>
 				</div>	
 			</div>
 			

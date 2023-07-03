@@ -17,6 +17,9 @@
 <body>
 	<%@include file="../../include/header.jsp" %>
 	
+	<%@include file="../../include/sub_header_news.jsp" %>
+			
+	
 	<div class="board_wrap">
 		<div class="board_title">
 			<strong><h3 align="center">종로 KG커피 공지사항</h3></strong>
@@ -37,7 +40,7 @@
 				<div class="info">
 					<dl>
 						<dt>글쓴이</dt>
-						<dd><input type="text" name="writer" value="<c:out value='${loginUser.user_name}'/>"></dd>
+						<dd><input readonly type="text" name="writer" value="<c:out value='${loginUser.user_name}'/>"></dd>
 						<!-- <dd><input type="text" name="writer" placeholder="글쓴이 입력"></dd> -->
 					</dl>
 					<dl>

@@ -12,7 +12,6 @@ public class SnsVO {
 	private int count;
 	private String filename;
 	
-	public SnsVO() {};
 	
 	public SnsVO(int bunho, String jemok, String writer, String content, Date date, int count, String filename) {
 		/* super(); */

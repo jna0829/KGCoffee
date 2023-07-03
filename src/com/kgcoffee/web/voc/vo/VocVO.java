@@ -14,6 +14,9 @@ public class VocVO {
 	private int ref;
 	private int re_step;
 	private int re_level;
+	private String user_id;
+	
+	
 	
 	public VocVO() {}
 	
@@ -22,7 +25,7 @@ public class VocVO {
 	}
 	
 	public VocVO(int bunho, String jemok, String writer, String content, Date date, int count, String filename, int ref,
-			int re_step, int re_level) {
+			int re_step, int re_level,String user_id) {
 		super();
 		this.bunho = bunho;
 		this.jemok = jemok;
@@ -34,9 +37,18 @@ public class VocVO {
 		this.ref = ref;
 		this.re_step = re_step;
 		this.re_level = re_level;
+		this.user_id = user_id;
 	}
 	
 	
+	public String getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+
 	public int getBunho() {
 		return bunho;
 	}

@@ -37,10 +37,11 @@ public class HaevaInsert implements com.kgcoffee.web.common.ControllerImpl {
 		String jemok = multi.getParameter("jemok");
 		String writer = multi.getParameter("writer");
 		String content = multi.getParameter("content");
+		String user_id = multi.getParameter("user_id");
 		
 		SnsDAO sdao1 = new SnsDAO();
 		
-		sdao1.insert(jemok, writer, content, filename);
+		sdao1.insert(jemok, writer, content, filename, user_id);
 		
 	}
 

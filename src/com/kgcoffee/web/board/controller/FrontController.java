@@ -130,6 +130,9 @@ public class FrontController extends HttpServlet {
 			}
 			
 			str = "boardSearchList";
+			
+			
+	
 
 		}// switch-end
 

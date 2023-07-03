@@ -18,6 +18,8 @@
 <body>
 
 	<%@include file="/include/header.jsp" %>
+	
+	<%@include file="../../include/sub_header_voc.jsp" %>
 
 	<div class="board_wrap">
 		<div class="board_title">

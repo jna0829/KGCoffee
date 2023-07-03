@@ -15,6 +15,8 @@
 </head>
 <body>
 	<%@include file="/include/header.jsp" %>
+	
+	<%@include file="../../include/sub_header_voc.jsp" %>
 
 	<div class="board_wrap">
 		<div class="board_title">
@@ -47,7 +49,7 @@
 					</dl>
 				</div>
 				<div class="cont">
-					<textarea name="content" placeholder="${ssv.content}"></textarea>
+					<textarea name="content">${ssv.content}</textarea>
 				</div>	
 			</div>
 			

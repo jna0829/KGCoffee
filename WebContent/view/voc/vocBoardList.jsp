@@ -16,6 +16,8 @@
 <body>
 
 	<%@include file="/include/header.jsp"%>
+	
+	<%@include file="../../include/sub_header_voc.jsp" %>
 
 	<div class="board_wrap">
 	
@@ -64,18 +66,18 @@
 						</li>
 						<li class=bt_wrap>
 						<a href=# onclick="formSubmit();" class="on">검색</a></li>
+						
+						<div class="bt_wrap">
+					<a href="/kgCoffee/view/voc/vocBoardWrite.jsp" class="on">글쓰기</a>
+				</div>	
 					</ul>
 				</form>
+				
 			</div>
 		</ul>
 		
 	<!----------------------------------- 고객문의 검색창 ------------------------------------>		
-		
-		
-		
-		
-		
-		
+	
 		
 		
 		<div class="board_list_wrap">
@@ -107,7 +109,7 @@
 			
 			
 				<c:forEach var="v1" items="${alist1}">
-					<div>
+					<div class="han_jul">
 						<div class="num">${v1.bunho}</div>
 						<%-- <div class="title"><a href="boardView.jsp"> ${v1.jemok}</a></div> --%>
 						<div class="title">
@@ -116,7 +118,7 @@
 							&nbsp;
 						</c:forEach>
 						</c:if>
-							<a href="/kgCoffee/voc/searchone.do?bunho=${v1.bunho}&v_name=${loginUser.user_name}">${v1.jemok}</a>
+							<a class ="jemok_a" href="/kgCoffee/voc/searchone.do?bunho=${v1.bunho}&voc_id=${v1.user_id}">${v1.jemok}</a>
 						</div>
 						<div class="writer">${v1.writer}</div>
 						<%-- <div class="date">${v1.date}</div> --%>
@@ -133,13 +135,7 @@
 				    <jsp:param value="${paging.prev}" name="prev"/>
 				    <jsp:param value="${paging.next}" name="next"/>
 				</jsp:include>
-				
-				
-				
-				<div class="bt_wrap">
-					<a href="/kgCoffee/view/voc/vocBoardWrite.jsp" class="on">글쓰기</a>
-				</div>
-				
+					
 				
 			</div>
 		</div>

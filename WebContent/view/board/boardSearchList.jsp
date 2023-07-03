@@ -21,6 +21,9 @@
 
 	<%@include file="../../include/header.jsp" %>
 	
+	<%@include file="../../include/sub_header_news.jsp" %>
+			
+	
 	<div class="board_wrap">
 	
 		<div class="board_title">

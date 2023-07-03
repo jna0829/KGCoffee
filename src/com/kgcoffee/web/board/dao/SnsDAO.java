@@ -59,7 +59,8 @@ public class SnsDAO {
 		int startNum = (page - 1) * 10 + 1;
 		int endNum = page * 10;
 
-		String sql = "SELECT * FROM (" + " SELECT MVCSNSBOARD.*, ROWNUM row_num FROM ("
+		String sql = "SELECT * FROM (" 
+				+ " SELECT MVCSNSBOARD.*, ROWNUM row_num FROM ("
 				+ " SELECT * FROM MVCSNSBOARD order by bunho desc) MVCSNSBOARD"
 				+ " ) WHERE row_num >= ? AND row_num <= ?";
 
@@ -118,14 +119,16 @@ public class SnsDAO {
 
 	// ----------------------------------------------------------------------
 
-	public boolean insert(String jemok, String writer, String content, String filename) throws SQLException {
-		String sql = "insert into MVCSNSBOARD" + " values (mvcsnsboard_sequence1.NEXTVAL, ?, ?, ?,sysdate,0,?)";
+	public boolean insert(String jemok, String writer, String content, String filename, String user_id) throws SQLException {
+		String sql = "insert into MVCSNSBOARD" 
+					+ " values (mvcsnsboard_sequence1.NEXTVAL, ?, ?, ?,sysdate,0,?,?)";
 
 		pstmt = con.prepareStatement(sql);
 		pstmt.setString(1, jemok);
 		pstmt.setString(2, writer);
 		pstmt.setString(3, content);
 		pstmt.setString(4, filename);
+		pstmt.setString(5, user_id);
 
 		pstmt.executeUpdate();
 		return true;
@@ -167,6 +170,7 @@ public class SnsDAO {
 		pstmt.setString(4, filename);
 		pstmt.setInt(5, bunho1);
 		pstmt.executeUpdate();
+		
 		return true;
 	}
 
@@ -176,6 +180,7 @@ public class SnsDAO {
 		pstmt = con.prepareStatement(sql);
 		pstmt.setInt(1, bunho1);
 		pstmt.executeUpdate();
+		
 		return true;
 	}
 
@@ -225,7 +230,8 @@ public class SnsDAO {
 		int startNum = (page - 1) * 10 + 1;
 		int endNum = page * 10;
 
-		String sql = "SELECT * FROM (" + " SELECT MVCSNSBOARD.*, ROWNUM row_num FROM ("
+		String sql = "SELECT * FROM (" 
+				+ " SELECT MVCSNSBOARD.*, ROWNUM row_num FROM ("
 				+ " SELECT * FROM MVCSNSBOARD WHERE ";
 
 		if (searchKeywordType.equals("jemok")) {
@@ -236,7 +242,8 @@ public class SnsDAO {
 			sql += "snscontent LIKE ?";
 		}
 
-		sql += " ORDER BY bunho DESC) MVCSNSBOARD" + " ) WHERE row_num >= ? AND row_num <= ?";
+		sql += " ORDER BY bunho DESC) MVCSNSBOARD" 
+			+ " ) WHERE row_num >= ? AND row_num <= ?";
 
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -263,6 +270,73 @@ public class SnsDAO {
 		}
 		return list;
 }
+	
+	
+	//이전글
+	public SnsVO getPrevious(int currentbunho) {
+		SnsVO sns=null;
+
+		
+		// 이전글 조회 로직 구현
+		String sql = "SELECT * FROM mvcsnsboard WHERE bunho IN (SELECT MAX(bunho) FROM mvcsnsboard WHERE bunho < ?)";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, currentbunho);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				int bunho = rs.getInt(1);
+				String jemok = rs.getString(2);
+				String writer = rs.getString(3);
+				String content = rs.getString(4);
+				Date date = rs.getDate(5);
+				int count = rs.getInt(6);
+				String filename = rs.getString(7);
+				
+				sns = new SnsVO(bunho, jemok, writer, content, date, count, filename);
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+			
+		return sns;
+	
+	}
+
+	//다음글
+	public SnsVO getNext(int currentbunho) {
+		
+		SnsVO sns=null;
+		// 다음글 조회 로직 구현
+		String sql = "SELECT * FROM mvcsnsboard WHERE bunho IN (SELECT MIN(bunho) FROM mvcsnsboard WHERE bunho > ?)";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, currentbunho);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				int bunho = rs.getInt(1);
+				String jemok = rs.getString(2);
+				String writer = rs.getString(3);
+				String content = rs.getString(4);
+				Date date = rs.getDate(5);
+				int count = rs.getInt(6);
+				String filename = rs.getString(7);
+				
+				sns = new SnsVO(bunho, jemok, writer, content, date, count, filename);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+			
+		return sns;
+	
+	}
 	 
 
 }

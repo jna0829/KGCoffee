@@ -21,16 +21,14 @@ class TestInsertBoard {
 			String content = "";
 			String filename = "";
 
-			for (int i = 1; i <= 100; i++) {
+			for (int i = 1; i <= 40; i++) {
 				
 				
 				jemok = "제목"+i;
 				content = "내용입니다"+i;
 				filename="";
-				
 				writer = "유저"+i;
-				
-				assertEquals(true, dao.insert(jemok, writer, content, filename));
+				assertEquals(true, dao.insert(jemok, writer, content, filename, "user"+i));
 
 
 			}

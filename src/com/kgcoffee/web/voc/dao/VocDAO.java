@@ -94,8 +94,9 @@ public class VocDAO {
 			int ref = rs.getInt(8);
 			int re_step = rs.getInt(9);
 			int re_level = rs.getInt(10);
+			String user_id = rs.getString(11);
 
-			VocVO sv1 = new VocVO(bunho, jemok, writer, content, date, count,filename, ref, re_step, re_level);
+			VocVO sv1 = new VocVO(bunho, jemok, writer, content, date, count,filename, ref, re_step, re_level,user_id);
 
 			sarray.add(sv1);
 		}
@@ -133,7 +134,7 @@ public class VocDAO {
 	
 	
 	//답변글이 저장되는 메소드
-	public boolean reInsert(String jemok, String writer, String content, String filename, int ref1, int re_step1, int re_level1) {
+	public boolean reInsert(String jemok, String writer, String content, String filename, int ref1, int re_step1, int re_level1, String user_id) {
 		
 		VocVO vo = new VocVO();
 		
@@ -155,7 +156,7 @@ public class VocDAO {
 		
 		
 		//답변글 데이터를 저장
-		String sql = "insert into VOCBOARD values(vocboard_seq.NEXTVAL, ?, ?, ?, sysdate, 0, ?, ?, ?, ?)";
+		String sql = "insert into VOCBOARD values(vocboard_seq.NEXTVAL, ?, ?, ?, sysdate, 0, ?, ?, ?, ?, ?)";
 		pstmt = con.prepareStatement(sql);
 		pstmt.setString(1, jemok);
 		pstmt.setString(2, writer);
@@ -164,6 +165,7 @@ public class VocDAO {
 		pstmt.setInt(5, ref); // 부모의 ref 값을 넣어줌
 		pstmt.setInt(6, re_step + 1); //답글이기에 부모글 re_step에 1을 증가
 		pstmt.setInt(7, re_level + 1); //답글이기에 부모글 re_level에 1으을 증가
+		pstmt.setString(8, user_id);
 					
 		if(pstmt.executeUpdate()>=1) {
 			
@@ -183,7 +185,7 @@ public class VocDAO {
 	
 	// ------------------------------------------------------------------------------------------------------
 
-	public boolean insert(String jemok, String writer, String content, String filename) {
+	public boolean insert(String jemok, String writer, String content, String filename, String user_id) {
 		
 		
 		int ref = 0; // 글 그룹을 의미 = 퀴리를 실행시켜 가장 큰 ref값을 가져온 후 +1을 더해주면 된다
@@ -202,7 +204,7 @@ public class VocDAO {
 		
 		System.out.println(ref);
 		String sql = "insert into VOCBOARD"
-				+ " values (vocboard_seq.NEXTVAL, ?, ?, ?,sysdate,0,?,?,?,?)";
+				+ " values (vocboard_seq.NEXTVAL, ?, ?, ?,sysdate,0,?,?,?,?,?)";
 
 		pstmt = new LoggableStatement(con,sql);
 	
@@ -213,6 +215,7 @@ public class VocDAO {
 		pstmt.setInt(5, ref);
 		pstmt.setInt(6, re_step);
 		pstmt.setInt(7, re_level);
+		pstmt.setString(8, user_id);
 		
 		System.out.println(((LoggableStatement)pstmt).getQueryString());
 
@@ -254,8 +257,9 @@ public class VocDAO {
 			int ref = rs.getInt(8);
 			int re_step = rs.getInt(9);
 			int re_level = rs.getInt(10);
+			String user_id = rs.getString(11);
 
-			sv1 = new VocVO(bunho, jemok, writer, content, date, count, filename, ref, re_step, re_level);
+			sv1 = new VocVO(bunho, jemok, writer, content, date, count, filename, ref, re_step, re_level, user_id);
 		} else {
 			sv1 = null;
 		}
@@ -420,8 +424,9 @@ public class VocDAO {
 				int ref = rs.getInt(8);
 				int re_step = rs.getInt(9);
 				int re_level = rs.getInt(10);
+				String user_id = rs.getString(11);
 
-				VocVO vvo = new VocVO(bunho, jemok, writer, content, date, count, filename,ref,re_step,re_level);
+				VocVO vvo = new VocVO(bunho, jemok, writer, content, date, count, filename,ref,re_step,re_level,user_id);
 				list.add(vvo);
 			}
 		} catch (SQLException e) {

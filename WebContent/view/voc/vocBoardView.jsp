@@ -16,6 +16,8 @@
 <body>
 <%@include file="/include/header.jsp" %>
 
+<%@include file="../../include/sub_header_voc.jsp" %>
+
 	<div class="board_wrap">
 		<div class="board_title">
 			<strong><h3 align="center">종로 KG커피 고객의 소리</h3></strong>
@@ -56,27 +58,27 @@
 					</dd> -->
 					
 					<dd>
-						<textarea name="content" readonly>${ssv.content}</textarea>
+						<textarea readonly name="content">${ssv.content}</textarea>
 					</dd>
 				</div>
 					
-			</div>
+			</div>`
 			
 			<div class="bt_wrap">
 				<a href="/kgCoffee/voc/getAll.do" class="on">목록</a>
 				
 				<c:choose>
-					<c:when test="${result==1 }">
+					<c:when test="${result==1}">
 						<a href="/kgCoffee/voc/edit.do?bunho=${ssv.bunho}">수정</a>
 						<a href="/kgCoffee/voc/delete.do?bunho=${ssv.bunho}">삭제</a>
 						<a href="/kgCoffee/view/voc/vocBoardReWrite.jsp?=&bunho=${ssv.bunho}=&ref=${ssv.ref}&re_step=${ssv.re_step}&re_level=${ssv.re_level}">답글쓰기</a>
 					</c:when>
-					<c:when test="${result==2 }">
+					<c:when test="${result==2}">
 						<a href="/kgCoffee/voc/edit.do?bunho=${ssv.bunho}">수정</a>
 						<a href="/kgCoffee/voc/delete.do?bunho=${ssv.bunho}">삭제</a>
 						<a href="/kgCoffee/view/voc/vocBoardReWrite.jsp?=&bunho=${ssv.bunho}=&ref=${ssv.ref}&re_step=${ssv.re_step}&re_level=${ssv.re_level}">답글쓰기</a>
 					</c:when>
-					<c:when test="${result==3 }">
+					<c:when test="${result==3}">
 						<a href="/kgCoffee/view/voc/vocBoardReWrite.jsp?=&bunho=${ssv.bunho}=&ref=${ssv.ref}&re_step=${ssv.re_step}&re_level=${ssv.re_level}">답글쓰기</a>
 					</c:when>
 				</c:choose>
@@ -89,6 +91,7 @@
 <script>
 		
 	console.log("ref:::"+${ssv.ref});
+	console.log("ref:::"+${result});
 	
 	
 	 	const filename = '${ssv.filename}';

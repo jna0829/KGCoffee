@@ -34,10 +34,11 @@ public class VocInsert implements VocImpli {
 		String jemok = multi.getParameter("jemok");
 		String writer = multi.getParameter("writer");
 		String content = multi.getParameter("content");
+		String user_id = multi.getParameter("user_id");
 		
 		VocDAO sdao1 = new VocDAO();                              
 		
-		sdao1.insert(jemok, writer, content, filename);
+		sdao1.insert(jemok, writer, content, filename, user_id);
 		
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

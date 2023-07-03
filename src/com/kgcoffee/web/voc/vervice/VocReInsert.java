@@ -42,9 +42,12 @@ public class VocReInsert implements VocImpli {
 		int re_step = Integer.parseInt(multi.getParameter("re_step"));
 		int re_level =Integer.parseInt(multi.getParameter("re_level"));
 		
+		String user_id = multi.getParameter("user_id");
+		
+		
 		VocDAO sdao1 = new VocDAO();                              
 		
-		sdao1.reInsert(jemok, writer, content, filename, ref, re_step, re_level);
+		sdao1.reInsert(jemok, writer, content, filename, ref, re_step, re_level, user_id);
 		
 		
 		} catch (Exception e) {
