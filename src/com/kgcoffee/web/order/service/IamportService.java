@@ -137,7 +137,7 @@ public class IamportService {
 			String author = "Bearer " + accessToken;
 
 			String impUid = keyMap.get("imp_uid");
-			String amount = keyMap.get("total_count");
+			String amount = keyMap.get("total_price");
 			URL url = new URL(reqUri);
 
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -171,12 +171,13 @@ public class IamportService {
 			BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 
 			String responseData = br.readLine();
-			System.out.println("response : " + responseData);
+			
 
 			JsonElement resEl = (JsonElement) JsonParser.parseString(responseData);
 
+			System.out.println("res : "+resEl.toString());
 			JsonObject object = resEl.getAsJsonObject();
-			int result = object.get("response").getAsInt();
+			int result = object.get("code").getAsInt();
 //			
 //			
 			

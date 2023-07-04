@@ -75,8 +75,8 @@
 										<a class="place_name">${fn:substring(placeName,8,pLen)}</a>
 
 										<a class="order_total">총 금액 : ${dto.order.totalPrice} 원</a>
-									</div>
-									<button type="button" class="btn_refund_order" onclick="refundOrder()" data-imp-uid="${dto.order.impUid}">환불하기</button>
+										<button type="button" class="btn_refund_order" data-total-price="${dto.order.totalPrice}" data-imp-uid="${dto.order.impUid}">환불하기</button>
+									</div>	
 								</div>
 							</div>
 
@@ -164,14 +164,56 @@
 		var temp = "${paging}";
 		console.log(temp);
 		
-		function refundOrder(){
+		$(".btn_refund_order").click(function refundOrder(){
 
 			if(confirm("해당 주문을 환불하시겠습니까?")){
 
-				let imp_uid = $(tihs).data("imp-uid");
+				let imp_uid = $(this).data("imp-uid");
+				let total_price= $(this).data("total-price");
 
+				let reqUrl = "/kgCoffee/order/api/refund.do";
 
-				$ajax.
+				console.log(imp_uid)
+
+				
+				console.log(total_price)
+
+				$.ajax({
+                    type : "POST",
+                    url : reqUrl,
+                    data : {
+                        // 저장할 pay 정보 넣어서 서버 보내서 DB 테이블 저장
+                        imp_uid : imp_uid,
+                        total_price: total_price,
+ 
+
+                    },
+                    success:function(res_data) {
+
+                    	
+                        var res = JSON.parse(res_data);
+						
+						var msg = res.refund-msg;
+						console.log(msg);
+                        if(!(msg===null)){
+    
+                            if(msg==="refund-success"){
+                                alert("환불이 완료되었습니다.");
+								location.reload
+    
+                            }else if(msg==="delete-faild"){
+    
+                                alert("결제 실패.");
+    
+                            }else if(msg==="refund-faild"){
+                                alert("refund-faild");
+    
+                            }
+    
+                        }
+    
+                    }
+                })
 
 				
 
@@ -180,7 +222,7 @@
 			
 			
 
-		}
+		})
 
 		//아코디언 메뉴 클릭 이벤트
 		function arccodionMenu(orderId){
