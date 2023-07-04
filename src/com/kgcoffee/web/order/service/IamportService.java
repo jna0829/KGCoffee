@@ -209,7 +209,7 @@ public class IamportService {
 			}
 			
 			
-			model.put("refund-msg", msg);
+			model.put("msg", msg);
 			
 			
 

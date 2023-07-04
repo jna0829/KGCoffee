@@ -192,14 +192,16 @@
 
                     	
                         var res = JSON.parse(res_data);
+                        
+                        console.log(res);
 						
-						var msg = res.refund-msg;
+						var msg = res.msg;
 						console.log(msg);
                         if(!(msg===null)){
     
                             if(msg==="refund-success"){
                                 alert("환불이 완료되었습니다.");
-								location.reload
+								location.reload(true);
     
                             }else if(msg==="delete-faild"){
     
