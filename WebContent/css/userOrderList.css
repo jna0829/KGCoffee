@@ -48,6 +48,9 @@ body {
 	text-align: center;
 }
 
+.item{
+    
+}
 
 .paymentItem {
 	display: grid;
@@ -60,7 +63,23 @@ body {
     background-color: rgb(255, 255, 255);
     margin-bottom: 20px;
     padding: 24px 35px 24px;
+	
+
     
+}
+div.content{
+    
+	
+
+}
+
+div.content ul.paymentList{
+
+
+    min-height:300px;
+    max-height: 600px;
+    overflow: auto;
+
 }
 
 div .select_btn {
@@ -179,3 +198,30 @@ div .product_content_list a {
     font-weight: 500;
     color: #fff;
 }
+
+
+    
+    .paymentList::-webkit-scrollbar {
+    
+    width: 5px;
+    height: 5px;
+    background: #f2f2f2;
+    
+    }
+    
+    .paymentList::-webkit-scrollbar-thumb {
+    height: 30%;
+    /* 스크롤바의 길이 */
+    background: #FDD000;
+    /* 스크롤바의 색상 */
+    
+    border-radius: 10px;
+    
+    }
+    
+    .paymentList::-webkit-scrollbar-track {
+    
+    background: #EEE;
+    /*스크롤바 뒷 배경 색상*/
+    
+    }

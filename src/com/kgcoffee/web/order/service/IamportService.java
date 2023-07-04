@@ -84,7 +84,7 @@ public class IamportService {
 
 	public int getPaymentsInfo(String impUid, String accessToken) {
 
-		String reqUri = "https://api.portone.io/v2/payments/" + impUid;
+		String reqUri = "https://api.iamport.kr/payments/" + impUid;
 
 		try {
 			URL url = new URL(reqUri);

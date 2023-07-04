@@ -21,6 +21,14 @@ public class AdminService {
 	Map<String, Object> resMap = null;
 	MemberDAO mdao = new MemberDAO();
 
+	
+	
+	
+	
+	
+	
+	
+	
 	public Map<String, Object> getAllMember(Map<String, String> keyMap) {
 		// TODO Auto-generated method stub
 
@@ -137,8 +145,6 @@ public class AdminService {
 		
 	}
 
-	
-
 	public Map<String, Object> memberUpdate(Map<String, String> keyMap) {
 		// TODO Auto-generated method stub
 		resMap = new HashMap<String, Object>();
@@ -161,6 +167,13 @@ public class AdminService {
 
 	}
 
+	
+	
+	
+	
+	
+	
+	
 	public Map<String, Object> reportOrderByMap(Map<String, String> keyMap) {
 
 		System.out.println("reportOrderByMap");

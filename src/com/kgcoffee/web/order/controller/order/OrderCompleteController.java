@@ -27,21 +27,21 @@ public class OrderCompleteController implements Controller {
 		
 		String impUid = paramMap.get("imp_uid");
 		System.out.println(paramMap.get("merchant_uid"));
-//		int amount = 0;
-//		try {
-//			String accessToken = service.getAccessToken();
-//			amount = service.getPaymentsInfo(impUid, accessToken);
-//					
-//		
-//		
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		int amount = 0;
+		try {
+			String accessToken = service.getAccessToken();
+			amount = service.getPaymentsInfo(impUid, accessToken);
+					
+		
+		
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 		
-
+		System.out.println(amount);
 		String userId = paramMap.get("userId");
 		int paidAmount = Integer.parseInt(paramMap.get("paid_amount"));
 		String paidAt = (paramMap.get("paid_at"));
@@ -56,7 +56,7 @@ public class OrderCompleteController implements Controller {
 
 		System.out.println("paid"+paidAmount);
 		System.out.println("total"+totalPrice);
-		if (paidAmount == totalPrice) {
+		if (paidAmount == amount) {
 
 			OrderVO order = new OrderVO();
 

@@ -153,7 +153,6 @@ public class OrderDAO {
 			while (rs.next()) {
 
 				PaymentsVO payments = new PaymentsVO();
-
 				payments.setUserId(rs.getString("user_id"));
 				payments.setOrderId(rs.getInt("order_id"));
 				payments.setpPaymentsId(rs.getInt("payments_id"));
@@ -165,8 +164,8 @@ public class OrderDAO {
                 payments.setMenuPrice(rs.getInt("menuPrice"));
                 payments.setMenuType(rs.getString("menuExplain"));
                 payments.setMenuExplain(rs.getString("menuType"));
-		
                 paymentsList.add(payments);
+                
 			}
 
 		} catch (SQLException e) {
@@ -223,6 +222,7 @@ public class OrderDAO {
 				order.setTotalPrice(rs.getInt("order_price"));
 				order.setOrderDate(rs.getDate("order_date"));
 				order.setPlaceName(rs.getString("place_name"));
+				order.setImpUid(rs.getString("imp_uid"));
 				System.out.println(order);
 				orderList.add(order);
 

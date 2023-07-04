@@ -20,6 +20,9 @@
 <script src="/kgCoffee/js/jquery-3.7.0.min.js"></script>
 <!-- jquery -->
 
+<style>
+
+</style>
 </head>
 <body>
 
@@ -73,6 +76,7 @@
 
 										<a class="order_total">총 금액 : ${dto.order.totalPrice} 원</a>
 									</div>
+									<button type="button" class="btn_refund_order" onclick="refundOrder()" data-imp-uid="${dto.order.impUid}">환불하기</button>
 								</div>
 							</div>
 
@@ -160,6 +164,21 @@
 		var temp = "${paging}";
 		console.log(temp);
 		
+		function refundOrder(){
+
+			if(confirm("해당 주문을 환불하시겠습니까?")){
+
+				let imp_uid = $(tihs).data("imp-uid");
+				
+
+				
+
+
+			}
+			
+			
+
+		}
 
 		//아코디언 메뉴 클릭 이벤트
 		function arccodionMenu(orderId){
