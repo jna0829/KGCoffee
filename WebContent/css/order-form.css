@@ -89,12 +89,13 @@ button {
     border: none;
     border-radius: 5px;
     color: #fff;
-    background-color: #007bff;
+    background-color: #FDD000;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #0069d9;
+    background-color: #F0F0F0;
+    color: #000;
 }
 
 
