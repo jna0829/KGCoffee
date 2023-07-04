@@ -114,6 +114,7 @@ let order = {
     
                             if(msg==="order-complete"){
                                 alert("결제가 완료되었습니다.");
+                                location.href="/kgCoffee/mypage/findOrder.do";
     
                             }else if(msg==="order-complete-fail"){
     
