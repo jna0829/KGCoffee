@@ -11,16 +11,36 @@ import com.kgcoffee.web.order.dao.OrderDAO;
 import com.kgcoffee.web.order.domain.CartVO;
 import com.kgcoffee.web.order.domain.OrderVO;
 import com.kgcoffee.web.order.domain.PaymentsVO;
+import com.kgcoffee.web.order.service.IamportService;
 
 public class OrderCompleteController implements Controller {
 
 //    private ObjectMapper objectMapper;
+	IamportService service = new IamportService();
+	
 
 	@Override
 	public String process(Map<String, String> paramMap, Map<String, Object> model) {
 		// DB TABLE 생성해서 주문 정보 원하는 값들만 넣어주면 됨.
 
 		String result = "order-complete-fail";
+		
+		String impUid = paramMap.get("imp_uid");
+		System.out.println(paramMap.get("merchant_uid"));
+//		int amount = 0;
+//		try {
+//			String accessToken = service.getAccessToken();
+//			amount = service.getPaymentsInfo(impUid, accessToken);
+//					
+//		
+//		
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
+		
+		
 
 		String userId = paramMap.get("userId");
 		int paidAmount = Integer.parseInt(paramMap.get("paid_amount"));
@@ -44,7 +64,8 @@ public class OrderCompleteController implements Controller {
 			order.setMapId(mapId);
 			order.setTotalPrice(paidAmount);
 			order.setOrderDate(pDate);
-
+			order.setImpUid(impUid);
+			
 			if (dao.insertOrder(order)) {
 				
 				int orderId = dao.getOrderSeq();

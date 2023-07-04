@@ -29,6 +29,7 @@ public class MenuSerch implements MenuImpl {
 			String menuAll = request.getParameter("menuAll");
 			String menuType = request.getParameter("menuType");
 			String caffeineType = request.getParameter("caffeineType");
+			String menuName = "";
 			Paging paging = new Paging();
 
 			if (caffeineType == null) {
@@ -47,6 +48,18 @@ public class MenuSerch implements MenuImpl {
 						menuAll="";
 					}
 				}
+			
+			if( request.getParameter("menuName") != null) {
+				
+					menuName=request.getParameter("menuName");
+					request.setAttribute("menuName", menuName);
+					
+			}
+			
+			System.out.println(menuName);
+			
+			
+			
 
 			if (request.getParameter("page") != null) {
 
@@ -67,9 +80,9 @@ public class MenuSerch implements MenuImpl {
 				displayPage = 10;
 			}
 
-			ArrayList<MenuVO> alist = mdao.getInfoMenu(menuAll, caffeineType, menuType, page, displayRow);
+			ArrayList<MenuVO> alist = mdao.getInfoMenu(menuAll, caffeineType, menuType, menuName, page, displayRow);
 
-			int totalCount = mdao.totalCnt(menuAll, caffeineType, menuType);
+			int totalCount = mdao.totalCnt(menuAll, caffeineType, menuType, menuName);
 			
 			paging.setPage(page);
 			

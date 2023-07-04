@@ -55,50 +55,46 @@ public class MenuDAO {
 	
 	
 	
-	public ArrayList<MenuVO> getMenuList() {
-		
-		ArrayList<MenuVO> array = new ArrayList<MenuVO>();
-		
-		String sql = "SELECT * FROM Menu ORDER BY menuId";
-		
-		try {
-			pstmt = con.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			
-			while(rs.next()){
-				int menuId = rs.getInt("menuId");
-				String fileName = rs.getString("imgurl");
-				
-				String caffeineType = rs.getString("caffeineType");
-				String menuName = rs.getString("menuName");
-				int menuPrice = rs.getInt("menuPrice");
-				String menuExplain = rs.getString("menuExplain");
-				String menuType = rs.getString("menuType");
-				
-				MenuVO mvo = new MenuVO(menuId, fileName, caffeineType, menuName, menuPrice, 
-						menuExplain, menuType);
-				
-				array.add(mvo);
-				
-				
-			}
-
-			return array;
-			
-		}catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return null;
-		}
-
-	}
+	/*
+	 * public ArrayList<MenuVO> getMenuList() {
+	 * 
+	 * ArrayList<MenuVO> array = new ArrayList<MenuVO>();
+	 * 
+	 * String sql = "SELECT * FROM Menu ORDER BY menuId";
+	 * 
+	 * try { pstmt = con.prepareStatement(sql); rs = pstmt.executeQuery();
+	 * 
+	 * while(rs.next()){ int menuId = rs.getInt("menuId"); String fileName =
+	 * rs.getString("imgurl");
+	 * 
+	 * String caffeineType = rs.getString("caffeineType"); String menuName =
+	 * rs.getString("menuName"); int menuPrice = rs.getInt("menuPrice"); String
+	 * menuExplain = rs.getString("menuExplain"); String menuType =
+	 * rs.getString("menuType");
+	 * 
+	 * MenuVO mvo = new MenuVO(menuId, fileName, caffeineType, menuName, menuPrice,
+	 * menuExplain, menuType);
+	 * 
+	 * array.add(mvo);
+	 * 
+	 * 
+	 * }
+	 * 
+	 * return array;
+	 * 
+	 * }catch (Exception e) { // TODO Auto-generated catch block
+	 * e.printStackTrace(); return null; }
+	 * 
+	 * }
+	 */
 	
 	
-	public int totalCnt(String menuAll, String caffeineType, String menuType){
+	public int totalCnt(String menuAll, String caffeineType, String menuType, String menuName){
 		String sql = "SELECT COUNT(*) cnt FROM Menu WHERE "
-				+ "caffeineType like ? and menuType like ?";
+				+ "caffeineType like ? and menuType like ? "
+				+ "and menuName like ? ";
 		
-		if(menuAll.equals("")&&caffeineType.equals("")&&menuType.equals("")) {
+		if(menuAll.equals("")&&caffeineType.equals("")&&menuType.equals("")&&menuName.equals("")) {
 			return 0;
 		}
 		
@@ -107,6 +103,7 @@ public class MenuDAO {
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, "%"+caffeineType+"%");
 			pstmt.setString(2,"%"+ menuType+"%");
+			pstmt.setString(3,"%"+ menuName+"%");
 			rs=pstmt.executeQuery();
 			rs.next();
 			int result =rs.getInt("cnt");
@@ -126,58 +123,82 @@ public class MenuDAO {
 		
 	}
 	
-	public ArrayList<MenuVO> getMenuListByPage(int page, int amount){
+	/*
+	 * public ArrayList<MenuVO> getMenuListByPage(int page, int amount){
+	 * 
+	 * String sql =
+	 * "select * from (select A. *, ROW_NUMBER() over(order by menuId desc) as num"
+	 * + "    from Menu A)" + "    where num between ? and ?"; ArrayList<MenuVO>
+	 * array = new ArrayList<MenuVO>();
+	 * 
+	 * 
+	 * 
+	 * try { pstmt=con.prepareStatement(sql); pstmt.setInt(1,
+	 * (page*amount)-amount+1); pstmt.setInt(2, page*amount);
+	 * rs=pstmt.executeQuery();
+	 * 
+	 * 
+	 * 
+	 * 
+	 * while(rs.next()){ int menuId = rs.getInt("menuId"); String fileName =
+	 * rs.getString("imgurl");
+	 * 
+	 * String caffeineType = rs.getString("caffeineType"); String menuName =
+	 * rs.getString("menuName"); int menuPrice = rs.getInt("menuPrice"); String
+	 * menuExplain = rs.getString("menuExplain"); String menuType =
+	 * rs.getString("menuType");
+	 * 
+	 * MenuVO mvo = new MenuVO(menuId, fileName, caffeineType, menuName, menuPrice,
+	 * menuExplain, menuType);
+	 * 
+	 * 
+	 * array.add(mvo);
+	 * 
+	 * }
+	 * 
+	 * 
+	 * 
+	 * return array;
+	 * 
+	 * } catch (SQLException e) { // TODO Auto-generated catch block
+	 * e.printStackTrace(); }
+	 * 
+	 * return null;
+	 * 
+	 * 
+	 * }
+	 */
+	
+	
+	public MenuVO serchMenu(int menuid) {
 		
-		String sql = "select * from (select A. *, ROW_NUMBER() over(order by menuId desc) as num"
-				+ "    from Menu A)"
-				+ "    where num between ? and ?";
-		ArrayList<MenuVO> array = new ArrayList<MenuVO>();
-
-		
+		MenuVO vo = null;
+		String sql = "SELECT * FROM Menu where menuId=?";
 		
 		try {
 			pstmt=con.prepareStatement(sql);
-			pstmt.setInt(1, (page*amount)-amount+1);
-			pstmt.setInt(2, page*amount);
+			pstmt.setInt(1, menuid);
 			rs=pstmt.executeQuery();
 			
-			
-			
-
-			while(rs.next()){
+			if(rs.next()) {
 				int menuId = rs.getInt("menuId");
-				String fileName = rs.getString("imgurl");
-				
-				String caffeineType = rs.getString("caffeineType");
+				String imgurl = rs.getString("imgurl");
+				String CaffeineType = rs.getString("caffeineType");
 				String menuName = rs.getString("menuName");
 				int menuPrice = rs.getInt("menuPrice");
 				String menuExplain = rs.getString("menuExplain");
-				String menuType = rs.getString("menuType");
+				String MenuType = rs.getString("menuType");
 				
-				MenuVO mvo = new MenuVO(menuId, fileName, caffeineType, menuName, menuPrice, 
-						menuExplain, menuType);
-				
-			
-				array.add(mvo);
-				
+				vo = new MenuVO(menuId, imgurl, CaffeineType, menuName, menuPrice, menuExplain, MenuType);
 			}
 			
-		
-			
-			return array;
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		}catch (Exception e) {
+			// TODO: handle exception
 			e.printStackTrace();
 		}
-		
-		return null;
-		
+		return vo;
 		
 	}
-	
-	
-	
 	
 	
 	public boolean deleteMenu(int menuId) {
@@ -206,7 +227,8 @@ public class MenuDAO {
 				+ "menuType=? WHERE menuId=?";
 		
 		try {
-			pstmt = con.prepareStatement(sql);
+			pstmt = new LoggableStatement(con,sql);
+			
 			pstmt.setInt(7, menuId);
 			pstmt.setString(1, img);
 			pstmt.setString(2, caffeineType);
@@ -214,9 +236,13 @@ public class MenuDAO {
 			pstmt.setInt(4, menuPrice);
 			pstmt.setString(5, menuExplain);
 			pstmt.setString(6, menuType);
+			System.out.println("Executing query: "+
+			         ((LoggableStatement)pstmt).getQueryString());
+			
 			pstmt.executeUpdate();
 		}catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
 			return false;
 		}
 		return true;
@@ -227,11 +253,11 @@ public class MenuDAO {
 	
 	
 	
-	public ArrayList<MenuVO> getInfoMenu(String menuAll, String caffeineType, String menuType, int page, int amount ) {
+	public ArrayList<MenuVO> getInfoMenu(String menuAll, String caffeineType, String menuType, String menuname, int page, int amount ) {
 		
 		ArrayList<MenuVO> arr = new ArrayList<MenuVO>();
 		String sql = "select * from (select A.*, ROW_NUMBER() over(order by menuId desc) as num"
-				+ "    from Menu A WHERE caffeineType like ? and menuType like ?) "
+				+ "    from Menu A WHERE caffeineType like ? and menuType like ? and menuName like ?) "
 				+ "    where num between ? and ?";
 		try {
 			
@@ -239,7 +265,7 @@ public class MenuDAO {
 			System.out.println("menuall :" +caffeineType);
 			System.out.println("menuall :" +menuType);
 			
-			if(menuAll.equals("")&&caffeineType.equals("")&&menuType.equals("")) {
+			if(menuAll.equals("")&&caffeineType.equals("")&&menuType.equals("")&&menuname.equals("")) {
 				page=0;
 				amount=0;
 			}
@@ -248,8 +274,9 @@ public class MenuDAO {
 			
 			pstmt.setString(1, "%"+caffeineType+"%");
 			pstmt.setString(2,"%"+ menuType+"%");
-			pstmt.setInt(3, (page*amount)-amount+1);
-			pstmt.setInt(4, (page*amount));
+			pstmt.setString(3, "%"+menuname+"%");
+			pstmt.setInt(4, (page*amount)-amount+1);
+			pstmt.setInt(5, (page*amount));
 			
 			System.out.println("Executing query: "+
 			         ((LoggableStatement)pstmt).getQueryString());
@@ -279,7 +306,6 @@ public class MenuDAO {
 		}
 		
 	}
-	
 	
 	
 	

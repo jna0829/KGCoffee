@@ -45,8 +45,8 @@
 					</div>
                     
                 </form>
-                <button onclick="location.href='join.jsp'">회원가입</button> <!-- form 밖으로 뺀 이유는 안빼면 회원가입 페이지로 이동을 안함 -->
-                
+                <button onclick="location.href='/kgCoffee/view/user/join.jsp'">회원가입</button> <!-- form 밖으로 뺀 이유는 안빼면 회원가입 페이지로 이동을 안함 -->
+                <button onclick="location.href='/kgCoffee/view/user/findAccount.jsp'">아이디/비밀번호 찾기</button>
             </div>
             
         </div>
@@ -61,8 +61,6 @@
 	
 	
  	<script>
-
-	 	console.log('${msg}');
 	 	const msg = '${msg}';
 	 	
 	    if (msg === 'join-success') {
@@ -71,7 +69,17 @@
 	    	alert('존재하는 아이디 입니다 다시 입력해주세요.');
 	    	history.back();
 	    }
-	
+	    
+	    
+		const update_msg = '${update_msg}';
+	 	
+	    if (update_msg === 'update-success') {
+	        alert('비밀번호 수정이 완료되었습니다.');
+	    } else if(update_msg === 'update-failed') {
+	    	alert('수정이 되지 않았습니다. 다시 입력해주세요.');
+	    	history.back();
+	    }
+	    
 	</script>
 	
 </body>

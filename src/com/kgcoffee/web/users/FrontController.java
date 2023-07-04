@@ -81,12 +81,49 @@ public class FrontController extends HttpServlet {
 			str = "login";
 			break;
 			
+		//아이디찾기
+		case "/user/findId.do":
+			impl = new findId();
+			
+			try {
+				impl.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			str = "findResult";
+			break;
+			
+		//비밀번호찾기
+		case "/user/findPw.do":
+			impl = new findPw();
+			
+			try {
+				impl.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			str = "findResultPw";
+			break;
+			
+		//비밀번호 수정하기
+		case "/user/findUpdatePw.do":
+			impl = new findUpdatePw();
+			
+			try {
+				impl.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			str = "login";
+			break;
 			
 		}//switch-end	
 			
 		   MyView view = viewResolver(str);
 	       
-		   
 		   Map<String, Object> model = new ConcurrentHashMap<>();
 		   view.render(model, request, response);
 		

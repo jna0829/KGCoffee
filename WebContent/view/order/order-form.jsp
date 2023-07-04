@@ -26,7 +26,7 @@
                         <label class="font" for="menu-list-wrap">
                             <div class="order-title">
                                 <div>주문 상품 </div>
-                                <div> ${cartList[0].menuName}
+                                <div id="orderName"> ${cartList[0].menuName}
                                     <c:if test="${fn:length(cartList)>1}"> 외 ${fn:length(cartList)-1}건 <div class="open-menu" onclick="arccodionMenu()"></div></c:if>
                                 </div>
                             </div>
@@ -124,8 +124,8 @@
                                 <p for="payco">페이코</p>
                             </div>
                             <div style="display: flex; width: 50%">
-                                <input type="radio" id="naverpay" name="payment-method" value="naver-pay">
-                                <p for="naver-pay">네이버페이</p>
+                                <input type="radio" id="tosspay" name="payment-method" value="tosspay">
+                                <p for="tosspay">토스페이</p>
                             </div>
                         </div>
                     </div>
@@ -133,7 +133,7 @@
 
                     <div class="total-price" style="display:flex; text-align: center; justify-content: center">
                         <p class="font">결제 금액: &nbsp</p>
-                        <p class="font total-price-value">${totalPrice}원</p>
+                        <p class="font total-price-value">${totalPrice}</p><p class="font">원</p>
                     </div>
                 </div>
                 <div class="buttons">

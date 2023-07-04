@@ -38,7 +38,7 @@
 			
 			<c:choose>
 				 <c:when test="${sessionScope.result==1}">
-					<a href="#" id="admin_page" class='fas fa-user-cog'></a> <!-- 관리자페이지 -->
+					<a href="/kgCoffee/admin/adminMenu.do" id="admin_page" class='fas fa-user-cog'></a> <!-- 관리자페이지 -->
 					<a href="/kgCoffee/user/logout.do" id="logout" class='fas fa-user-slash'></a> <!-- 로그아웃 -->
 					<a href="/kgCoffee/voc/getAll.do" id="ask" class='fas fa-headphones-alt'></a> <!-- 고객센터(문의) -->
 				</c:when>

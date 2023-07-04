@@ -11,6 +11,7 @@ public class OrderVO extends KakaoMapVO{
 	private String userId;
 	private int totalPrice;
 	private Date orderDate;
+	private String impUid;
 	
 	public OrderVO() {
 		// TODO Auto-generated constructor stub
@@ -32,7 +33,6 @@ public class OrderVO extends KakaoMapVO{
 		this.userId = userId;
 	}
 
-
 	public int getTotalPrice() {
 		return totalPrice;
 	}
@@ -49,24 +49,37 @@ public class OrderVO extends KakaoMapVO{
 		this.orderDate = orderDate;
 	}
 
-	public OrderVO(int orderId, String userId, int totalPrice, Date orderDate) {
+	public String getImpUid() {
+		return impUid;
+	}
+
+	public void setImpUid(String impUid) {
+		this.impUid = impUid;
+	}
+
+	public OrderVO(int orderId, String userId, int totalPrice, Date orderDate, String impUid) {
 		super();
 		this.orderId = orderId;
 		this.userId = userId;
 		this.totalPrice = totalPrice;
 		this.orderDate = orderDate;
+		this.impUid = impUid;
 	}
 
 	@Override
 	public String toString() {
 		return "OrderVO [orderId=" + orderId + ", userId=" + userId + ", totalPrice=" + totalPrice + ", orderDate="
-				+ orderDate + ", getAddressName()=" + getAddressName() + ", getCategoryGroupCode()="
-				+ getCategoryGroupCode() + ", getCategoryGroupName()=" + getCategoryGroupName() + ", getCategoryName()="
-				+ getCategoryName() + ", getMapId()=" + getMapId() + ", getPlaceName()=" + getPlaceName()
-				+ ", getPlaceUrl()=" + getPlaceUrl() + ", getPhone()=" + getPhone() + ", getRoadAddressName()="
-				+ getRoadAddressName() + ", getX()=" + getX() + ", getY()=" + getY() + "]";
+				+ orderDate + ", impUid=" + impUid + ", getAddressName()=" + getAddressName()
+				+ ", getCategoryGroupCode()=" + getCategoryGroupCode() + ", getCategoryGroupName()="
+				+ getCategoryGroupName() + ", getCategoryName()=" + getCategoryName() + ", getMapId()=" + getMapId()
+				+ ", getPlaceName()=" + getPlaceName() + ", getPlaceUrl()=" + getPlaceUrl() + ", getPhone()="
+				+ getPhone() + ", getRoadAddressName()=" + getRoadAddressName() + ", getX()=" + getX() + ", getY()="
+				+ getY() + "]";
 	}
 
+
+	
+	
 
 	
 

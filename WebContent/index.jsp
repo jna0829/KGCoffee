@@ -102,6 +102,15 @@
 			if (msg === 'logout') {
 				alert('로그아웃 되었습니다.');
 			}
+			
+			if (msg === 'no-login') {
+				alert('로그인이 필요한 서비스입니다.');
+			}
+			
+			if (msg === 'invalid') {
+				alert('잘못된 접근입니다..');
+			}
+			
 		}
 		
 	

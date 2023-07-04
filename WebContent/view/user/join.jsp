@@ -59,7 +59,5 @@
     
 	<script src="/kgCoffee/js/user_script.js"></script>
 	
-
-	
 </body>
 </html>

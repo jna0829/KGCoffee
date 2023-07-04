@@ -10,8 +10,11 @@ let order = {
         var paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
         // 아임포트 API 키 설정
         var IMP = window.IMP;
+        var tossClientKey = "test_ck_lpP2YxJ4K877JAdv7KX8RGZwXLOb";
         // 본인 포트원 IMP 이름
-        IMP.init('imp15145348');
+
+        
+        IMP.init('imp18778788');
         //
 
        
@@ -33,16 +36,22 @@ let order = {
         }
         
 
+        var merchant_uid = 'kg_coffee_' + new Date().getTime();
+
         IMP.request_pay({
             pg : paymentMethod,
             pay_method : 'card',
-            merchant_uid : 'kg_coffee_' + new Date().getTime(),
+            merchant_uid : merchant_uid,
             name : n ,
             amount : tp,
             buyer_email : 'iamport@siot.do',
             buyer_name : "kgCoffee",
             buyer_tel : '010-1234-5678',
+            m_redirect_url : 'http://localhost:8080/kgCoffee/suc',
+           
         }, function(res) {
+        
+        	console.log(res);
             if ( res.success ) {
                 console.log(res);
                 // 결제검증
@@ -74,8 +83,9 @@ let order = {
                 //     success: true
                 // }
                 var totalPrice = $(".total-price-value").text()
-                console.log(totalPrice);
-                console.log(res.status);
+                
+
+
 
                 var reqUrl = "/kgCoffee/order/complete";
 
@@ -91,7 +101,8 @@ let order = {
                         paid_at : res.paid_at,
                         card_name : res.card_name,
                         map_id : mapId,
-                        total_price: totalPrice
+                        total_price: totalPrice,
+                        merchant_uid: merchant_uid, 
 
                     },
                     success:function(res_data) {

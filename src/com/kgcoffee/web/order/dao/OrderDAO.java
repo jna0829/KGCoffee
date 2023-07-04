@@ -32,7 +32,7 @@ public class OrderDAO {
 
 		boolean result = false;
 
-		sql = "insert into order_table(order_id, user_id, map_id, order_price, order_date) values(order_seq.nextval,?,?,?,?)";
+		sql = "insert into order_table(order_id, user_id, map_id, order_price, order_date, imp_uid) values(order_seq.nextval,?,?,?,?,?)";
 		try {
 
 			long ms = order.getOrderDate().getTime();
@@ -45,7 +45,9 @@ public class OrderDAO {
 			pst.setInt(3, order.getTotalPrice());
 
 			pst.setDate(4, sqlDate);
-
+			pst.setString(5,order.getImpUid());
+			
+			
 			System.out.println(((LoggableStatement) pst).getQueryString());
 			if (pst.executeUpdate() >= 1) {
 				result = true;
@@ -264,5 +266,35 @@ public class OrderDAO {
 		return result;
 
 	}
+	
+	
+	public boolean deleteOrder(String impUid) {
+
+		boolean result = false;
+
+		sql = "delete order_table where imp_uid = ?";
+		try {
+
+	
+			pst = new LoggableStatement(con, sql);
+
+			pst.setString(1, impUid);
+		
+
+			System.out.println(((LoggableStatement) pst).getQueryString());
+			if (pst.executeUpdate() >= 1) {
+				result = true;
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return result;
+
+	}
+	
+	
 
 }
