@@ -169,7 +169,9 @@
 			if(confirm("해당 주문을 환불하시겠습니까?")){
 
 				let imp_uid = $(tihs).data("imp-uid");
-				
+
+
+				$ajax.
 
 				
 

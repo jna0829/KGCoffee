@@ -223,7 +223,7 @@ public class OrderDAO {
 				order.setOrderDate(rs.getDate("order_date"));
 				order.setPlaceName(rs.getString("place_name"));
 				order.setImpUid(rs.getString("imp_uid"));
-				System.out.println(order);
+				System.out.println(order); 
 				orderList.add(order);
 
 			}

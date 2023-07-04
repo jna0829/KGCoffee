@@ -22,13 +22,14 @@
 	<!-- join section start ---------------------------------------------------------------- -->
 	<div class="container">
 		
-		<div class="form-box">
+		<div class="join-form-box">
 			<form action="/kgCoffee/user/join.do" method="post" name="joinform">
 				
 				<h2>Join</h2>
 				
 				<div class="input-box">
-					<input type="text" name="user_id" id="id" placeholder="아이디" required>
+					<label class="join-label" id="checkId"></label>
+					<input type="text" name="user_id" id="id" placeholder="아이디" class="input_id" required>
 				</div>
 				
 				<div class="input-box">
@@ -58,6 +59,39 @@
 	</div> <!-- join section end -->
     
 	<script src="/kgCoffee/js/user_script.js"></script>
+	
+	<script>
+	
+		$('.input_id').focusout(function() {
+			
+			let user_id = $('.input_id').val();
+			
+			$.ajax({
+				
+				url: "/kgCoffee/users/IdCheckService",
+				type: "post",
+				data:{user_id: user_id},
+				dataType:'json',
+				success: function(result) {
+					
+					if(result == 0){
+						$('#checkId').html('사용할 수 없는 아이디입니다.');
+						$('#checkId').css("color", "#eb4d4b");
+					} else {
+						$('#checkId').html('사용할 수 있는 아이디입니다.');
+						$('#checkId').css("color", "#6ab04c");
+					}
+					
+				},
+				error: function() {
+					alert("아이디체크 서버요청 실패");
+				}
+				
+			})
+			
+		})
+	
+	</script>
 	
 </body>
 </html>
