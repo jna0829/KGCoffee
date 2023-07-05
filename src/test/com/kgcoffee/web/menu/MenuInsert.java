@@ -24,7 +24,7 @@ class MenuInsert {
 
 		try {
 
-			for (int i = 0; i < 1000; i++) {
+			for (int i = 0; i < 40; i++) {
 				String caffeineType = "";
 				String menuType = "";
 				String menuImg = "ame.jpg";

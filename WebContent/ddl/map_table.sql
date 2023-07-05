@@ -14,7 +14,7 @@ create table map_table(
 	
 
 
-) ;
+);
 
 
 
