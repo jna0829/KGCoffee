@@ -75,7 +75,7 @@
 						
 						<div class="menu-button">
 							<button type="submit" class="btn_design">등록</button> &nbsp;&nbsp;&nbsp;
-							<button type="button" class="btn_design" id="go-back">취소</button>
+							<button type="reset" class="btn_design" id="go-back">취소</button>
 						</div>
 						
 					</form>

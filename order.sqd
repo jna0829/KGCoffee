@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<net.java.amateras.uml.model.RootModel>
+<net.java.amateras.uml.sequencediagram.model.InteractionModel>
   <backgroundColor>
     <red>255</red>
     <green>255</green>
@@ -14,7 +14,7 @@
   <listeners serialization="custom">
     <java.beans.PropertyChangeSupport>
       <default>
-        <source class="net.java.amateras.uml.model.RootModel" reference="../../../.."/>
+        <source class="net.java.amateras.uml.sequencediagram.model.InteractionModel" reference="../../../.."/>
         <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
       </default>
       <null/>
@@ -24,4 +24,8 @@
   <targetConnections/>
   <children/>
   <filterProperty/>
-</net.java.amateras.uml.model.RootModel>
+  <instances/>
+  <activations/>
+  <fragments/>
+  <lifelines/>
+</net.java.amateras.uml.sequencediagram.model.InteractionModel>
