@@ -19,7 +19,7 @@ import com.google.gson.JsonIOException;
 import com.kgcoffee.web.admin.DTO.ReportMapDTO;
 import com.kgcoffee.web.admin.DTO.ReportMenuDTO;
 import com.kgcoffee.web.admin.service.AdminService;
-import com.kgcoffee.web.order.MyView;
+import com.kgcoffee.web.common.MyView;
 import com.kgcoffee.web.users.vo.UsersVO;
 
 /**

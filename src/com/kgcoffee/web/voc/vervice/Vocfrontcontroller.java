@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kgcoffee.web.order.MyView;
+import com.kgcoffee.web.common.MyView;
 
 @WebServlet("/voc/*") //어노테이션을 통해 서블릿이 처리할 URL 패턴을 설정. .do로 끝나는 모든 요청을 처리한다.
 public class Vocfrontcontroller extends HttpServlet {

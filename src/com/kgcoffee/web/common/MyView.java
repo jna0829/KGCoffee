@@ -1,4 +1,4 @@
-package com.kgcoffee.web.order;
+package com.kgcoffee.web.common;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

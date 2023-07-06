@@ -6,11 +6,9 @@ import java.util.Map;
 import com.kgcoffee.web.order.Controller;
 import com.kgcoffee.web.order.dao.CartRepository;
 import com.kgcoffee.web.order.domain.CartVO;
-import com.kgcoffee.web.order.service.CartService;
 
 public class CartListController implements Controller {
 
-    public CartService cartService = new CartService();
 
     @Override
     public String process(Map<String, String> paramMap, Map<String, Object> model) {
@@ -19,11 +17,20 @@ public class CartListController implements Controller {
         
         String userId = paramMap.get("userId");
         ArrayList<CartVO> cartList = cartRepository.findAllCartsByUserId(userId);
-        int totalPrice = cartService.getTotalAmountByUser(cartList);
+        int totalPrice = getTotalAmountByUser(cartList);
         model.put("totalPrice", totalPrice);
         model.put("cartList", cartList);
         model.put("userId", userId);
 
         return "cart-form";
+    }
+    
+    
+    public int getTotalAmountByUser(ArrayList<CartVO> cartList){
+        int tmp = 0;
+        for (CartVO cart: cartList) {
+            tmp += (cart.getMenuAmount() * cart.getMenuPrice());
+        }
+        return tmp;
     }
 }

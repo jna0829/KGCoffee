@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.kgcoffee.web.common.MyView;
 import com.kgcoffee.web.kakaoMap.service.KakaoService;
-import com.kgcoffee.web.order.MyView;
 
 /**
  * Servlet implementation class KakaoMapController

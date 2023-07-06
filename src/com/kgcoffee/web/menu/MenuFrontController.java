@@ -11,12 +11,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.kgcoffee.web.common.MyView;
 import com.kgcoffee.web.menu.menuAction.MenuDelete;
 import com.kgcoffee.web.menu.menuAction.MenuImpl;
 import com.kgcoffee.web.menu.menuAction.MenuInsert;
 import com.kgcoffee.web.menu.menuAction.MenuSerch;
 import com.kgcoffee.web.menu.menuAction.MenuUpdate;
-import com.kgcoffee.web.order.MyView;
 
 /**
  * Servlet implementation class MenuFrontController

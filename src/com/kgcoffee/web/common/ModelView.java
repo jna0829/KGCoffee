@@ -1,4 +1,4 @@
-package com.kgcoffee.web.order;
+package com.kgcoffee.web.common;
 
 import java.util.HashMap;
 import java.util.Map;

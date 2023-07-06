@@ -23,7 +23,7 @@ $(".text > input").change(searchEvent);
 
 
 
-		var reqUrl = "/kgCoffee/menu/admingetSerchmenu.do?page="+n+"&menuName="+menuName;
+		var reqUrl = "/kgCoffee/admin/admingetSerchmenu.do?page="+n+"&menuName="+menuName;
 		
 		$("input:checkbox").each(function(index) {
 			if ($(this).is(":checked") == true) {

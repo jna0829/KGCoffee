@@ -72,7 +72,7 @@
 			<h1>KG MENU</h1>
 			<div class="text">
 			<div  class="menu-inset-serch">
-				<form action="/kgCoffee/menu/adminSearchMenu.do">
+				<form action="/kgCoffee/admin/adminSearchMenu.do">
 					<input type="text" placeholder="메뉴검색" class="menuName" name="menuName" value="${menuName}"/>
 					<input type="submit" value="검색" class="serch-btn" />
 				</form>

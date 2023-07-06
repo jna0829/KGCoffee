@@ -13,13 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.kgcoffee.web.admin.service.AdminService;
+import com.kgcoffee.web.common.MyView;
 import com.kgcoffee.web.menu.menuAction.MenuDelete;
 import com.kgcoffee.web.menu.menuAction.MenuImpl;
 import com.kgcoffee.web.menu.menuAction.MenuInfo;
 import com.kgcoffee.web.menu.menuAction.MenuInsert;
 import com.kgcoffee.web.menu.menuAction.MenuSerch;
 import com.kgcoffee.web.menu.menuAction.MenuUpdate;
-import com.kgcoffee.web.order.MyView;
 import com.kgcoffee.web.users.vo.UsersVO;
 
 /**
@@ -120,6 +120,7 @@ public class AdminController extends HttpServlet {
 					//메뉴
 					
 				case "/admin/adminMenu.do":
+					System.out.println("메뉴");
 					mi = new MenuSerch();
 					try { 
 						request.setAttribute("chk", true);  
@@ -243,7 +244,9 @@ public class AdminController extends HttpServlet {
 	}
 
 	private MyView viewResolver(String viewName) {
+		System.out.println(viewName);
 		if ((viewName.substring(viewName.length() - 2, viewName.length()).equals("do"))) {
+			
 			return new MyView(viewName);
 		} else {
 			return new MyView("/view/admin/" + viewName + ".jsp");

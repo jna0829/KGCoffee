@@ -21,7 +21,7 @@
 			<h1>KG MENU</h1>
 			<div class="text">
 			<div  class="menu-inset-serch">
-				<input type="button" value="메뉴추가" class="menuInsert-btn" onclick="location.href='/kgCoffee/view/menu/adminMenuInsert.jsp'" />
+				<input type="button" value="메뉴추가" class="menuInsert-btn" onclick="location.href='/kgCoffee/view/admin/adminMenuInsert.jsp'" />
 				<input type="text" placeholder="메뉴검색" class="menuSerch" value=""/>
 				<input type="button" value="검색" class="serch-btn" />
 			</div>

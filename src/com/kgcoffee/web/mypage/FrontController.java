@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 import com.kgcoffee.web.common.ControllerImpl;
-import com.kgcoffee.web.order.MyView;
+import com.kgcoffee.web.common.MyView;
 import com.kgcoffee.web.users.UserInsert;
 import com.kgcoffee.web.users.UserLogin;
 import com.kgcoffee.web.users.UserLogout;
