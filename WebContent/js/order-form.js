@@ -106,7 +106,7 @@ let order = {
 
                     },
                     success:function(res_data) {
-
+ 
                     	
                         var msg = res_data.trim();
         
