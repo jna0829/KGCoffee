@@ -60,10 +60,6 @@
 	<!-- 자바스크립트 file link -->
 	<script src="/kgCoffee/js/header_script.js"></script>
 	
-	<script>
- 		const result = '${result}';
- 		console.log('${result}');
-	</script>
-	
+
 </body>
 </html>
