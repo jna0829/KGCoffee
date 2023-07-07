@@ -27,7 +27,7 @@ public class MenuSerch implements MenuImpl {
 			int displayPage = 0;
 
 			String menuAll = request.getParameter("menuAll");
-			String menuType = request.getParameter("menuType");
+			String[] menuType = request.getParameterValues("menuType");
 			String caffeineType = request.getParameter("caffeineType");
 			String menuName = "";
 			Paging paging = new Paging();

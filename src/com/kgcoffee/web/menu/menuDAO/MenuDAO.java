@@ -89,7 +89,7 @@ public class MenuDAO {
 	 */
 	
 	
-	public int totalCnt(String menuAll, String caffeineType, String menuType, String menuName){
+	public int totalCnt(String menuAll, String caffeineType, String[] menuType, String menuName){
 		String sql = "SELECT COUNT(*) cnt FROM Menu WHERE "
 				+ "caffeineType like ? and menuType like ? "
 				+ "and menuName like ? ";
@@ -256,27 +256,57 @@ public class MenuDAO {
 	public ArrayList<MenuVO> getInfoMenu(String menuAll, String caffeineType, String menuType, String menuname, int page, int amount ) {
 		
 		ArrayList<MenuVO> arr = new ArrayList<MenuVO>();
+		
+		
+		
+		String temp="";
+		boolean chk=false;
+		if(caffeineType.equals("")&&menuType.equals("")&&menuname.equals("")) {
+			
+			if(menuAll.length()<1) {
+				page=0;
+				amount=0;
+				
+			}
+			
+		}else{
+			chk=true;
+			temp="WHERE caffeineType like ? or menuType like ? or menuName like ?";
+			
+		}
+		
+		
+		
+		if(menuname.length()>0) {
+			
+			menuname ="%"+menuname+"%";
+				
+			
+		}
+		
+		
+		
 		String sql = "select * from (select A.*, ROW_NUMBER() over(order by menuId desc) as num"
-				+ "    from Menu A WHERE caffeineType like ? and menuType like ? and menuName like ?) "
+				+ "    from Menu A " + temp +  " ) "
 				+ "    where num between ? and ?";
 		try {
 			
-			System.out.println("menuall :" +menuAll);
-			System.out.println("menuall :" +caffeineType);
-			System.out.println("menuall :" +menuType);
+		
 			
-			if(menuAll.equals("")&&caffeineType.equals("")&&menuType.equals("")&&menuname.equals("")) {
-				page=0;
-				amount=0;
-			}
 			
+			
+			
+			
+			
+			int i=1;
 			pstmt = new LoggableStatement(con, sql);
-			
-			pstmt.setString(1, "%"+caffeineType+"%");
-			pstmt.setString(2,"%"+ menuType+"%");
-			pstmt.setString(3, "%"+menuname+"%");
-			pstmt.setInt(4, (page*amount)-amount+1);
-			pstmt.setInt(5, (page*amount));
+			if(chk) {
+			pstmt.setString(i++, caffeineType);
+			pstmt.setString(i++, menuType);
+			pstmt.setString(i++, menuname);
+			}
+			pstmt.setInt(i++, (page*amount)-amount+1);
+			pstmt.setInt(i++, (page*amount));
 			
 			System.out.println("Executing query: "+
 			         ((LoggableStatement)pstmt).getQueryString());
