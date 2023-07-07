@@ -26,22 +26,20 @@ public class OrderCompleteController implements Controller {
 		String result = "order-complete-fail";
 		
 		String impUid = paramMap.get("imp_uid");
-		System.out.println(paramMap.get("merchant_uid"));
-		int amount = 0;
-		try {
-			String accessToken = service.getAccessToken();
-			amount = service.getPaymentsInfo(impUid, accessToken);
-					
+		
+		/*
+		 * int amount = 0; try { String accessToken = service.getAccessToken(); amount =
+		 * service.getPaymentsInfo(impUid, accessToken);
+		 * 
+		 * 
+		 * 
+		 * } catch (Exception e) { // TODO Auto-generated catch block
+		 * e.printStackTrace(); }
+		 * 
+		 * System.out.println(amount);
+		 */
 		
 		
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
-		
-		System.out.println(amount);
 		String userId = paramMap.get("userId");
 		int paidAmount = Integer.parseInt(paramMap.get("paid_amount"));
 		String paidAt = (paramMap.get("paid_at"));
@@ -56,7 +54,7 @@ public class OrderCompleteController implements Controller {
 
 		System.out.println("paid"+paidAmount);
 		System.out.println("total"+totalPrice);
-		if (paidAmount == amount) {
+//		if (paidAmount == amount) {
 
 			OrderVO order = new OrderVO();
 
@@ -84,12 +82,6 @@ public class OrderCompleteController implements Controller {
 					payments.setMenuId(cart.getMenuId());
 					payments.setMenuAmount(cart.getMenuAmount());
 
-//	                payments.setFileName(cart.getFileName());
-//	                payments.setCaffeineType(cart.getCaffeineType());
-//	                payments.setMenuName(cart.getMenuType());
-//	                payments.setMenuPrice(cart.getMenuPrice());
-//	                payments.setMenuType(cart.getMenuType());
-//	                payments.setMenuExplain(cart.getMenuExplain());
 
 					dao.insertPayments(payments);
 					
@@ -106,9 +98,9 @@ public class OrderCompleteController implements Controller {
 				result = "order-complete";
 			}
 
-		}else {
-			result="mismatch-paid";
-		}
+//		}else {
+//			result="mismatch-paid";
+//		}
 
 		model.put("res-msg", result);
 

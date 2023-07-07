@@ -8,7 +8,7 @@ create table users(
 
 
 insert into users 
-values('admin', 'admin001', '관리자','','');
+values('admin', 'admin001', '관리자','1993-01-01','');
 insert into users 
 values('kim01', 'asdf111', '김철수','1993-01-01','010-111-2222');
 insert into users 

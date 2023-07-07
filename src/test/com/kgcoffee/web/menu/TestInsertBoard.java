@@ -27,7 +27,7 @@ class TestInsertBoard {
 				jemok = "제목"+i;
 				content = "내용입니다"+i;
 				filename="";
-				writer = "user"+i;
+				writer = "유저"+i;
 				assertEquals(true, dao.insert(jemok, writer, content, filename, "user"+i));
 
 

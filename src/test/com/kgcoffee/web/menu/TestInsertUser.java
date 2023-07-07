@@ -40,7 +40,7 @@ class TestInsertUser {
 				
 				String user_id = "user" + i;
 				String user_pw = "pw" + i;
-				String user_name = "user" + i;
+				String user_name = "유저" + i;
 				
 				String birthday = LocalDate.ofEpochDay(ranDay).toString();;
 				String tel = "010-1234-1234"; 
