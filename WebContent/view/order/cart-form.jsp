@@ -82,8 +82,8 @@
             <input type="hidden" name="totalPrice" id="totalPrice" value=${totalPrice}>
             <button type="submit"  onclick="javascript:basket.go_pay_form()">결제하기</button>
         </form>
-        <form action="order" method="GET">
-            <button type="submit">뒤로가기</button>
+        <form action="" method="GET">
+            <button type="button" onclick="history.back()">뒤로가기</button>
         </form>
     </div>
 </div>

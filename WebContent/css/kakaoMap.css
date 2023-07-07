@@ -604,13 +604,19 @@
     }
 
 
+
+	.map_wrap{
+	
+		height:auto;
+		max-height: 450px;
+		
+	}
     #menu_wrap {
 
 
         min-height: 30vh;
         height: auto;
-        max-height: 51vh;
-
+      
         width: 100%;
 
         position: relative;
@@ -621,9 +627,17 @@
     }
 
 
-    .find_store_wrap {}
+    .find_store_wrap {
+    
+    	height: auto;
+    }
 
-    .find_store_wrap .find_store_cont {}
+    .find_store_wrap .find_store_cont {
+    
+    	height: auto;
+    	
+    }
+
 
     .bg_white {
         
@@ -959,6 +973,10 @@
         margin-right: 0px;
 
 
+    }
+    
+    .footer{
+    margin-top :50px;
     }
 
 
