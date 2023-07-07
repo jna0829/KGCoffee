@@ -91,7 +91,7 @@
 						
 						<div class="menu-button">
 							<button type="submit" class="btn_design">수정</button> &nbsp;&nbsp;&nbsp;
-							<button type="reset" class="btn_design" id="go-back">취소</button>
+							<button type="button" class="btn_design" id="go-back" onclick="history.back()">취소</button>
 						</div>
 						
 					</form>

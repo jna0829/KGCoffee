@@ -181,7 +181,13 @@ body {
 				alert("삭제 되었습니다.")
 			}else if ( msg==="delete-failed"){
 				alert("삭제를 실패하였습니다.")
+			}else if ( msg==="update-success"){
+				alert("수정되었습니다.")
+			}else if ( msg==="update-failed"){
+				alert("수정이 실패하였습니다.")
 			}
+
+			
 
 		}
 	</script>

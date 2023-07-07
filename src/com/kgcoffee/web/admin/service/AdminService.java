@@ -159,8 +159,16 @@ public class AdminService {
 		
 		
 		
-		mdao.update(user_id, user_pw, user_name, birthday, tel);
+		boolean result = mdao.update(user_id, user_pw, user_name, birthday, tel);
 		
+		if(result) {
+			
+			resMap.put("msg", "update-success");
+			
+		}else {
+			resMap.put("msg", "update-failed");
+			
+		}
 		
 
 		return resMap;
