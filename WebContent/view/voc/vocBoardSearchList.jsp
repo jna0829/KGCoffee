@@ -106,7 +106,7 @@
 							&nbsp;
 						</c:forEach>
 						</c:if>
-							<a href="/kgCoffee/voc/searchone.do?bunho=${v1.bunho}"> ${v1.jemok}</a>
+							<a href="/kgCoffee/voc/searchone.do?bunho=${v1.bunho}&voc_id=${v1.user_id}"> ${v1.jemok}</a>
 						</div>
 						<div class="writer">${v1.writer}</div>
 						<%-- <div class="date">${v1.date}</div> --%>

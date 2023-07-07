@@ -137,7 +137,7 @@ public class Vocfrontcontroller extends HttpServlet {
 				e.printStackTrace();
 			}
 				
-			str = "index";
+			str = "/voc/getAll.do";
 			break;
 			
 		//검색창 

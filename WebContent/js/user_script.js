@@ -18,6 +18,11 @@ function check() {
 	var nameReg = /^[ㄱ-ㅎ|가-힣]+$/;
 	
 	var telReg = /^[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}$/;
+	
+	alert(pw);
+	alert(num);
+	alert(eng);
+	alert(spe);
 
 	/* 아이디 */
 	/* 영문,숫자 혼합 */
@@ -56,7 +61,7 @@ function check() {
 		alert("전화번호 형식으로 입력해주세요.");
 		return false;
 	} else {
-		return true;
+		return false;
 	}
 	
 }
