@@ -251,9 +251,7 @@
 							chartDatas.push(dto.orderAmount);
 						}
 
-						if (chartTitle==="0대"){
-							chartTitle = '10세 미만'
-						}
+					
 
 
 					} else if (select === 'chart-menu') {
@@ -300,6 +298,10 @@
 
 						}
 
+					}
+					
+					if (chartTitle==="0대"){
+						chartTitle = '10세 미만'
 					}
 
 
