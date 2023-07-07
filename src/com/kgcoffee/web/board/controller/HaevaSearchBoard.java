@@ -4,11 +4,10 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.kgcoffee.web.board.dao.SnsDAO;
-import com.kgcoffee.web.board.vo.Paging;
 import com.kgcoffee.web.board.vo.SnsVO;
+import com.kgcoffee.web.common.Paging;
 
 public class HaevaSearchBoard implements com.kgcoffee.web.common.ControllerImpl{
 

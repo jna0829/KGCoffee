@@ -32,6 +32,7 @@ public class VocSearchOneUpdate implements VocImpli {
 		VocVO sv1 = sdao1.searchOneUpdate(bunho);
 
 		int result = 0;
+		System.out.println("vocId : "+voc_id);
 
 		if (user_id.equals(voc_id)) {
 			// 글쓴이와 로그인한 사용자의 이름이 같을때

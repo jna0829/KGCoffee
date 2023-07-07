@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import org.junit.jupiter.api.Test;
 
 import com.kgcoffee.web.board.dao.SnsDAO;
+import com.kgcoffee.web.voc.dao.VocDAO;
 
 class TestInsertBoard {
 
@@ -14,17 +15,18 @@ class TestInsertBoard {
 	void testExecute() {
 
 		try {
-			SnsDAO dao = new SnsDAO();
-
+//			SnsDAO dao = new SnsDAO();
+			VocDAO dao = new VocDAO();
+			
 			String jemok = "";
 			String writer = "";
 			String content = "";
 			String filename = "";
 
-			for (int i = 1; i <= 40; i++) {
+			for (int i = 1; i <= 100; i++) {
 				
 				
-				jemok = "제목"+i;
+				jemok = "문의사항"+i;
 				content = "내용입니다"+i;
 				filename="";
 				writer = "유저"+i;

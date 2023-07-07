@@ -78,7 +78,7 @@ public class Paging {
         int totalPage = (int)Math.ceil(totalCount/(double)displayRow);
         
         //next(다음페이지)
-        if(totalPage<endPage){
+        if(totalPage<=endPage){
             endPage = totalPage;
             next = false;
         } else {

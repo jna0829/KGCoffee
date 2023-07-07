@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.kgcoffee.web.common.Paging;
 import com.kgcoffee.web.voc.dao.VocDAO;
-import com.kgcoffee.web.voc.vo.Paging;
 import com.kgcoffee.web.voc.vo.VocVO;
 
 public class VocSearchBoard implements VocImpli {

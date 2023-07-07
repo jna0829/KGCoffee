@@ -2,7 +2,9 @@ package com.kgcoffee.web.voc.vervice;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.kgcoffee.web.users.vo.UsersVO;
 import com.kgcoffee.web.voc.dao.VocDAO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -32,6 +34,17 @@ public class VocReInsert implements VocImpli {
 		String filename = multi.getFilesystemName("filename");
 		
 		
+		HttpSession session = request.getSession();
+		UsersVO loginUser = ((UsersVO) session.getAttribute("loginUser"));
+		
+		String user_id = "";
+
+		if (loginUser != null) {
+			user_id = loginUser.getUser_id();
+
+		}
+		
+		
 		System.out.println("filename :::"+ filename);
 		String jemok = multi.getParameter("jemok");
 		String writer = multi.getParameter("writer");
@@ -42,8 +55,7 @@ public class VocReInsert implements VocImpli {
 		int re_step = Integer.parseInt(multi.getParameter("re_step"));
 		int re_level =Integer.parseInt(multi.getParameter("re_level"));
 		
-		String user_id = multi.getParameter("user_id");
-		
+	
 		
 		VocDAO sdao1 = new VocDAO();                              
 		

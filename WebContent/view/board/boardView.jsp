@@ -106,7 +106,7 @@
 						<c:if test="${not empty nextPost}">
 							<a class="prev-next-a"
 								href="/kgCoffee/board/searchone.do?bunho=${nextPost.bunho}"
-								class="underline-on-hover">${prePost.jemok}</a>
+								class="underline-on-hover">${nextPost.jemok}</a>
 						</c:if> <c:if test="${empty nextPost}">
 							<span class="prev-next-span"> 다음글이 없습니다.</span>
 						</c:if>
