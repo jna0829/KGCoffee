@@ -36,7 +36,7 @@
 						<div class="inner_modal_text3">${vo.menuExplain }</div>
 						<div class="inner_modal_basket" data-menu-id="${vo.menuId}">
 							<input type="button" value="수정" class="update-btn" onclick="location.href='adminMenuGetpage.do?menuId=${vo.menuId}';"/>
-							<input type="button" value="삭제" class="delete-btn" onclick="location.href='adminMenuDelete.do?menuId=${vo.menuId}';"/>
+							<input type="button" value="삭제" class="delete-btn" onclick="deleteMenu('${vo.menuId}')"/>
 						</div>
 					</div>
 
@@ -90,6 +90,13 @@
 				
 				location.href='adminMenuGetpage.do?menuId='+menuId;
 				
+			}
+
+			function deleteMenu(n){
+
+				if(confirm("메뉴를 삭제하시겠습니까?")){
+				location.href='adminMenuDelete.do?menuId='+n;
+					}
 			}
 			
 			
