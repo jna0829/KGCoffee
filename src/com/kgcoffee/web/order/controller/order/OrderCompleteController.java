@@ -27,16 +27,16 @@ public class OrderCompleteController implements Controller {
 		
 		String impUid = paramMap.get("imp_uid");
 		
-//		
-//		  int amount = 0; 
-//		  
-//		  try { String accessToken = service.getAccessToken(); amount =
-//		  service.getPaymentsInfo(impUid, accessToken);
-//		  
-//		  
-//		  
-//		  } catch (Exception e) { // TODO Auto-generated catch block
-//		  e.printStackTrace(); }
+		
+		  int amount = 0; 
+		  
+		  try { String accessToken = service.getAccessToken(); amount =
+		  service.getPaymentsInfo(impUid, accessToken);
+		  
+		  
+		  
+		  } catch (Exception e) { // TODO Auto-generated catch block
+		  e.printStackTrace(); }
 		  
 
 		 
@@ -53,12 +53,12 @@ public class OrderCompleteController implements Controller {
 
 		OrderDAO dao = new OrderDAO();
 		
-//
-//		System.out.println("paid"+paidAmount);
-//		System.out.println("total"+totalPrice);
+
+		System.out.println("paid"+paidAmount);
+		System.out.println("total"+totalPrice);
 		
 		
-//		if (paidAmount == amount) {
+		if (paidAmount == amount) {
 
 			OrderVO order = new OrderVO();
 
@@ -102,9 +102,9 @@ public class OrderCompleteController implements Controller {
 				result = "order-complete";
 			}
 
-//		}else {
-//			result="mismatch-paid";
-//		}
+		}else {
+			result="mismatch-paid";
+		}
 
 		model.put("res-msg", result);
 

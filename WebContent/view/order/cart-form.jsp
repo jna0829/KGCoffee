@@ -57,7 +57,7 @@
                             <span onclick="javascript:basket.changePNum(${status.count}, ${item.cartId}, ${item.menuPrice})" style="margin-right: 15px"><i class="fa-solid fa-minus minus"></i></span>
                             <input type="text" name="p_num${status.count}" id="p_num${status.count}" 
                             size="2" maxlength="4" class="p_num" value="${item.menuAmount}" 
-                            onkeyup="javascript:basket.changePNum(${status.count});">
+                            onkeyup="javascript:basket.changePNum(${status.count}, ${item.cartId}, ${item.menuPrice});">
                             <span onclick="javascript:basket.changePNum(${status.count}, ${item.cartId}, ${item.menuPrice})" style="margin-left: 15px"><i class="fa-solid fa-plus plus"></i></span>
                         </div>
                     </div>

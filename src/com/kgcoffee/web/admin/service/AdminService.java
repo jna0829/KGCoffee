@@ -298,12 +298,18 @@ public class AdminService {
 			}
 
 			SimpleDateFormat form = new SimpleDateFormat(dateType);
-			System.out.println(form.toString());
-			System.out.println(dateType);
-			System.out.println(date);
+		
 			newDateValue = form.format(date);
 
 		}
+		
+//		if(newDateValue.length()>4) {
+//			
+//			newDateValue = newDateValue.substring(0, newDateValue.length()-3);
+//		}else {
+//			newDateValue="";
+//		}
+//		
 
 		keyMap.put("dateType", dateType);
 		keyMap.put("dateValue", newDateValue);
