@@ -37,7 +37,9 @@ public class MenuSerch implements MenuImpl {
 			}
 
 			if (menuType == null) {
-				menuType = "";
+				
+				menuType= new String[] {};
+				
 			}
 			
 			if(menuAll == null) {
