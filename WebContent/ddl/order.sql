@@ -13,7 +13,7 @@ order_id number constraint order_id_pk primary key
 );
 
 
-
+ALTER SYSTEM SET open_cursors=4000 SCOPE=BOTH;
 
 create sequence order_seq
 INCREMENT BY 1
