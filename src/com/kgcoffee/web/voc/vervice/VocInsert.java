@@ -52,12 +52,30 @@ public class VocInsert implements VocImpli {
 		
 		VocDAO sdao1 = new VocDAO();                              
 		
-		sdao1.insert(jemok, writer, content, filename, user_id);
+		boolean result= sdao1.insert(jemok, writer, content, filename, user_id);
+		
+		
+		
+
+		if(result) {
+			
+			request.setAttribute("msg", "insert-success");
+		}else {
+			
+			request.setAttribute("msg", "insert-failed");
+			
+		}
+		
+		
+		
 		
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
+		
 		
 		
 	}

@@ -47,7 +47,15 @@ public class VocReInsert implements VocImpli {
 		
 		VocDAO sdao1 = new VocDAO();                              
 		
-		sdao1.reInsert(jemok, writer, content, filename, ref, re_step, re_level, user_id);
+		boolean result = sdao1.reInsert(jemok, writer, content, filename, ref, re_step, re_level, user_id);
+		if(result) {
+			
+			request.setAttribute("msg", "insert-success");
+		}else {
+			
+			request.setAttribute("msg", "insert-failed");
+			
+		}
 		
 		
 		} catch (Exception e) {

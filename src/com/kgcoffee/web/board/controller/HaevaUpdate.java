@@ -37,7 +37,20 @@ public class HaevaUpdate implements com.kgcoffee.web.common.ControllerImpl {
 		
 		int bunho = Integer.parseInt(multi.getParameter("bunho"));
 		
-		sdao1.update(jemok, writer, content, bunho, filename);
+		boolean result = sdao1.update(jemok, writer, content, bunho, filename);
+		
+		
+		
+		if(result) {
+			
+			request.setAttribute("msg", "update-success");
+		}else {
+			
+			request.setAttribute("msg", "update-failed");
+			
+		}
+		
+		
 		
 	}
 

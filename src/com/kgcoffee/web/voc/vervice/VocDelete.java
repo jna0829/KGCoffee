@@ -23,7 +23,20 @@ public class VocDelete implements VocImpli{
 		//SnsDAO 객체를 사용하여 delete()메서드를 호출하여 게시글 삭제
 		try {
 		sdao = new VocDAO();
-		sdao.delete(bunho);//bunho를 매개변수로 전달해서 해당 번호 게시글을 삭제
+		boolean result =sdao.delete(bunho);//bunho를 매개변수로 전달해서 해당 번호 게시글을 삭제
+		
+		
+		if(result) {
+			
+			request.setAttribute("msg", "delete-success");
+		}else {
+			
+			request.setAttribute("msg", "delete-failed");
+			
+		}
+		
+		
+		
 		}catch (Exception e) {
 			// TODO: handle exception
 		}

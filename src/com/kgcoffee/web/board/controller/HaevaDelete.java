@@ -20,7 +20,21 @@ public class HaevaDelete implements com.kgcoffee.web.common.ControllerImpl {
 		
 		try {
 		sdao = new SnsDAO();
-		sdao.delete(bunho);
+		boolean result = sdao.delete(bunho);
+		
+		
+		
+		
+		if(result) {
+			
+			request.setAttribute("msg", "delete-success");
+		}else {
+			
+			request.setAttribute("msg", "delete-failed");
+			
+		}
+		
+		
 		}catch (Exception e) {
 			// TODO: handle exception
 		}

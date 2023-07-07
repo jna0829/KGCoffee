@@ -41,7 +41,20 @@ public class HaevaInsert implements com.kgcoffee.web.common.ControllerImpl {
 		
 		SnsDAO sdao1 = new SnsDAO();
 		
-		sdao1.insert(jemok, writer, content, filename, user_id);
+		boolean result =sdao1.insert(jemok, writer, content, filename, user_id);
+	
+		if(result) {
+			
+			request.setAttribute("msg", "insert-success");
+		}else {
+			
+			request.setAttribute("msg", "insert-failed");
+			
+		}
+		
+		
+		
+		
 		
 	}
 
