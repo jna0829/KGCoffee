@@ -1,8 +1,7 @@
 --------------------------------------------------------
 --  파일이 생성됨 - 토요일-7월-08-2023   
 --------------------------------------------------------
-REM INSERTING into KGCOFFEE.ORDER_TABLE
-SET DEFINE OFF;
+
 Insert into KGCOFFEE.ORDER_TABLE (ORDER_ID,USER_ID,MAP_ID,ORDER_PRICE,ORDER_DATE,IMP_UID) values (838,'user113',1498484900,113000,to_date('12/04/16','RR/MM/DD'),'113');
 Insert into KGCOFFEE.ORDER_TABLE (ORDER_ID,USER_ID,MAP_ID,ORDER_PRICE,ORDER_DATE,IMP_UID) values (839,'user114',1155767189,114000,to_date('73/03/09','RR/MM/DD'),'114');
 Insert into KGCOFFEE.ORDER_TABLE (ORDER_ID,USER_ID,MAP_ID,ORDER_PRICE,ORDER_DATE,IMP_UID) values (840,'user115',1431075566,115000,to_date('01/07/05','RR/MM/DD'),'115');

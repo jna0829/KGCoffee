@@ -1,8 +1,7 @@
 --------------------------------------------------------
 --  파일이 생성됨 - 토요일-7월-08-2023   
 --------------------------------------------------------
-REM INSERTING into KGCOFFEE.MENU
-SET DEFINE OFF;
+
 Insert into KGCOFFEE.MENU (MENUID,IMGURL,CAFFEINETYPE,MENUNAME,MENUPRICE,MENUEXPLAIN,MENUTYPE) values (3,'3.jpg','decaffeine','블루레몬에이드',3000,'블루레몬에이드','Ice');
 Insert into KGCOFFEE.MENU (MENUID,IMGURL,CAFFEINETYPE,MENUNAME,MENUPRICE,MENUEXPLAIN,MENUTYPE) values (4,'4.jpg','caffeine','아이스모카',4000,'아이스모카','Ice');
 Insert into KGCOFFEE.MENU (MENUID,IMGURL,CAFFEINETYPE,MENUNAME,MENUPRICE,MENUEXPLAIN,MENUTYPE) values (5,'5.jpg','none','라즈베리 팬케이크',5000,'라즈베리가 올라간 팬케이크','Food');
