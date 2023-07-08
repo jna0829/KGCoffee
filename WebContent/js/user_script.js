@@ -18,11 +18,7 @@ function check() {
 	var nameReg = /^[ㄱ-ㅎ|가-힣]+$/;
 	
 	var telReg = /^[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}$/;
-	
-	alert(pw);
-	alert(num);
-	alert(eng);
-	alert(spe);
+
 
 	/* 아이디 */
 	/* 영문,숫자 혼합 */

@@ -85,12 +85,13 @@ public class AdminService {
 		// 선택한 회원의 아이디를 이용해서 Users테이블에서 회원정보를 삭제
 		// ==> MemberDAO 클래스의 삭제메소드를 호출
 
+		System.out.println(deleteId.toString());
 		for (String id : deleteId) {
 
 			if (!(mdao.delete(id))) {
 
 				checkDelete = false;
-
+				System.out.println(id);
 			}
 
 		}
