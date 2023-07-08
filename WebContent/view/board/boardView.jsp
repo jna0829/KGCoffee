@@ -23,6 +23,7 @@
 	border-bottom: 1px solid #000;
 }
 </style>
+<script src="/kgCoffee/js/jquery-3.7.0.min.js"></script> <!-- jquery -->
 
 <link rel="stylesheet" href="/kgCoffee/css/board.css">
 <link rel="stylesheet" href="/kgCoffee/css/header_style.css"
@@ -50,7 +51,7 @@
 				<li class="board_search_select"><c:choose>
 						<c:when test="${sessionScope.result==1}">
 							<div class="bt_wrap">
-								<a href="/kgCoffee/board/getAll.do" class="on">목록</a> <a
+								<a href="/kgCoffee/board/seachboard.do?searchKeywordType=${searchKeywordType }&searchKeyword=${searchKeyword }&page=${page}" class="on">목록</a> <a
 									href="/kgCoffee/board/edit.do?bunho=${ssv.bunho}">수정</a> <a
 									href="/kgCoffee/board/delete.do?bunho=${ssv.bunho}">삭제</a>
 							</div>
@@ -128,6 +129,13 @@
 
 
 
+	</div>
+
+
+
+	<%@include file="../../include/footer.jsp"%>
+	
+	
 		<script>
 			const filename = '${ssv.filename}';
 
@@ -150,12 +158,18 @@
 				/* 경로명 http://localhost:8080/프로젝트명/이미지저장폴더명/  */
 
 			}
+			
+
+		
+	let refUrl = document.referrer;
+	let origin = location.origin;   
+	localStorage.setItem("history", refUrl.replace(origin, ''));
+
+
+	
+
+	
 		</script>
-
-	</div>
-
-
-
-	<%@include file="../../include/footer.jsp"%>
+	
 </body>
 </html>

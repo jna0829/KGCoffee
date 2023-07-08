@@ -58,7 +58,7 @@ public class FrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			str = "getAll.do";
+			str = "goBack";
 			break;
 
 		// 선택한 게시글 보기
@@ -91,7 +91,7 @@ public class FrontController extends HttpServlet {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			str = "getAll.do";
+			str = "goBack";
 			break;
 
 		// 공지사항 수정
@@ -103,7 +103,7 @@ public class FrontController extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			str = "getAll.do";
+			str = "goBack";
 			break;
 
 		// 공지사항 수정페이지로 이동

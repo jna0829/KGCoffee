@@ -171,7 +171,7 @@ public class AdminController extends HttpServlet {
 					} catch (Exception e) {
 						// TODO: handle exception
 					}
-					str = "/admin/adminMenu.do";			
+					str = "goBack";			
 					break;
 								
 								
@@ -194,7 +194,7 @@ public class AdminController extends HttpServlet {
 					} catch (Exception e) {
 						// TODO: handle exception
 					}
-					str = "/admin/adminMenu.do";			
+					str = "goBack";			
 					break;
 					
 					//메뉴 검색

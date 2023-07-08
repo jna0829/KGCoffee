@@ -113,6 +113,9 @@
 	<script src="/kgCoffee/js/user_script.js"></script>
 	<script>
 	
+		let refUrl = document.referrer;
+		let origin = location.origin;   
+		localStorage.setItem("history", refUrl.replace(origin, ''));
 	
 	  $("#file_input").change(function() {
 		  

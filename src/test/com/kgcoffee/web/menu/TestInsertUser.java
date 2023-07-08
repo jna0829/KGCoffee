@@ -33,7 +33,7 @@ class TestInsertUser {
 		      
 		      
 
-			for (int i = 1; i <= 100; i++) {
+			for (int i = 101; i <= 200; i++) {
 
 				Long ranDay = (long) (random.nextInt((int) (now.toEpochDay() -start.toEpochDay()+1)) + start.toEpochDay());
 			      

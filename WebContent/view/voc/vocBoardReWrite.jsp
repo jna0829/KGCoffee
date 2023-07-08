@@ -72,8 +72,11 @@
 
 
  <script>
- 
- console.log("ref:::"+"${ref}");
+	let refUrl = document.referrer;
+	let origin = location.origin;   
+	localStorage.setItem("history", refUrl.replace(origin, ''));
+
+
  
  </script>
 </body>

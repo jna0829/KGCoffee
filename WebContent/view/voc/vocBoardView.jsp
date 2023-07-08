@@ -65,21 +65,21 @@
 			</div>`
 			
 			<div class="bt_wrap">
-				<a href="/kgCoffee/voc/getAll.do" class="on">목록</a>
+				<a href="/kgCoffee/voc/vocSearchboard.do?searchKeywordType=${searchKeywordType }&searchKeyword=${searchKeyword }&page=${page}" class="on">목록</a>
 				
 				<c:choose>
 					<c:when test="${result==1}">
 						<a href="/kgCoffee/voc/edit.do?bunho=${ssv.bunho}">수정</a>
 						<a href="/kgCoffee/voc/delete.do?bunho=${ssv.bunho}">삭제</a>
-						<a href="/kgCoffee/view/voc/vocBoardReWrite.jsp?=&bunho=${ssv.bunho}=&ref=${ssv.ref}&re_step=${ssv.re_step}&re_level=${ssv.re_level}">답글쓰기</a>
+						<a href="/kgCoffee/view/voc/vocBoardReWrite.jsp?&bunho=${ssv.bunho}=&ref=${ssv.ref}&re_step=${ssv.re_step}&re_level=${ssv.re_level}">답글쓰기</a>
 					</c:when>
 					<c:when test="${result==2}">
 						<a href="/kgCoffee/voc/edit.do?bunho=${ssv.bunho}">수정</a>
 						<a href="/kgCoffee/voc/delete.do?bunho=${ssv.bunho}">삭제</a>
-						<a href="/kgCoffee/view/voc/vocBoardReWrite.jsp?=&bunho=${ssv.bunho}=&ref=${ssv.ref}&re_step=${ssv.re_step}&re_level=${ssv.re_level}">답글쓰기</a>
+						<a href="/kgCoffee/view/voc/vocBoardReWrite.jsp?&bunho=${ssv.bunho}=&ref=${ssv.ref}&re_step=${ssv.re_step}&re_level=${ssv.re_level}">답글쓰기</a>
 					</c:when>
 					<c:when test="${result==3}">
-						<a href="/kgCoffee/view/voc/vocBoardReWrite.jsp?=&bunho=${ssv.bunho}=&ref=${ssv.ref}&re_step=${ssv.re_step}&re_level=${ssv.re_level}">답글쓰기</a>
+						<a href="/kgCoffee/view/voc/vocBoardReWrite.jsp?&bunho=${ssv.bunho}=&ref=${ssv.ref}&re_step=${ssv.re_step}&re_level=${ssv.re_level}">답글쓰기</a>
 					</c:when>
 				</c:choose>
 				
@@ -115,6 +115,11 @@
 	 	 	/* 경로명 주의 http://localhost:8080/프로젝트명/이미지저장폴더명/  */
 	 	 	
 	 	}	
+	 	
+		let refUrl = document.referrer;
+		let origin = location.origin;   
+		localStorage.setItem("history", refUrl.replace(origin, ''));
+
 	 		
 </script>
 

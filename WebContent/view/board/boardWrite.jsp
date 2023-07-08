@@ -64,5 +64,10 @@
 
 	<%@include file="../../include/footer.jsp" %>
 	
+	<script>
+	let refUrl = document.referrer;
+	let origin = location.origin;   
+	localStorage.setItem("history", refUrl.replace(origin, ''));
+	</script>
 </body>
 </html>

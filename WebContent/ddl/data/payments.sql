@@ -1,8 +1,4 @@
---------------------------------------------------------
---  파일이 생성됨 - 토요일-7월-08-2023   
---------------------------------------------------------
-REM INSERTING into KGCOFFEE.PAYMENTS_TABLE
-SET DEFINE OFF;
+
 Insert into KGCOFFEE.PAYMENTS_TABLE (PAYMENTS_ID,USER_ID,ORDER_ID,MENU_ID,MENU_AMOUNT) values (2298,'user30',355,17,10);
 Insert into KGCOFFEE.PAYMENTS_TABLE (PAYMENTS_ID,USER_ID,ORDER_ID,MENU_ID,MENU_AMOUNT) values (2299,'user30',355,13,15);
 Insert into KGCOFFEE.PAYMENTS_TABLE (PAYMENTS_ID,USER_ID,ORDER_ID,MENU_ID,MENU_AMOUNT) values (2300,'user30',355,6,15);

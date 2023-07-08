@@ -60,12 +60,20 @@ public class VocReInsert implements VocImpli {
 		VocDAO sdao1 = new VocDAO();                              
 		
 		boolean result = sdao1.reInsert(jemok, writer, content, filename, ref, re_step, re_level, user_id);
+		
+		System.out.println("123");
+		int bunho = sdao1.getCurrBunho();
+		
 		if(result) {
 			
-			request.setAttribute("msg", "insert-success");
+			request.setAttribute("msg", "reInsert-success");
+			
+			request.setAttribute("bunho", bunho);
+			
+			
 		}else {
 			
-			request.setAttribute("msg", "insert-failed");
+			request.setAttribute("msg", "reInsert-failed");
 			
 		}
 		

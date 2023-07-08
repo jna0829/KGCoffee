@@ -21,9 +21,6 @@ public class VocSearchBoard implements VocImpli {
 		String searchKeyword = request.getParameter("searchKeyword");
 
 		
-		System.out.println("searchKeywordType :::::::::"+request.getParameter("searchKeywordType"));
-		System.out.println("searchKeyword :::::::::"+request.getParameter("searchKeyword"));
-
 		
 		int page = 1;
 		if(request.getParameter("page") != null) {

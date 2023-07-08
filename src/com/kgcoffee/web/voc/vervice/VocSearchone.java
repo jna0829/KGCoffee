@@ -48,6 +48,18 @@ public class VocSearchone implements VocImpli {
 		 * }//while-end
 		 */
 		
+		
+		
+		String page = request.getParameter("page");
+		String searchKeywordType = request.getParameter("searchKeywordType");
+		String searchKeyword = request.getParameter("searchKeyword");
+
+		
+		request.setAttribute("page", page);
+		request.setAttribute("searchKeywordType", searchKeywordType);
+		request.setAttribute("searchKeyword", searchKeyword);
+		
+		
 		VocDAO sdao1 = new VocDAO();
 		int bunho = Integer.parseInt(request.getParameter("bunho"));
 

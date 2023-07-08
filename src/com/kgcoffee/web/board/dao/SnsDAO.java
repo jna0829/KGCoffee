@@ -197,6 +197,8 @@ public class SnsDAO {
 			countSql += "snswriter LIKE ?";
 		} else if (searchKeywordType.equals("content")) {
 			countSql += "snscontent LIKE ?";
+		}else {
+			countSql+="snsjemok LIKE ?";
 		}
 
 		/*
@@ -240,6 +242,9 @@ public class SnsDAO {
 			sql += "snswriter LIKE ?";
 		} else if (searchKeywordType.equals("content")) {
 			sql += "snscontent LIKE ?";
+		}else {
+			
+			sql += "snsjemok LIKE ?";
 		}
 
 		sql += " ORDER BY bunho DESC) MVCSNSBOARD" 

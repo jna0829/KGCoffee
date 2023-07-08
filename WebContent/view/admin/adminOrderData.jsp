@@ -129,6 +129,11 @@
 
 
 			<script>
+			
+			let today = new Date().toISOString().slice(0,10);
+			$("#date").val(today);
+			
+	
 
 
 				$(".select-chart").toggleClass("show");
@@ -180,9 +185,9 @@
 							keywords: keywords,
 							menuName: menuName,
 							select: select,
-							rank: 100,
+							rank: 30,
 							page: 1,
-							amount: 500
+							amount: 9999999
 						},
 						success: function (data) {	// 데이터를 가져왔을때 동작. 매개변수로 data 입력
 

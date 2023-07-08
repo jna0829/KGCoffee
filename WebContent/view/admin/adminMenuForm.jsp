@@ -20,7 +20,7 @@
 
 <script src="/kgCoffee/js/menuModal.js" defer></script>
 <script src="/kgCoffee/js/adminMenuType.js" defer></script>
-<script src="/kgCoffee/js/menuBasket.js" defer></script>
+
 
 
 
@@ -97,6 +97,11 @@
 	
 	<script>
 	
+
+	
+
+
+
 	//아코디언 메뉴 클릭 이벤트
 	function arccodionMenu(){
 		
@@ -116,6 +121,12 @@
 		
 		
 	});
+	
+
+	$(".active-li").removeClass("active-li");
+	$(".page"+"${paging.page}").addClass("active-li");
+
+
 	
 		</script>
 

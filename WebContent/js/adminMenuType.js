@@ -21,9 +21,9 @@ $(".text > input").change(searchEvent);
 
 
 
-
-
-		var reqUrl = "/kgCoffee/admin/admingetSerchmenu.do?page="+n+"&menuName="+menuName;
+		var url= "/kgCoffee/admin/admingetSerchmenu.do?";
+		
+		var param = "page="+n+"&menuName="+menuName;
 		
 		$("input:checkbox").each(function(index) {
 			if ($(this).is(":checked") == true) {
@@ -32,13 +32,17 @@ $(".text > input").change(searchEvent);
 				
 				
 			
-				 reqUrl += "&"+$(this).data("type") + "=" + $(this).data("value");
+				 param += "&"+$(this).data("type") + "=" + $(this).data("value");
 				 
 				 
 				
 			}
+			
+	
 
 		})
+		
+			var reqUrl = url+ param;
 		
 		
 
@@ -64,7 +68,8 @@ $(".text > input").change(searchEvent);
 						$(".page"+n).addClass("active-li");
 
 						addModal();
-						addBasketEvent();
+						
+						history.pushState('','',"/kgCoffee/admin/adminMenu.do?"+param);
 					
 						
 
@@ -72,3 +77,7 @@ $(".text > input").change(searchEvent);
 
 
 	} 
+	
+	function activeLi(n){
+	
+	}

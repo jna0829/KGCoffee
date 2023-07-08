@@ -118,7 +118,7 @@
 							&nbsp;
 						</c:forEach>
 						</c:if>
-							<a class ="jemok_a" href="/kgCoffee/voc/searchone.do?bunho=${v1.bunho}&voc_id=${v1.user_id}">${v1.jemok}</a>
+							<a class ="jemok_a" href="/kgCoffee/voc/searchone.do?bunho=${v1.bunho}&voc_id=${v1.user_id}&page=${paging.page}">${v1.jemok}</a>
 						</div>
 						<div class="writer">${v1.writer}</div>
 						<%-- <div class="date">${v1.date}</div> --%>
@@ -146,52 +146,6 @@
 		
 		<%@include file="/include/footer.jsp" %>
 
-		<script>
-
-
-			let msg = "${msg}";
-
-			
-			if (msg) {
-
-
-				if (msg === "delete-success") {
-
-					alert("글이 삭제되었습니다.");
-					
-				} else if (msg === "delete-failed") {
-					
-					alert("글 삭제 실패\n관리자에게 문의하세요.");
-					
-					
-				} else if (msg === "update-success") {
-					
-					alert("글이 수정되었습니다.");
-					
-					
-				} else if (msg === "update-failed") {
-					
-					alert("글 수정 실패\n관리자에게 문의하세요.");
-					
-					
-				} else if (msg === "insert-success") {
-					
-					alert("글이 작성되었습니다.");
-					
-					
-				}else if (msg === "insert-failed") {
-					
-					alert("글 작성 실패\n관리자에게 문의하세요.");
-
-
-				}
-
-
-
-			}
-
-
-		</script>
 		
 </body>
 </html>

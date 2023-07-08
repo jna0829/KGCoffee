@@ -328,7 +328,9 @@ public class VocDAO {
 	        countSql += "v_writer LIKE ?";
 	    } else if (searchKeywordType.equals("content")) {
 	        countSql += "v_content LIKE ?";
-	    }
+	    }else {
+			countSql+="v_jemok LIKE ?";
+		}
 
 	    try (PreparedStatement pstmt = con.prepareStatement(countSql)) {
 	        pstmt.setString(1, "%" + searchKeyword + "%");
@@ -380,6 +382,28 @@ public class VocDAO {
 
 		return count;
 	}
+	public int getCurrBunho() {
+		
+		String sql="select vocboard_seq.currval bunho from dual";
+		int bunho = 0;
+		try {
+			pstmt=con.prepareStatement(sql);
+	
+		
+			rs= pstmt.executeQuery();
+		
+			if(rs.next()) {
+				bunho = rs.getInt("bunho");
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return bunho;
+		
+	}
 
 	// 검색기능 + 페이징 
 	public ArrayList<VocVO> searchBoard1(String searchKeywordType, String searchKeyword, int page) {
@@ -399,6 +423,8 @@ public class VocDAO {
 			sql += "v_writer LIKE ?";
 		} else if (searchKeywordType.equals("content")) {
 			sql += "v_content LIKE ?";
+		}else {
+			sql+="v_jemok LIKE ?";
 		}
 
 		sql += " ORDER BY ref DESC, re_step ASC" 

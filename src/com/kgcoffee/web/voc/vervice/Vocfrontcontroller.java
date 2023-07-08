@@ -63,7 +63,7 @@ public class Vocfrontcontroller extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			str = "index";
+			str = "goBack";
 			break;
 
 		case "/voc/searchone.do":
@@ -102,7 +102,7 @@ public class Vocfrontcontroller extends HttpServlet {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			str = "index";
+			str = "goBack";
 			break;
 
 		case "/voc/update.do":
@@ -113,7 +113,7 @@ public class Vocfrontcontroller extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			str = "index";
+			str = "goBack";
 			break;
 			
 		case "/voc/edit.do":
@@ -137,7 +137,7 @@ public class Vocfrontcontroller extends HttpServlet {
 				e.printStackTrace();
 			}
 				
-			str = "/voc/getAll.do";
+			str = "goBack";
 			break;
 			
 		//검색창 
