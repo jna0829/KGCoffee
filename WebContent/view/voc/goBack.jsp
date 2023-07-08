@@ -48,7 +48,7 @@ if (msg) {
 			
 			target = target.replace(/^\(bunho\).*[&]$/,"bunho="+bunho);
 			
-			alert(target);
+
 			
 			
 			

@@ -188,7 +188,7 @@ public class OrderDAO {
 		if (value == "") {
 			type2 = type + " ASC";
 		} else {
-			type2 = "order_id DESC";
+			type2 = "order_date DESC";
 		}
 
 		String sql = "select * from "
