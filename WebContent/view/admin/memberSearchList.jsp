@@ -171,16 +171,7 @@ body {
 			});
 		});
 
-		var msg = "${msg}";
 
-		if (msg) {
-
-			if (msg === "delete-success") {
-
-				alert("삭제 되었습니다.")
-			}
-
-		}
 	</script>
 
 </body>

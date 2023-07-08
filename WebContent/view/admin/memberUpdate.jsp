@@ -108,6 +108,12 @@
 		document.getElementById('go-back').addEventListener('click', () => {
 			window.history.back();
 		});
+		
+		
+		let refUrl = document.referrer;
+		let origin = location.origin;   
+		localStorage.setItem("admin-user", refUrl.replace(origin, ''));
+	
 	</script>
 
 

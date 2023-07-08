@@ -90,7 +90,7 @@ public class AdminController extends HttpServlet {
 				case "/admin/update.do":
 					model = service.memberUpdate(keyMap);
 
-					str = "/admin/getAllMember.do";
+					str = "goBack";
 					break;
 
 				case "/admin/searchMember.do":
@@ -110,7 +110,7 @@ public class AdminController extends HttpServlet {
 
 					model = service.memberDelete(keyMap);
 
-					str = "/admin/getAllMember.do";
+					str = "goBack";
 					break;
 
 					
