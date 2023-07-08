@@ -115,7 +115,7 @@
 	
 		let refUrl = document.referrer;
 		let origin = location.origin;   
-		localStorage.setItem("history", refUrl.replace(origin, ''));
+		localStorage.setItem("admin-user", refUrl.replace(origin, ''));
 	
 	  $("#file_input").change(function() {
 		  

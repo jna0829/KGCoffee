@@ -86,7 +86,7 @@ public class MenuDAO {
 
 		String temp = "";
 		boolean chk = false;
-		if (menuAll.length() < 1) {
+		if (menuAll.length() < 1 || menuName.length() > 0) {
 			if (caffeineType.length() + menuType.length + menuName.length() < 1) {
 
 				return 0;
@@ -271,13 +271,15 @@ public class MenuDAO {
 		String temp = "";
 		boolean chk = false;
 
-		if (menuAll.length() < 1) {
+
+		if (menuAll.length() < 1 || menuname.length() > 0) {
 			if (caffeineType.length() + menuType.length + menuname.length() < 1) {
 
 				page = 0;
 				amount = 0;
 
 			} else {
+				
 				chk = true;
 				temp = "WHERE caffeineType like ? or menuName like ?  ";
 

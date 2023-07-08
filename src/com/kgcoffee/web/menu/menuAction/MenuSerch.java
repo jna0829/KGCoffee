@@ -82,19 +82,19 @@ public class MenuSerch implements MenuImpl {
 				displayPage = 10;
 			}
 
-			ArrayList<MenuVO> alist = mdao.getInfoMenu(menuAll, caffeineType, menuType, menuName, page, displayRow);
-
+			
 			int totalCount = mdao.totalCnt(menuAll, caffeineType, menuType, menuName);
 			
 			paging.setPage(page);
 			
 			paging.setDisplayRow(displayRow);
-
+			
 			paging.setDisplayPage(displayPage);
-
+			
 			paging.setTotalCount(totalCount);
 			
-			System.out.println(paging);
+			ArrayList<MenuVO> alist = mdao.getInfoMenu(menuAll, caffeineType, menuType, menuName, page, displayRow);
+		
 
 			request.setAttribute("alist", alist);
 			request.setAttribute("paging", paging);
