@@ -37,7 +37,7 @@ let order = {
         
 		n= $("#orderName").text();
 		n=n.replace(/\n/g,"");
-		n= n.replace(/ /g,"");
+		n= n.replace(/ +(?= )/g,"");
 		
 			
 		
