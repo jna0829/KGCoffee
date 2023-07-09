@@ -36,10 +36,11 @@ let order = {
         }
         
 		n= $("#orderName").text();
+		n=n.replace(/\n/g,"");
+		n= n.replace(/ /g,"");
 		
-		n= n.trim();
+			
 		
-		alert(n);
         var merchant_uid = 'kg_coffee_' + new Date().getTime();
 
         IMP.request_pay({

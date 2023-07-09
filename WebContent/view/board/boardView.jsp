@@ -106,7 +106,8 @@
 					<!-- 	<hr class="prev-next-hr"> --> <span>다음글</span> <span>
 						<c:if test="${not empty nextPost}">
 							<a class="prev-next-a"
-								href="/kgCoffee/board/searchone.do?bunho=${nextPost.bunho}"
+								href="/kgCoffee/board/searchone.do?bunho=${nextPost.bunho}&searchKeywordType=${searchKeywordType }&searchKeyword=${searchKeyword }&page=${paging.page}"
+							
 								class="underline-on-hover">${nextPost.jemok}</a>
 						</c:if> <c:if test="${empty nextPost}">
 							<span class="prev-next-span"> 다음글이 없습니다.</span>
@@ -117,7 +118,7 @@
 					<!-- 	<hr class="prev-next-hr"> --> <span> 이전글</span> <span>
 						<c:if test="${not empty prePost}">
 							<a class="prev-next-a"
-								href="/kgCoffee/board/searchone.do?bunho=${prePost.bunho}"
+								href="/kgCoffee/board/searchone.do?bunho=${prePost.bunho}&searchKeywordType=${searchKeywordType }&searchKeyword=${searchKeyword }&page=${paging.page}"
 								class="underline-on-hover">${prePost.jemok}</a>
 						</c:if> <c:if test="${empty prePost}">
 							<span class="prev-next-span"> 이전글이 없습니다.</span>
