@@ -13,12 +13,15 @@ if (msg) {
 	if (msg === "update-success") {
 			
 			alert("글이 수정되었습니다.");
-			
+			history.pushState('','',target);
+			target =localStorage.getItem('history2');
+			localStorage.removeItem('history2');
+	
 			
 		} else if (msg === "update-failed") {
 			
 			alert("글 수정 실패\n관리자에게 문의하세요.");
-			
+		
 			
 		} else if (msg === "delete-success") {
 
@@ -44,7 +47,7 @@ if (msg) {
 
 
 	}
-	
+
 location.href = target;
 
 

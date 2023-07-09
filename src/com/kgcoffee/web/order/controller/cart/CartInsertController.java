@@ -13,7 +13,7 @@ public class CartInsertController implements Controller {
 	public String process(Map<String, String> paramMap, Map<String, Object> model) {
 
 		String result="fail";
-
+		CartVO cart =null;
 		int menuId = Integer.parseInt(paramMap.get("menuId"));
 	
 		String userId = paramMap.get("userId");
@@ -21,15 +21,15 @@ public class CartInsertController implements Controller {
 		if(menuAmount!=0) {
 		CartRepository CartRepository = new CartRepository();
 		
-		int cartId= CartRepository.findCartByMenuId(userId, menuId);
-		if ( cartId >= 1) {
-			CartRepository.update(cartId, menuAmount);
+		cart = CartRepository.findCartByMenuId(userId, menuId);
+		if ( cart.getCartId() >0) {
+			CartRepository.update(cart.getCartId(), cart.getMenuAmount()+menuAmount);
 			
 			result="update-success";
 
 		}else {
 			
-			CartVO cart = new CartVO();
+			
 			cart.setMenuId(menuId);
 			cart.setUserId(userId);
 			cart.setMenuAmount(menuAmount);

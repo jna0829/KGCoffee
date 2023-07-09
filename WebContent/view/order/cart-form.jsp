@@ -83,7 +83,7 @@
             <button type="submit"  onclick="javascript:basket.go_pay_form()">결제하기</button>
         </form>
         <form action="" method="GET">
-            <button type="button" onclick="history.back()">뒤로가기</button>
+            <button type="button" onclick="location.href=document.referrer">뒤로가기</button>
         </form>
     </div>
 </div>

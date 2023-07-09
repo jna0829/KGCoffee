@@ -76,7 +76,8 @@
 	<script>
 	let refUrl = document.referrer;
 	let origin = location.origin;   
-	localStorage.setItem("history", refUrl.replace(origin, ''));
+	localStorage.setItem("history2", refUrl);
+
 	</script>
 	
 	

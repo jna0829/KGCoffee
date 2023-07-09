@@ -103,6 +103,8 @@
 				alert('로그아웃 되었습니다.');
 			}
 		}
+		history.pushState('','',"http://localhost:8080/kgCoffee/");
+		
 		
 	
 	</script>

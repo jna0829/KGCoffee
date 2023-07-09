@@ -112,7 +112,8 @@
 			}
 			
 		}
-		
+		history.pushState('','',"http://localhost:8080/kgCoffee/");
+	
 	
 	</script>
 	

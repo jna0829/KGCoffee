@@ -139,7 +139,7 @@
                 <div class="buttons">
                     <button id="pay-button"
                         onclick="javascript:order.go_pay('${userId}', '${totalPrice}', '${userId}')">결제하기</button>
-                    <button id="back-button" onclick="history.back()">뒤로가기</button>
+                    <button id="back-button" onclick="location.href=document.referrer">뒤로가기</button>
                 </div>
 
 

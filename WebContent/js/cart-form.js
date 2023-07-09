@@ -123,3 +123,4 @@ window.addEventListener("load", function() {
     basket.updateUI();
     console.log(basket.totalPrice)
 });
+

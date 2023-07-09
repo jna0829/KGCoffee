@@ -89,11 +89,12 @@ public class CartRepository {
     }
     
 
-    public int findCartByMenuId(String userId, int menuId) {
+    public CartVO findCartByMenuId(String userId, int menuId) {
    
-    	int cartId=0;
+    	CartVO cart = new CartVO();
+    	
 
-        sql = "SELECT cart_id from cart_table WHERE user_id = ? and menu_id = ?";
+        sql = "SELECT cart_id, menu_amount from cart_table WHERE user_id = ? and menu_id = ?";
         
        try {
             
@@ -104,7 +105,8 @@ public class CartRepository {
             rs = pst.executeQuery();
             while(rs.next()){
        
-            	cartId= rs.getInt("cart_id");
+            	cart.setCartId(rs.getInt("cart_id"));
+            	cart.setMenuAmount(rs.getInt("menu_amount"));
 
             }
         } catch (SQLException e) {
@@ -112,7 +114,7 @@ public class CartRepository {
         } finally {
             close(pst, rs);
         }
-        return cartId;
+        return cart;
     	
     	
     }

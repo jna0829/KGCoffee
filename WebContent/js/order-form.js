@@ -35,7 +35,11 @@ let order = {
             return;
         }
         
-
+		n= $("#orderName").text();
+		
+		n= n.trim();
+		
+		alert(n);
         var merchant_uid = 'kg_coffee_' + new Date().getTime();
 
         IMP.request_pay({
