@@ -136,6 +136,7 @@
 						<%-- <div class="title"><a href="boardView.jsp"> ${v1.jemok}</a></div> --%>
 						<div class="title">
 							<a href="/kgCoffee/board/searchone.do?bunho=${v1.bunho}&searchKeywordType=${searchKeywordType }&searchKeyword=${searchKeyword }&page=${paging.page}"> ${v1.jemok}</a>
+							
 						</div>
 						<div class="writer">${v1.writer}</div>
 						<%-- <div class="date">${v1.date}</div> --%>
