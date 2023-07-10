@@ -139,7 +139,7 @@ public class KakaoService {
 				reqUri.append("&query="+query).append("&page=" + page).append("&rect=" + (startX - offset)).append(",").append(startY - offset)
 						.append(",").append(endX + offset).append(",").append(endY + offset);
 
-//				System.out.println("URL : " + reqUri.toString());
+				
 				URL url = new URL(reqUri.toString());
 
 				
@@ -150,10 +150,7 @@ public class KakaoService {
 				conn.setReadTimeout(5000);
 				conn.setRequestProperty("Authorization", apiKey);
 				conn.setRequestProperty("Content-type", "application/json; charset=utf-8");
-			
-//				System.out.println("응답코드 : " + conn.getResponseCode() + conn.getResponseMessage());
-//
-//				System.out.println("ContentType : " + conn.getContentType());
+
 
 				try (BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()))) {
 
@@ -166,7 +163,6 @@ public class KakaoService {
 					JsonObject meta = object.get("meta").getAsJsonObject();
 					JsonArray documents = object.get("documents").getAsJsonArray();
 
-//					System.out.println(meta);
 					int searchCnt = meta.get("total_count").getAsInt();
 					System.out.println("검색결과"+searchCnt);
 
