@@ -108,7 +108,7 @@ body {
 							<div class="board_list">
 								<div class="top">
 									<div class="check">
-										<input type="checkbox" class="check" name="checkId"
+										<input type="checkbox" class="check" name="checkIdAll"
 											id="allCheck">
 									</div>
 									<div class="id">아이디</div>

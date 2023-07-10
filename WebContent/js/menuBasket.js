@@ -19,13 +19,18 @@ function menuBasket() {
 		return;
 	
 	}
-
+	
+	var amount = $(this).prev().val();
+	
+	if(amount<1){
+		alert("1개 이상을 입력해 주세요");
+		
+	}
 
 
 	var reqUrl = "/kgCoffee/order/cart/insert";
 	var menuId = $(this).parent().data("menu-id");
-	var amount = $(this).prev().val();
-
+	
 
 
 	let param = "menuId="+menuId+"&menuAmount="+amount;
