@@ -98,33 +98,9 @@
 	<script>
 	
 
-	
+	$("#admin_menu").toggleClass("active");
 
 
-
-	//아코디언 메뉴 클릭 이벤트
-	function arccodionMenu(){
-		
-		console.log($(".select-chart"));
-	    $(".select-chart").toggleClass("show");
-	    
-	    
-	}
-	
-	$(".nav_menu li").click(function(){
-		event.stopPropagation();
-		
-		$(".active").removeClass("active");
-		
-		$(this).toggleClass("active");
-		
-		
-		
-	});
-	
-
-	$(".active-li").removeClass("active-li");
-	$(".page"+"${paging.page}").addClass("active-li");
 
 
 	

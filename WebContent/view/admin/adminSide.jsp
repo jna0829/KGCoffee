@@ -15,7 +15,7 @@
 
 						<a class="nav_page">관리자 페이지</a>
 
-						<li><a href="/kgCoffee/admin/adminMenu.do" class="nav_list">메뉴관리</a></li>
+						<li id="admin_menu"><a href="/kgCoffee/admin/adminMenu.do" class="nav_list">메뉴관리</a></li>
 						<li id="user_management"><a href="/kgCoffee/admin/getAllMember.do" class="nav_list" >회원관리</a></li>
 						<li id="order_report"><a href="/kgCoffee/admin/getOrderReport" class="nav_list" >주문데이터분석</a>
 							<ul class="select-chart">
