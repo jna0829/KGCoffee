@@ -66,7 +66,7 @@
 }
 
 .content.show {
-    max-height: 200px;
+    max-height: 500px;
     transition: all 1s ease-in-out;
 }
 
